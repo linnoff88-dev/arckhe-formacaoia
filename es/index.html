@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+
+<!-- landing v5 — autocontida, zero raster (V5-DESIGN §9). CTAs apontam para curso.html#trilha. -->
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Formación en IA — hoy y lo que viene después · INEMA.CLUB PRO</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&amp;family=Inter:wght@400;500;600;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<style>
+  :root{
+    --bg:#0E0D14;--bg2:#15131d;--panel:#1a1824;--ink:#ECE6D9;--ink-soft:#C7C2D0;--muted:#948DA6;--faint:#6C6580;
+    --line:#2A2637;--line2:#37324a;--accent:#7CE0C6;--accent-ink:#0E0D14;--warm:#F2B45C;
+    --serif:"Newsreader",Georgia,serif;--sans:"Inter",system-ui,sans-serif;--mono:"Space Mono",ui-monospace,monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.7;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 clamp(24px,5vw,60px)}
+  header.top{padding:26px 0}
+  header.top .wrap{display:flex;align-items:center;gap:10px}
+  header.top .mark{font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--accent);text-decoration:none;font-weight:700}
+  header.top .pro{background:var(--accent);color:var(--accent-ink);border-radius:4px;padding:2px 6px;font-size:9.5px;font-weight:700;letter-spacing:.1em;text-decoration:none;margin-left:8px}
+  header.top .course{color:var(--muted);font-size:12px;letter-spacing:.04em;border-left:1px solid var(--line2);padding-left:10px;margin-left:2px;font-family:var(--mono)}
+  .hero{position:relative;padding:10vh 0 9vh;border-bottom:1px solid var(--line);overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;z-index:0;background:radial-gradient(55% 48% at 80% 20%,rgba(124,224,198,.14),transparent 60%),radial-gradient(90% 90% at 50% 40%,var(--bg2),var(--bg) 72%)}
+  .hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
+  .kicker{font-family:var(--mono);font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin:0 0 18px}
+  h1{font-family:var(--serif);font-weight:500;font-size:clamp(36px,6vw,64px);line-height:1.05;letter-spacing:-.02em;margin:0 0 22px;max-width:18ch}
+  h1 em{font-style:italic;color:var(--accent)}
+  .lead{font-family:var(--serif);font-size:clamp(18px,2vw,22px);line-height:1.55;color:var(--ink-soft);max-width:46ch;margin:0 0 34px}
+  .cta{display:inline-block;font-family:var(--mono);font-size:13px;letter-spacing:.06em;background:var(--accent);color:var(--accent-ink);text-decoration:none;border-radius:99px;padding:15px 26px;font-weight:700}
+  .cta:hover{opacity:.92}
+  .sub{color:var(--muted);font-size:13.5px;margin-top:14px;font-family:var(--mono)}
+  .herofig svg{width:100%;height:auto;color:var(--ink-soft)}
+
+  section{padding:8vh 0}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin:0 0 10px}
+  h2{font-family:var(--serif);font-weight:500;font-size:clamp(26px,3.6vw,36px);margin:0 0 28px}
+  .intro{font-family:var(--serif);font-size:19px;line-height:1.6;color:var(--ink-soft);max-width:52ch;margin:0 0 34px}
+
+  .resultados{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+  .resultado{border:1px solid var(--line);border-radius:16px;background:var(--panel);padding:22px 24px}
+  .resultado p{margin:0;font-size:15px;color:var(--ink-soft);line-height:1.55}
+  .resultado p b{color:var(--ink)}
+
+  .aulas{display:grid;gap:14px}
+  .au{display:grid;grid-template-columns:52px 1fr auto;gap:18px;align-items:center;text-decoration:none;color:inherit;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px 22px}
+  .au .num{font-family:var(--serif);font-size:26px;color:var(--accent);text-align:center}
+  .au h3{font-family:var(--serif);font-weight:500;font-size:19px;margin:0 0 4px}
+  .au p{margin:0;color:var(--muted);font-size:14px}
+  .au .meta{font-family:var(--mono);font-size:11px;color:var(--accent);white-space:nowrap;text-align:right}
+  .au:hover{border-color:var(--accent)}
+
+  .publico{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+  .publico .col{background:var(--panel);padding:22px 24px}
+  .publico .lbl{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;margin:0 0 12px}
+  .publico .col.sim .lbl{color:var(--accent)}
+  .publico .col.nao .lbl{color:var(--muted)}
+  .publico ul{margin:0;padding:0;list-style:none}
+  .publico li{position:relative;padding-left:20px;margin:0 0 10px;color:var(--ink-soft);font-size:14.5px;line-height:1.5}
+  .publico li::before{content:"—";position:absolute;left:0;color:var(--faint)}
+
+  footer{border-top:1px solid var(--line);padding:6vh 0 8vh;color:var(--faint);text-align:center;font-family:var(--serif);font-style:italic}
+
+  @media(max-width:860px){ .hero .wrap{grid-template-columns:1fr} .herofig{display:none} }
+  @media(max-width:720px){ .publico{grid-template-columns:1fr} }
+  @media(prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+<link href="https://inematds.github.io/formacaoia/" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/formacaoia/en/" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/formacaoia/es/" hreflang="es" rel="alternate"/></head>
+<body><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="../en/" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">EN</a><a href="./" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">ES</a></div>
+<header class="top"><div class="wrap">
+<a class="mark" href="https://inema.club" rel="noopener" target="_blank">INEMA.CLUB</a>
+<a class="pro" href="https://inema.pro" rel="noopener" target="_blank">PRO</a>
+<span class="course">Formación en IA</span>
+</div></header>
+<section class="hero"><div class="wrap">
+<div>
+<p class="kicker">IA para tu trabajo</p>
+<h1>Pedir bien ya no <em>basta más</em></h1>
+<p class="lead">Nueve lecciones para pasar de una solicitud suelta en el chat a montar una estructura de trabajo alrededor de la IA —conocimiento, recetas, memoria, límites y revisión— para una tarea real de tu día.</p>
+<a class="cta" href="curso.html#trilha">empezar ahora →</a>
+<p class="sub">~18 min por clase · nada que configurar · funciona en el celular y en la computadora</p>
+</div>
+<div class="herofig"><svg aria-hidden="true" fill="none" viewbox="0 0 300 240">
+<g fill="none" opacity=".55" stroke="currentColor" stroke-width="1.7">
+<path d="M30 176v-30c0-8 6-13 15-14l52-5 30-30h64l24 32 42 6c8 1 13 6 13 13v28z"></path>
+<path d="M112 100l-24 26h48v-26zM146 100v26h56l-20-26z"></path>
+<path d="M30 176h240"></path>
+</g>
+<circle cx="88" cy="176" opacity=".55" r="21" stroke="currentColor" stroke-width="1.7"></circle>
+<circle cx="88" cy="176" opacity=".35" r="8" stroke="currentColor" stroke-width="1.4"></circle>
+<circle cx="214" cy="176" opacity=".55" r="21" stroke="currentColor" stroke-width="1.7"></circle>
+<circle cx="214" cy="176" opacity=".35" r="8" stroke="currentColor" stroke-width="1.4"></circle>
+<g fill="none" stroke="#7CE0C6" stroke-width="1.8">
+<rect height="28" rx="4" width="42" x="42" y="138"></rect>
+<path d="M50 138v-7h8v7M68 138v-7h8v7"></path>
+<path d="M52 150h22"></path>
+</g>
+<path d="M84 152h20" stroke="#7CE0C6" stroke-dasharray="3 3" stroke-width="1.3"></path>
+<circle cx="150" cy="46" fill="#F2B45C" r="3.4"></circle>
+<path d="M150 50v14" stroke="#F2B45C" stroke-dasharray="3 3" stroke-width="1.2"></path>
+<path d="M22 206h256" opacity=".14" stroke="currentColor" stroke-width="1"></path>
+</svg></div>
+</div></section>
+<section><div class="wrap">
+<p class="eyebrow">Lo que sabrás hacer</p>
+<h2>El resultado, no la teoría</h2>
+<p class="intro">Cada clase termina con algo escrito, tuyo, listo para usar el lunes. Al final del recorrido, esas partes forman un solo documento: tu estructura de trabajo.</p>
+<div class="resultados">
+<div class="resultado"><p><b>Una solicitud en cinco partes</b> — rol, tarea, formato, restricciones y criterio para darlo por terminado, en lugar de la frase suelta que escribes hoy.</p></div>
+<div class="resultado"><p><b>Un dossier de una página</b> — lo que la IA necesita saber sobre tu trabajo, escrito una vez y pegado siempre.</p></div>
+<div class="resultado"><p><b>Una receta fija</b> — la tarea que más repites, convertida en pasos que otra persona puede ejecutar.</p></div>
+<div class="resultado"><p><b>Una ficha de memoria</b> — lo que pasa de una conversación a otra, sin guardar nada sensible.</p></div>
+<div class="resultado"><p><b>Tres niveles de límites</b> — qué está permitido, qué requiere tu autorización y qué está prohibido, por escrito.</p></div>
+<div class="resultado"><p><b>Un ciclo de revisión de tres minutos</b> — el paso que separa «la IA terminó» de «el trabajo está listo».</p></div>
+</div>
+</div></section>
+<section><div class="wrap">
+<p class="eyebrow">Para quién es</p>
+<h2>Hecho para tu momento</h2>
+<div class="publico">
+<div class="col sim">
+<p class="lbl">es para que tú te</p>
+<ul>
+<li>Ya usas IA de chat en el trabajo y sientes que te estancaste en cierto nivel de calidad.</li>
+<li>Eres abogada, gerente de marketing, contadora, docente: alguien que produce textos y toma decisiones, no programa.</li>
+<li>Quieres dejar de explicar lo mismo cada semana y de revisar todo a mano por precaución.</li>
+<li>Tienes de 15 a 20 minutos por sesión y prefieres terminar cada clase con algo listo.</li>
+</ul>
+</div>
+<div class="col nao">
+<p class="lbl">no es para ti si</p>
+<ul>
+<li>Buscas contenido técnico de programación o de creación de sistemas.</li>
+<li>Quieres una lista de herramientas y atajos del mes; aquí el enfoque está en lo que sigue siendo útil cuando cambien las herramientas.</li>
+<li>Prefieres las clases en video a leer a tu propio ritmo.</li>
+</ul>
+</div>
+</div>
+</div></section>
+<section><div class="wrap">
+<p class="eyebrow">Ruta</p>
+<h2>De principio a fin</h2>
+<div class="aulas">
+<a class="au" href="curso.html#aula-1">
+<div class="num">1</div>
+<div><h3>Por qué dejó de bastar una solicitud bien escrita</h3><p>Sal sabiendo señalar cuál de las tres capas faltó en una entrega deficiente de la IA.</p></div>
+<div class="meta">17 min</div>
+</a>
+<a class="au" href="curso.html#aula-2">
+<div class="num">2</div>
+<div><h3>La solicitud sigue siendo la base</h3><p>Sal con uno de tus pedidos reescrito en las cinco partes que la IA realmente usa.</p></div>
+<div class="meta">18 min</div>
+</a>
+<a class="au" href="curso.html#aula-3">
+<div class="num">3</div>
+<div><h3>Conocimiento: lo que la IA necesita saber antes</h3><p>Sal con tu primer expediente de trabajo, listo para pegarlo en cualquier conversación.</p></div>
+<div class="meta">19 min</div>
+</a>
+<a class="au" href="curso.html#aula-4">
+<div class="num">4</div>
+<div><h3>La estructura de trabajo alrededor de la IA</h3><p>Sal sabiendo diseñar, en ocho líneas, la estructura de una tarea tuya.</p></div>
+<div class="meta">18 min</div>
+</a>
+<a class="au" href="curso.html#aula-5">
+<div class="num">5</div>
+<div><h3>De la respuesta a la acción: capacidades y especializaciones</h3><p>Sal con una especialización tuya por escrito: la receta fija para una tarea que se repite.</p></div>
+<div class="meta">18 min</div>
+</a>
+<a class="au" href="curso.html#aula-6">
+<div class="num">6</div>
+<div><h3>Memoria: dejar de empezar desde cero</h3><p>Sal con tu primera ficha de memoria, separando lo que dura de lo que es temporal.</p></div>
+<div class="meta">16 min</div>
+</a>
+<a class="au" href="curso.html#aula-7">
+<div class="num">7</div>
+<div><h3>Límites: dónde la IA debe detenerse y preguntar</h3><p>Sal con tu lista de límites: qué es libre, qué requiere autorización y qué está prohibido.</p></div>
+<div class="meta">18 min</div>
+</a>
+<a class="au" href="curso.html#aula-8">
+<div class="num">8</div>
+<div><h3>El ciclo de revisión: hacer, revisar, corregir</h3><p>Sal con el criterio de «listo» para una tarea tuya, escrito antes de que la IA empiece.</p></div>
+<div class="meta">17 min</div>
+</a>
+<a class="au" href="curso.html#aula-9">
+<div class="num">9</div>
+<div><h3>Los siete escalones: arma el tuyo</h3><p>Sal con una tarea tuya ubicada en un nivel y el siguiente nivel ya escrito.</p></div>
+<div class="meta">20 min</div>
+</a>
+</div>
+<p style="margin-top:28px"><a class="cta" href="curso.html#trilha">ver la ruta completa →</a></p>
+</div></section>
+<footer><div class="wrap">Formación en IA · INEMA.CLUB PRO</div></footer>
+</body>
+</html>

@@ -1,0 +1,1973 @@
+<!DOCTYPE html>
+
+<!-- formato-curso v5 — Formação IA: de pedir bem a construir o sistema em volta. -->
+<html data-theme="dark" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="FORMACAOIA" name="curso"/>
+<title>Formación en IA — hoy y lo que viene después · INEMA.CLUB PRO</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&amp;family=Inter:wght@400;500;600;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="../assets/aula.css" rel="stylesheet"/>
+<script>(function(){try{var m=document.querySelector('meta[name=curso]');var CK=(m&&m.content)||'v5:curso';var s=JSON.parse(localStorage.getItem(CK));if(s&&s.prefs&&s.prefs.theme)document.documentElement.setAttribute('data-theme',s.prefs.theme);}catch(e){}})();</script>
+<!--
+  PROTOCOLO DE DESCOBERTA (SKILL.md, Passo 0 — respondido pelo autor ANTES da geração):
+  - Público específico: profissionais de 40+ que já usam IA de chat no trabalho e querem sair do
+    "pedido solto no chat" para um jeito de trabalhar confiável, repetível e seguro.
+  - Profissões-alvo (≥2): advogada de contratos (Helena) · gestor de marketing (Rafael).
+    Terceira, usada só em quadros de aplicação: contadora (Sônia).
+  - Familiaridade com tecnologia: usa IA de chat no dia a dia; não programa; não usa nada de
+    programador. Nenhuma prática pode exigir tela de programador.
+  - Resultado prático esperado: sai sabendo montar a estrutura de trabalho em volta da IA
+    (pedido + conhecimento + capacidades + memória + limites + conferência) para uma tarefa
+    real do próprio trabalho, e sabe dizer em que degrau essa tarefa está.
+  - Tempo por sessão: 15–20 min por aula.
+
+  DECISÕES AUTORAIS REGISTRADAS:
+  - Zero .termdemo em todo o curso: o público não usa tela de programador e não existe nenhum
+    comando real a demonstrar. Todo slot de figura usa .fig de diagrama-de-mecanismo.
+    (CHECKLIST-V5 §5.1 — omissão declarada, não silenciosa.)
+  - Zero raster no corpo e na landing (V5-DESIGN §9). Todas as ilustrações são SVG em linha.
+  - AUDITORIA ANTI-CLONE (CHECKLIST-V5 §7) — comparado com o último curso gerado
+    (~/projetos/criando-videos-virais/curso.html): aquele abre a aula 1 na sequência
+    qerr → qbefore-after → quiz → qanchor → qapply e usa só os modos "analise" e "tarefa";
+    este abre com qbefore-after → quiz → qanchor e usa os três modos — tarefa (aulas 5, 6, 8, 9),
+    analise (1, 4, 7) e prompt (2, 3), este último ausente no curso anterior. Profissões e
+    situações narrativas trocadas por inteiro. Similaridade baixa.
+-->
+<style>
+  .view{display:none}.view.active{display:block}
+  .lnav{max-width:1160px;margin:0 auto 5vh;padding:0 clamp(24px,5vw,60px);display:flex;justify-content:space-between;gap:12px}
+  .lnav a{font-family:var(--mono);font-size:12px;color:var(--muted);text-decoration:none;border:1px solid var(--line2);border-radius:12px;padding:12px 16px}
+  .lnav a:hover{border-color:var(--accent);color:var(--ink)}
+  #v-trilha .wrap{max-width:1080px;margin:0 auto;padding:0 clamp(24px,5vw,60px)}
+  #v-trilha .t-hero{position:relative;overflow:hidden;padding:20vh 0 8vh;border-bottom:1px solid var(--line)}
+  #v-trilha h1{font-family:var(--serif);font-weight:500;font-size:clamp(40px,6.4vw,72px);line-height:1;letter-spacing:-.025em;margin:0 0 22px}
+  #v-trilha h1 em{font-style:italic;color:var(--accent)}
+  #v-trilha .lead{font-family:var(--serif);font-size:clamp(19px,2.1vw,24px);line-height:1.5;color:var(--ink-soft);max-width:46ch;margin:0 0 30px}
+  #v-trilha section{padding:8vh 0}
+  #v-trilha .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin:0 0 8px}
+  #v-trilha h2{display:block;font-family:var(--serif);font-weight:500;font-size:clamp(26px,3.6vw,38px);margin:0 0 28px}
+  #v-trilha .aulas{display:grid;gap:14px}
+  #v-trilha .au{display:grid;grid-template-columns:56px 1fr auto;gap:20px;align-items:center;text-decoration:none;color:inherit;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px 24px}
+  #v-trilha .au .num{font-family:var(--serif);font-size:30px;color:var(--accent);text-align:center}
+  #v-trilha .au h3{font-family:var(--serif);font-weight:500;font-size:21px;margin:0 0 5px}
+  #v-trilha .au p{margin:0;color:var(--muted);font-size:14.5px}
+  #v-trilha .au .meta{font-family:var(--mono);font-size:11px;color:var(--accent);white-space:nowrap;text-align:right}
+  #v-trilha .au .prog{position:static;margin-top:10px;height:5px;border-radius:99px;background:var(--line);overflow:hidden;max-width:220px;width:auto}
+  #v-trilha .au .prog i{display:block;height:100%;width:100%;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .5s}
+  #v-trilha footer{max-width:1080px;margin:0 auto;padding:6vh clamp(24px,5vw,60px) 12vh;color:var(--faint);text-align:center;font-family:var(--serif);font-style:italic;border-top:1px solid var(--line)}
+</style>
+<link href="https://inematds.github.io/formacaoia/curso.html" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/formacaoia/en/curso.html" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/formacaoia/es/curso.html" hreflang="es" rel="alternate"/></head>
+<body><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../curso.html" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="../en/curso.html" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">EN</a><a href="curso.html" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">ES</a></div>
+<div class="bar"><div class="bar-inner">
+<span class="brand"><a class="mark" href="https://inema.club" rel="noopener" target="_blank">INEMA.CLUB</a><a class="pro" href="https://inema.pro" rel="noopener" target="_blank">PRO</a><a class="course" href="index.html">Formación en IA</a></span>
+<a class="back" href="#trilha" style="display:none">← ruta</a>
+<button class="pill" id="pill" style="display:none">0 leído</button>
+<button id="revbtn">revisar <span id="revn">0</span></button>
+<button id="exbtn">ejercicios</button>
+<button id="jorbtn">recorrido</button>
+<button aria-label="Cómo funciona" id="helpbtn">?</button>
+<button aria-label="Preferencias de lectura" id="prefsbtn">Aa</button>
+<button id="themebtn">tema: oscuro</button>
+</div></div>
+<!-- ===== TRILHA ===== -->
+<section class="view" id="v-trilha">
+<header class="t-hero"><div class="wrap">
+<p class="kicker">Ruta 01 · Formación en IA</p>
+<h1>Pedir bien ya no<br/><em>basta más</em></h1>
+<p class="lead">Al terminar, sabrás armar la estructura de trabajo alrededor de la IA —conocimiento, capacidades, memoria, límites y revisión— para una tarea real de tu día a día. Eso es lo que distingue a quien usa IA de quien confía en ella.</p>
+</div></header>
+<section><div class="wrap">
+<div class="statcards"></div>
+<p class="eyebrow">Clases</p>
+<h2>De principio a fin</h2>
+<div class="aulas">
+<a class="au on" data-aula="1" href="#aula-1">
+<div class="num">1</div>
+<div><h3>Por qué dejó de bastar una solicitud bien escrita</h3><p>Sal sabiendo señalar cuál de las tres capas faltó en una entrega deficiente de la IA.</p><div class="prog"><i></i></div></div>
+<div class="meta">17 min · abrir →</div>
+</a>
+<a class="au on" data-aula="2" href="#aula-2">
+<div class="num">2</div>
+<div><h3>La solicitud sigue siendo la base</h3><p>Sal con uno de tus pedidos reescrito en las cinco partes que la IA realmente usa.</p><div class="prog"><i></i></div></div>
+<div class="meta">18 min · abrir →</div>
+</a>
+<a class="au on" data-aula="3" href="#aula-3">
+<div class="num">3</div>
+<div><h3>Conocimiento: lo que la IA necesita saber antes</h3><p>Sal con tu primer expediente de trabajo, listo para pegarlo en cualquier conversación.</p><div class="prog"><i></i></div></div>
+<div class="meta">19 min · abrir →</div>
+</a>
+<a class="au on" data-aula="4" href="#aula-4">
+<div class="num">4</div>
+<div><h3>La estructura de trabajo alrededor de la IA</h3><p>Sal sabiendo diseñar, en ocho líneas, la estructura de una tarea tuya.</p><div class="prog"><i></i></div></div>
+<div class="meta">18 min · abrir →</div>
+</a>
+<a class="au on" data-aula="5" href="#aula-5">
+<div class="num">5</div>
+<div><h3>De la respuesta a la acción: capacidades y especializaciones</h3><p>Sal con una especialización tuya por escrito: la receta fija para una tarea que se repite.</p><div class="prog"><i></i></div></div>
+<div class="meta">18 min · abrir →</div>
+</a>
+<a class="au on" data-aula="6" href="#aula-6">
+<div class="num">6</div>
+<div><h3>Memoria: dejar de empezar desde cero</h3><p>Sal con tu primera ficha de memoria, separando lo que dura de lo que es temporal.</p><div class="prog"><i></i></div></div>
+<div class="meta">16 min · abrir →</div>
+</a>
+<a class="au on" data-aula="7" href="#aula-7">
+<div class="num">7</div>
+<div><h3>Límites: dónde la IA debe detenerse y preguntar</h3><p>Sal con tu lista de límites: qué es libre, qué requiere autorización y qué está prohibido.</p><div class="prog"><i></i></div></div>
+<div class="meta">18 min · abrir →</div>
+</a>
+<a class="au on" data-aula="8" href="#aula-8">
+<div class="num">8</div>
+<div><h3>El ciclo de revisión: hacer, revisar, corregir</h3><p>Sal con el criterio de «listo» para una tarea tuya, escrito antes de que la IA empiece.</p><div class="prog"><i></i></div></div>
+<div class="meta">17 min · abrir →</div>
+</a>
+<a class="au on" data-aula="9" href="#aula-9">
+<div class="num">9</div>
+<div><h3>Los siete escalones: arma el tuyo</h3><p>Sal con una tarea tuya ubicada en un nivel y el siguiente nivel ya escrito.</p><div class="prog"><i></i></div></div>
+<div class="meta">20 min · abrir →</div>
+</a>
+</div>
+</div></section>
+<footer><div class="wrap">Formación en IA · INEMA.CLUB PRO</div></footer>
+</section>
+<!-- ===== AULA 1 ===== -->
+<section class="view" data-aula="1" data-tempo="17min" id="v-aula-1">
+<header class="hero"><div class="hero-inner">
+<div>
+<p class="kicker">Ruta 01 · Lección 1</p>
+<h1>Por qué la solicitud<br/>bien escrito <em>dejó de ser suficiente</em></h1>
+<p class="promise">Al terminar esta clase, podrás mirar un trabajo que la IA entregó mal y decir, en una frase, cuál de las tres capas faltó: el pedido, el conocimiento o la estructura de trabajo.</p>
+<p class="why">Ya reescribiste el mismo pedido tres veces y la respuesta siguió siendo genérica. No es que te falten palabras. Es que, a partir de cierto punto, lo que falta no está en la frase que escribes: está fuera de ella. Saber distinguirlo te ahorra las dos horas que pasarías reescribiendo la frase equivocada.</p>
+<p class="cue"><span class="arw">↓</span> rol para estudiar</p>
+</div>
+<div class="herofig"><svg aria-hidden="true" fill="none" viewbox="0 0 300 240">
+<rect fill="currentColor" height="14" opacity=".16" rx="4" width="264" x="18" y="150"></rect>
+<rect fill="currentColor" height="58" opacity=".1" width="10" x="30" y="164"></rect>
+<rect fill="currentColor" height="58" opacity=".1" width="10" x="260" y="164"></rect>
+<g opacity=".9">
+<rect fill="none" height="46" rx="5" stroke="#7CE0C6" stroke-width="1.6" width="92" x="56" y="104"></rect>
+<path d="M56 104l46 28 46-28" fill="none" stroke="#7CE0C6" stroke-width="1.6"></path>
+<path d="M74 124h56M74 136h34" opacity=".55" stroke="#7CE0C6" stroke-width="1.4"></path>
+</g>
+<g opacity=".55">
+<path d="M170 150v-40h60l10 12v28z" fill="none" stroke="currentColor" stroke-width="1.6"></path>
+<path d="M230 110v12h10" fill="none" stroke="currentColor" stroke-width="1.6"></path>
+<path d="M186 128h28M186 138h16" opacity=".5" stroke="currentColor" stroke-width="1.3"></path>
+</g>
+<path d="M188 92c0-14 14-22 28-22" fill="none" stroke="#F2B45C" stroke-dasharray="3 4" stroke-width="1.4"></path>
+<circle cx="216" cy="70" fill="#F2B45C" r="3"></circle>
+<path d="M40 40h220" opacity=".12" stroke="currentColor" stroke-width="1"></path>
+</svg></div>
+</div></header>
+<div class="layout">
+<div class="col">
+<section class="step" data-fig="1" data-kind="fundamento">
+<h2><span class="n">01</span> Mejorar cómo escribes el pedido tiene un límite, y ya llegaste a él</h2>
+<p>Lo llamamos <span class="gterm" data-def="O texto que você escreve pedindo alguma coisa para a IA. É a instrução, não a conversa inteira." tabindex="0">solicitud</span> el texto que escribes cuando quieres algo de la IA. En los primeros años, cuidar ese texto marcaba toda la diferencia: una solicitud de diez líneas daba mucho más resultado que una de una línea.</p>
+<p>Los modelos actuales cambiaron las reglas del juego. Entienden bien una solicitud breve y directa. Lo que antes requería una página entera de instrucciones, hoy se resuelve con tres frases claras. Es decir, a partir de cierto punto, cuidar el texto deja de mejorar el resultado.</p>
+<p>Helena es abogada y se ocupa de contratos. Pidió un resumen de un contrato de alquiler comercial en lenguaje sencillo para explicárselo al cliente. Reescribió la solicitud cinco veces: más detallada, más amable, más específica. El resumen siguió siendo correcto y siguió siendo inútil: hablaba de «las partes» y «el objeto», y su cliente quería saber cuándo podía irse sin pagar una multa.</p>
+<p>Lo que faltaba no era una palabra mejor. Era que la IA supiera que el lector final es un dueño de panadería, no otro abogado. Esa información no cabía en la solicitud; cabía en otro lugar.</p>
+<div class="mobfig" data-mobfig="1"></div>
+<button class="readbtn" data-read="s1">marcar como leído</button>
+</section>
+<section class="step" data-fig="2" data-kind="fundamento">
+<h2><span class="n">02</span> Casi nunca falta la frase; falta lo que la IA no sabe</h2>
+<p>La segunda capa es el <span class="gterm" data-def="Tudo que a IA precisa saber sobre o seu caso antes de trabalhar: documentos, exemplos do seu jeito, quem é o leitor, o que já foi decidido antes." tabindex="0">contexto</span>: todo lo que la IA necesitaría saber sobre tu caso y que no está en el pedido. Quién es el lector. Cómo habla tu empresa. Qué ya se decidió antes. Qué documento es válido.</p>
+<p>Rafael es gerente de marketing de una cadena de tres tiendas. Pide textos de campaña y recibe frases que podrían ser de cualquier tienda del país. Su pedido está impecable. Lo que falta es que la IA sepa que la cadena nunca pone precios en la primera frase, que el público es del barrio y que el departamento legal prohibió «oferta relámpago» el año pasado.</p>
+<div class="qbefore-after">
+<div class="qba-col qba-before">
+<p class="qba-lbl">Solo con la solicitud</p>
+<p class="qba-txt">Rafael pide el texto, recibe algo correcto y genérico, y lo vuelve a escribir a mano. Todas las semanas, tres veces por semana.</p>
+</div>
+<div class="qba-col qba-depois">
+<p class="qba-lbl">Con el conocimiento incluido</p>
+<p class="qba-txt">Primero pega las tres reglas de la red y dos leyendas antiguas que funcionaron. La respuesta ya sale con el tono adecuado y él solo ajusta una palabra.</p>
+</div>
+<p class="qba-saldo">Saldo: <b>de ~25 minutos por texto a ~6</b>, sin cambiar de herramienta ni escribir una solicitud más larga.</p>
+</div>
+<div class="mobfig" data-mobfig="2"></div>
+<button class="readbtn" data-read="s2">marcar como leído</button>
+</section>
+<section class="step" data-fig="3" data-kind="fundamento">
+<h2><span class="n">03</span> Saber no es lo mismo que hacer</h2>
+<p>Hay un tercer tipo de falla, y es la más frustrante, porque parece que la IA acertó. Entendió el pedido, tenía los conocimientos, escribió bien y, aun así, el trabajo no quedó listo. Porque nadie lo revisó, nadie lo abrió para comprobarlo, nadie lo comparó con lo que ya existía, nadie le indicó dónde debía detenerse.</p>
+<p>Helena, otra vez: la IA resumió el contrato a la perfección, con el tono adecuado, y mencionó un plazo de rescisión de 90 días que no aparecía en ninguna parte del documento. Ella se lo envió al cliente. El error no fue de redacción ni de conocimientos: faltó un paso sencillo de revisión entre «la IA terminó» y «el cliente lo recibió».</p>
+<p>Esta tercera capa tiene nombre: es la estructura de trabajo alrededor de la IA. Herramientas para que actúe, reglas sobre dónde detenerse y un momento obligatorio de revisión antes de que el trabajo salga. Es el tema de casi todo lo que queda de este curso.</p>
+<div class="quiz" data-answer="c">
+<p class="qk">Ponte a prueba</p><p class="q">Rafael recibió un texto bien escrito, con el tono de la cadena, pero con un precio en la primera frase, algo que la cadena no hace. ¿Qué capa falló?</p>
+<button class="opt" data-fb="O pedido estava claro: o texto veio bem escrito e no assunto certo. A falha não foi de redação do pedido." data-k="a">La solicitud</button>
+<button class="opt" data-fb="O conhecimento estava lá — o tom da rede saiu certo, o que mostra que a IA tinha as referências." data-k="b">El conocimiento</button>
+<button class="opt" data-fb="Sim: faltou o passo de conferência contra as regras da rede antes de a legenda ser dada como pronta. Escrever bem não substitui conferir." data-k="c">La estructura de trabajo</button>
+<p class="qfb"></p>
+</div>
+<div class="mobfig" data-mobfig="3"></div>
+<button class="readbtn" data-read="s3">marcar como leído</button>
+</section>
+<section class="step" data-fig="4" data-kind="fundamento">
+<h2><span class="n">04</span> Las tres capas se suman; nunca se sustituyen</h2>
+<p>Es tentador escuchar «pedir bien ya no basta» y concluir que el pedido se volvió prescindible. No es así. Sin un pedido claro, el mejor conocimiento del mundo no sabe a qué tarea servir, y la estructura mejor armada ejecuta con precisión lo equivocado.</p>
+<p>El orden es acumulativo, no de reemplazo: el pedido da la dirección, el conocimiento aporta lo que la IA necesita saber y la estructura define cómo ejecutar, verificar y detenerse. Cada capa solo rinde cuando la anterior está lista.</p>
+<p>Para Rafael, esto significa que no dejará de tener cuidado al pedir: seguirá haciendo buenas solicitudes, solo que a partir de ahora incluirá las reglas de la red y una revisión final obligatoria antes de publicar cualquier texto.</p>
+<div class="qanchor"><p>La solicitud da dirección. El conocimiento aporta qué saber. La estructura define cómo hacer, revisar y detenerse.</p></div>
+<div class="mobfig" data-mobfig="4"></div>
+<button class="readbtn" data-read="s4">marcar como leído</button>
+</section>
+<section class="practice" data-mode="analise" data-practice="p1">
+<p class="pk">Practica ahora <span class="pcount">0/4 hecho</span></p>
+<h3 class="ph">Diagnostica tres entregas deficientes — una frase cada una</h3>
+<p class="pgoal">Lee tres casos breves, di en una frase qué capa faltó en cada uno, compáralos con las respuestas esperadas y repite el ejercicio con tu propio caso. ~12 min.</p>
+<p class="psafe">Esto es una lectura y una opinión tuya, en papel o en un bloque de notas. No modifica nada ni le envía nada a nadie. Si no estás de acuerdo con la respuesta esperada, guarda el motivo: suele valer más que la respuesta.</p>
+<ol class="psteps">
+<li><label><input data-ptask="1" type="checkbox"/> <b>Caso A.</b> Sônia es contadora. Pidió un recordatorio de vencimiento de impuestos para enviar a 40 clientes. Recibió un texto correcto, pero que trata a todos como personas jurídicas — la mitad de sus clientes son personas físicas. Escribe tu frase: ¿qué capa faltó?</label></li>
+<li><label><input data-ptask="2" type="checkbox"/> <b>Caso B.</b> Helena pidió «mejora este texto». Recibió una versión más bonita y más larga, cuando la quería más corta. Escribe tu frase.</label></li>
+<li><label><input data-ptask="3" type="checkbox"/> <b>Caso C.</b> Rafael hizo todo bien, pegó las reglas de la cadena y el texto quedó perfecto, pero se publicó con el nombre anterior de la tienda, que cambió en enero. Escribe tu frase.</label></li>
+<li><label><input data-ptask="4" type="checkbox"/> <b>Ahora tu caso.</b> Abre la última conversación con IA que te decepcionó en el trabajo, vuelve a leerla y escribe la misma frase sobre ella. Quedó lista cuando la frase nombre una sola capa.</label></li>
+</ol>
+<details>
+<summary>ver la clave comentada</summary>
+<p><b>Caso A — conocimiento.</b> La solicitud estaba clara y la IA la ejecutó bien. Simplemente no sabía que la cartera de clientes es mixta. Esa información nunca estuvo en la conversación.</p>
+<p><b>Caso B — pedido.</b> «Mejóralo» no es una dirección: ¿mejor en qué? ¿Más corto, más formal, más claro? Aquí la primera capa estaba floja, y ninguna cantidad de conocimiento lo habría resuelto.</p>
+<p><b>Caso C — estructura de trabajo.</b> Fíjate en que la IA hizo su parte: usó lo que tenía. Lo que faltó fue un paso humano para revisar los datos actuales antes de publicar, y un lugar donde guardar el cambio de nombre. Si respondiste «conocimiento», vas por la mitad, y la lección 6 completa exactamente esa mitad.</p>
+</details>
+<p class="pdone">Acabas de conseguir distinguir las tres capas en casos reales: eso es exactamente lo que promete esta clase.</p>
+</section>
+</div>
+<aside class="rail"><div class="railsticky">
+<div class="figstage">
+<div class="fig on" data-cap="&lt;b&gt;Fig. 1&lt;/b&gt; A curva do capricho: reescrever o pedido rende muito no começo e quase nada depois do joelho da curva. Olhe onde ela achata." data-fig="1"><svg aria-hidden="true" fill="none" viewbox="0 0 220 200">
+<path d="M30 170h160M30 170V26" opacity=".35" stroke="currentColor" stroke-width="1.2"></path>
+<path d="M30 168C60 168 74 60 100 52c30-9 60 2 88 0" fill="none" stroke="#7CE0C6" stroke-width="2"></path>
+<path d="M100 52v118" stroke="#F2B45C" stroke-dasharray="3 4" stroke-width="1.2"></path>
+<circle cx="100" cy="52" fill="#F2B45C" r="3.5"></circle>
+<text fill="#F2B45C" font-family="monospace" font-size="9" x="106" y="44">el límite</text>
+<text fill="currentColor" font-family="monospace" font-size="8.5" opacity=".55" x="34" y="188">esfuerzo en la solicitud →</text>
+<text fill="currentColor" font-family="monospace" font-size="8.5" opacity=".55" x="12" y="34">↑ ganancia</text>
+</svg></div>
+<div class="fig" data-cap="&lt;b&gt;Fig. 2&lt;/b&gt; A mesma pergunta, dois caminhos: sem o bloco de conhecimento a resposta sai por fora do seu caso. Repare que o pedido é idêntico nos dois." data-fig="2"><svg aria-hidden="true" fill="none" viewbox="0 0 220 200">
+<rect height="26" opacity=".7" rx="5" stroke="currentColor" stroke-width="1.4" width="60" x="16" y="20"></rect>
+<text fill="currentColor" font-family="monospace" font-size="8.5" opacity=".8" x="24" y="37">solicitud</text>
+<path d="M46 46v18h-16v18M46 46v18h120v18" opacity=".4" stroke="currentColor" stroke-width="1.2"></path>
+<rect height="24" opacity=".35" rx="5" stroke="currentColor" stroke-width="1.2" width="52" x="6" y="82"></rect>
+<text fill="currentColor" font-family="monospace" font-size="7.5" opacity=".5" x="12" y="98">sin contexto</text>
+<rect height="24" rx="5" stroke="#7CE0C6" stroke-width="1.4" width="52" x="140" y="82"></rect>
+<text fill="#7CE0C6" font-family="monospace" font-size="7.5" x="146" y="98">+ contexto</text>
+<path d="M32 106v24M166 106v24" opacity=".35" stroke="currentColor" stroke-width="1.2"></path>
+<rect fill="currentColor" height="44" opacity=".08" rx="5" width="52" x="6" y="130"></rect>
+<path d="M14 144h36M14 154h28M14 164h32" opacity=".4" stroke="currentColor" stroke-width="1.2"></path>
+<rect fill="#7CE0C6" height="44" opacity=".1" rx="5" width="52" x="140" y="130"></rect>
+<path d="M148 144h36M148 154h20M148 164h30" opacity=".8" stroke="#7CE0C6" stroke-width="1.2"></path>
+<text fill="currentColor" font-family="monospace" font-size="7.5" opacity=".5" x="4" y="190">genérico</text>
+<text fill="#7CE0C6" font-family="monospace" font-size="7.5" x="140" y="190">tu caso</text>
+</svg></div>
+<div class="fig" data-cap='&lt;b&gt;Fig. 3&lt;/b&gt; O vão entre "a IA terminou" e "o trabalho está pronto". Repare que nada acontece nesse vão quando não existe estrutura.' data-fig="3"><svg aria-hidden="true" fill="none" viewbox="0 0 220 200">
+<rect height="34" rx="6" stroke="#7CE0C6" stroke-width="1.5" width="66" x="14" y="84"></rect>
+<text fill="#7CE0C6" font-family="monospace" font-size="8" x="22" y="105">La IA terminó</text>
+<rect height="34" opacity=".7" rx="6" stroke="currentColor" stroke-width="1.5" width="66" x="140" y="84"></rect>
+<text fill="currentColor" font-family="monospace" font-size="8" opacity=".85" x="146" y="105">está listo</text>
+<path d="M84 101h52" stroke="#F2B45C" stroke-dasharray="4 5" stroke-width="1.4"></path>
+<path d="M96 60v20M110 56v24M124 60v20" opacity=".5" stroke="#F2B45C" stroke-width="1.2"></path>
+<text fill="#F2B45C" font-family="monospace" font-size="8" x="82" y="46">verificar</text>
+<text fill="currentColor" font-family="monospace" font-size="8" opacity=".45" x="86" y="146">el espacio</text>
+<path d="M84 128h52" opacity=".25" stroke="currentColor" stroke-width="1"></path>
+</svg></div>
+<div class="fig" data-cap="&lt;b&gt;Fig. 4&lt;/b&gt; As três camadas empilhadas: cada uma apoia a de cima. Tire a de baixo e as outras duas não param em pé." data-fig="4"><svg aria-hidden="true" fill="none" viewbox="0 0 220 200">
+<rect height="34" opacity=".75" rx="6" stroke="currentColor" stroke-width="1.5" width="152" x="34" y="132"></rect>
+<text fill="currentColor" font-family="monospace" font-size="9" opacity=".85" x="46" y="153">1 · solicitud — dirección</text>
+<rect height="34" opacity=".75" rx="6" stroke="currentColor" stroke-width="1.5" width="152" x="34" y="90"></rect>
+<text fill="currentColor" font-family="monospace" font-size="9" opacity=".85" x="46" y="111">2 · conocimiento</text>
+<rect height="34" rx="6" stroke="#7CE0C6" stroke-width="1.6" width="152" x="34" y="48"></rect>
+<text fill="#7CE0C6" font-family="monospace" font-size="9" x="46" y="69">3 · estructura</text>
+<path d="M110 132v-8M110 90v-8" opacity=".4" stroke="currentColor" stroke-width="1.2"></path>
+<path d="M26 172h168" opacity=".25" stroke="currentColor" stroke-width="1.2"></path>
+</svg></div>
+</div>
+<p class="railcap"></p>
+<div class="steps-ind"></div>
+<p class="sidenote">Resalta cualquier fragmento para convertirlo en una tarjeta de repaso.</p>
+</div></aside>
+</div>
+<div class="fecho-wrap">
+<div class="recap-autor">
+<p class="rak">Resumen</p>
+<ul>
+<li>Esmerarse mucho en el texto del pedido rinde bastante al principio y casi nada después de cierto punto: los modelos actuales ya entienden pedidos breves y claros.</li>
+<li>Cuando la respuesta sale genérica, lo que suele faltar es conocimiento de tu caso, no una frase mejor.</li>
+<li>Hay una tercera falla, más discreta: la IA acierta y, aun así, el trabajo no queda listo, porque nadie lo revisó ni definió dónde debía detenerse.</li>
+<li>Las tres capas se suman. Ninguna de ellas hace innecesaria la anterior.</li>
+</ul>
+</div>
+<div class="next-action">
+<p class="nak">Tu siguiente paso</p>
+<p class="na-win">Acabas de conseguir distinguir las tres capas en una entrega deficiente: el diagnóstico que evita pasar horas reescribiendo la frase equivocada.</p>
+<p class="na-action">En los próximos 15 minutos: abre la última conversación con IA que te decepcionó en el trabajo y escribe una sola frase que diga qué capa faltó allí.</p>
+<p class="na-hook">En la próxima lección reescribirás una solicitud tuya con las cinco partes que la IA realmente utiliza, porque la capa 1 sigue siendo válida y la mayoría de las solicitudes deja dos de ellas afuera.</p>
+</div>
+</div>
+<nav class="lnav"><a href="#trilha">← ruta</a><a href="#aula-2">clase 2 →</a></nav>
+<footer>Clase 1 · INEMA.CLUB PRO</footer>
+<script id="cards-1" type="application/json">
+[
+  {"front":"Uma IA te devolve um texto bem escrito, no tom certo da sua empresa, mas com um dado desatualizado que ninguém percebeu. Qual camada falhou e por quê?","back":"A estrutura de trabalho. Faltou o passo obrigatório de conferência entre a entrega da IA e a saída do trabalho — escrever bem e conhecer o tom não substituem conferir."},
+  {"front":"Você reescreveu o mesmo pedido quatro vezes e a resposta continua genérica. O que isso é sinal de?","back":"De que o limite não está mais na frase: falta conhecimento do seu caso na conversa (leitor, regras, exemplos, documentos)."},
+  {"front":"Alguém diz: 'agora que existe estrutura de trabalho, não preciso mais me preocupar em pedir bem'. Onde está o erro?","back":"As camadas somam, não trocam. Sem direção clara no pedido, a estrutura executa com precisão a tarefa errada."},
+  {"front":"Você tem 10 minutos antes de uma reunião e a IA entregou algo fora do alvo. Que pergunta você faz primeiro para não perder tempo?","back":"'O que ela não sabia?' — checar conhecimento antes de reescrever a frase, porque reescrever é o caminho mais caro e o menos provável de resolver."}
+]
+</script>
+<!--
+COMPLETUDE aula-1 | tipo=FUNDAMENTO | steps=4
+  [OK] promise            .promise no cold-open (1)
+  [OK] why                .why após a promessa (1)
+  [OK] tempo              data-tempo="17min" no view + render no cold-open (1)
+  [OK] exemplo-profissao  exemplo aplicado em 100% dos steps (4/4 — Helena s1, Rafael s2, Helena s3, Rafael s4)
+  [OK] apoio-visual       figura conceitual legendada em 100% dos steps (4/4)
+  [OK] practice           .practice[data-mode="analise"] (exatamente 1)
+  [OK] psafe              .psafe dentro da prática (1)
+  [OK] pgoal-tempo        .pgoal com "~12 min" declarado (1)
+  [OK] recap-autor        .recap-autor no fecho (1)
+  [OK] next-action        .next-action no fecho (1)
+  [OK] cards              <script id="cards-1"> presente (1)
+  [OK] anti-duplicacao    3 testes passam — 4 cartões nas formas diagnóstico/diagnóstico/contraste/decisão, nenhum com 6 palavras seguidas do recap
+  [OK] teste-se-FUND      tipo=FUNDAMENTO: presente (1 quiz data-fb no step 3)
+-->
+</section>
+<!-- ===== AULA 2 ===== -->
+<section class="view" data-aula="2" data-tempo="18min" id="v-aula-2">
+<header class="hero"><div class="hero-inner">
+<div>
+<p class="kicker">Ruta 01 · Lección 2</p>
+<h1>La solicitud sigue<br/>siendo <em>la base</em></h1>
+<p class="promise">Al terminar esta clase, podrás reescribir un pedido tuyo en las cinco partes que la IA realmente usa y comparar, en la misma conversación, la respuesta de antes y la de después.</p>
+<p class="why">La clase anterior mostró que esmerarse en el texto tiene un límite. Pero la mayoría de los pedidos que escribes hoy ni siquiera se acercan a ese límite: tienen una sola parte, la tarea. Las otras cuatro quedan en tu cabeza, y la IA no puede adivinarlas.</p>
+<p class="cue"><span class="arw">↓</span> rol para estudiar</p>
+</div>
+<div class="herofig"><svg aria-hidden="true" fill="none" viewbox="0 0 300 240">
+<path d="M148 220V72" opacity=".5" stroke="currentColor" stroke-width="3"></path>
+<path d="M120 214h56" opacity=".3" stroke="currentColor" stroke-width="2.4"></path>
+<g fill="none" stroke="#7CE0C6" stroke-width="1.6">
+<path d="M148 76h96l14 13-14 13h-96z"></path>
+<path d="M148 110H52l-14 13 14 13h96z"></path>
+</g>
+<g fill="none" opacity=".55" stroke="currentColor" stroke-width="1.5">
+<path d="M148 144h80l12 12-12 12h-80z"></path>
+<path d="M148 178H68l-12 12 12 12h80z"></path>
+</g>
+<path d="M170 88h48M70 122h48M170 156h40M78 190h44" opacity=".35" stroke="currentColor" stroke-width="1.3"></path>
+<path d="M18 226h264" opacity=".16" stroke="currentColor" stroke-width="1"></path>
+<circle cx="148" cy="60" fill="#F2B45C" r="4"></circle>
+</svg></div>
+</div></header>
+<div class="layout">
+<div class="col">
+<section class="step" data-fig="1" data-kind="fundamento">
+<h2><span class="n">01</span> Un pedido no es una frase: son cinco decisiones</h2>
+<p>Cuando escribes «haz un resumen de esto», tomaste una decisión y dejaste cuatro sin resolver. La IA las completará por su cuenta, de la manera más probable, y lo más probable rara vez es como lo harías tú.</p>
+<p>Las cinco decisiones son siempre las mismas, en cualquier pedido: <b>papel</b> (desde qué lugar habla), <b>tarea</b> (qué hacer, con el verbo adecuado), <b>formato</b> (el formato de la respuesta), <b>restricciones</b> (lo que no puede hacer) y <b>listo</b> (cómo vas a reconocer que la respuesta sirve). Solo la segunda suele estar escrita.</p>
+<p>Helena escribió: «resume este contrato». Faltaban cuatro piezas. Con ellas: «estás explicándoselo a un cliente sin conocimientos jurídicos (rol); resume este contrato de alquiler y destaca los plazos, las multas y cómo rescindirlo (tarea); en cinco puntos breves (formato); sin usar términos jurídicos sin explicarlos (restricción); la respuesta sirve si mi cliente la entiende sin tener que preguntarme nada después (listo)».</p>
+<div class="qbefore-after">
+<div class="qba-col qba-before">
+<p class="qba-lbl">Una decisión escrita</p>
+<p class="qba-txt">«Resume este contrato». Llega un resumen técnico, largo y correcto, que Helena reescribe por completo antes de enviar.</p>
+</div>
+<div class="qba-col qba-depois">
+<p class="qba-lbl">Las cinco por escrito</p>
+<p class="qba-txt">Aquí tienes el mismo contenido en cinco puntos, en un español conversacional, con los plazos y las multas al frente.</p>
+</div>
+<p class="qba-saldo">Saldo: <b>una reescritura completa menos por contrato</b> — el texto queda listo para usar en el primer intento.</p>
+</div>
+<div class="mobfig" data-mobfig="1"></div>
+<button class="readbtn" data-read="s1">marcar como leído</button>
+</section>
+<section class="step" data-fig="2" data-kind="fundamento">
+<h2><span class="n">02</span> Rol y tarea: quién está hablando y qué verbo usaste</h2>
+<p>El rol no es una fantasía. Decir «eres redactor publicitario» no invoca a un redactor, pero sí coloca la respuesta en cierto registro de vocabulario, ritmo y prioridades. Es la diferencia entre pedirle una opinión a tu contador o a tu socio: la persona es competente en ambos casos, pero se fija en cosas distintas.</p>
+<p>La tarea depende del verbo, y cambiar el verbo es la causa silenciosa de la mitad de las entregas fuera de objetivo. «Resumir» acorta. «Explicar» amplía y traduce. «Reescribir» mantiene el tamaño y cambia el tono. «Comparar» pone las cosas lado a lado. Mucha gente escribe «mejora», que no es un verbo de tarea, sino un deseo.</p>
+<p>Rafael pedía «mejora este texto» y recibía textos más largos. Lo cambió por «reescribe este texto manteniendo la misma extensión, con el beneficio en la primera línea» y dejó de pelearse con el resultado. La misma herramienta, el mismo día, otro verbo.</p>
+<div class="mobfig" data-mobfig="2"></div>
+<button class="readbtn" data-read="s2">marcar como leído</button>
+</section>
+<section class="step" data-fig="3" data-kind="fundamento">
+<h2><span class="n">03</span> Formato y restricciones: el molde y las barreras</h2>
+<p>El formato es el molde de la respuesta: cinco puntos, una tabla de tres columnas, dos párrafos, un correo con asunto. Si no le das un molde, la IA usa el suyo, normalmente un texto corrido de extensión media que casi nunca es lo que vas a pegar en tu trabajo.</p>
+<p>Una restricción es lo opuesto a un molde: en vez de indicar la forma, delimitas lo que no puede aparecer. «Sin inventar números», «sin mencionar competidores por su nombre», «sin prometer plazos». Las restricciones valen más que los adjetivos: «sé profesional» no dice nada; «sin signos de exclamación ni jerga» lo dice todo.</p>
+<p>Sônia es contadora y envía el mismo recordatorio de vencimiento a decenas de clientes. La restricción que le cambió la vida fue de una línea: «no menciones ningún monto ni fecha que yo no haya escrito aquí». Antes de eso, la IA completaba con fechas plausibles — y algo plausible, en un aviso de impuestos, es peor que dejarlo sin especificar.</p>
+<div class="quiz" data-answer="b">
+<p class="qk">Ponte a prueba</p><p class="q">Helena quiere que la respuesta quepa en un correo breve y que nunca afirme algo que no esté en el contrato. ¿Qué dos cosas debe escribir?</p>
+<button class="opt" data-fb="Papel e tarefa dizem quem fala e o que faz — mas nada aí limita o tamanho nem impede a IA de completar o que falta." data-k="a">Rol y tarea</button>
+<button class="opt" data-fb="Sim: o formato ('em até 6 linhas, como e-mail') resolve o tamanho, e a restrição ('nada que não esteja no documento') resolve a invenção. São ferramentas diferentes para problemas diferentes." data-k="b">Formato y restricción</button>
+<button class="opt" data-fb="'Pronto' é o critério para conferir a resposta depois — importante, mas ele não impede a IA de escrever demais ou de completar lacunas." data-k="c">Listo y rol</button>
+<p class="qfb"></p>
+</div>
+<div class="mobfig" data-mobfig="3"></div>
+<button class="readbtn" data-read="s3">marcar como leído</button>
+</section>
+<section class="step" data-fig="4" data-kind="fundamento">
+<h2><span class="n">04</span> Di cómo es la respuesta correcta antes de verla</h2>
+<p>La quinta parte es la menos usada y la que más rinde: escribir, antes de enviar, cómo reconocerás que la respuesta sirve. No es un elogio («quiero una buena respuesta»), sino una prueba que tú mismo aplicas en diez segundos.</p>
+<p>Esto cambia dos cosas. Primero, te obliga a saber qué quieres: la mitad de las malas solicitudes nace de una solicitud que su propio autor no sabía definir. Segundo, le da a la IA un objetivo verificable, y la IA suele ajustarse a los objetivos.</p>
+<p>Hoy Rafael escribe: «el texto sirve si un cliente puede decir, con solo leerlo, cuál es la tienda y qué gana al venir hoy». Lo comprueba leyendo en voz alta. Cuando falla, no vuelve a escribir todo el pedido: corrige solo la parte que falló, porque ahora sabe cuál es.</p>
+<div class="qanchor"><p>Si no sabes decir cómo es la respuesta correcta, el problema todavía no es de la IA.</p></div>
+<div class="mobfig" data-mobfig="4"></div>
+<button class="readbtn" data-read="s4">marcar como leído</button>
+</section>
+<section class="practice" data-mode="prompt" data-practice="p2">
+<p class="pk">Practica ahora <span class="pcount">0/4 hecho</span></p>
+<h3 class="ph">Reescribe uno de tus pedidos en cinco partes</h3>
+<p class="pgoal">Toma una solicitud que ya hayas hecho, pásala por las cinco partes y compara las dos respuestas en la misma conversación. ~12 min.</p>
+<p class="psafe">Solo estás conversando en un chat, como ya lo haces. No se envía nada a nadie, no se publica nada ni se reemplaza el texto original. Si la segunda respuesta es peor, la primera sigue ahí arriba, intacta.</p>
+<div class="pcodewrap"><button class="pcopy" type="button">copiar</button><pre class="pcode">Papel: você está falando como &lt;de que lugar: para um cliente leigo? para a diretoria?&gt;.
+Tarefa: &lt;verbo exato + o quê&gt; — resumir / explicar / reescrever / comparar.
+Formato: &lt;o molde: 5 tópicos? um e-mail de 6 linhas? uma tabela?&gt;
+Restrições: sem &lt;o que não pode aparecer&gt;. Não invente nenhum dado que não esteja aqui.
+Pronto: a resposta serve se &lt;o teste que você aplica em 10 segundos&gt;.
+
+Aqui vai o material: &lt;cole seu texto&gt;</pre></div>
+<ol class="psteps">
+<li><label><input data-ptask="1" type="checkbox"/> Abre una conversación nueva y haz el pedido a tu manera de siempre, en una frase. Guarda esa respuesta.</label></li>
+<li><label><input data-ptask="2" type="checkbox"/> En la misma conversación, pega la plantilla de arriba con las cinco partes completas. La más difícil será «listo»: escríbela de todos modos, aunque quede torpe.</label></li>
+<li><label><input data-ptask="3" type="checkbox"/> Compara las dos respuestas. Deberías ver la segunda en el formato que pediste y sin las invenciones que la restricción impidió.</label></li>
+<li><label><input data-ptask="4" type="checkbox"/> Marca cuál de las cinco partes hizo más diferencia en tu caso. Guarda esa parte: volverá en la lección 5.</label></li>
+</ol>
+<p class="pdone">Acabas de reescribir un pedido tuyo en cinco partes y viste la diferencia en la misma conversación: la promesa de esta clase, cumplida con tu propio material.</p>
+</section>
+</div>
+<aside class="rail"><div class="railsticky">
+<div class="figstage">
+<div class="fig on" data-cap="&lt;b&gt;Fig. 1&lt;/b&gt; As cinco decisões de todo pedido. Repare que só a segunda costuma estar escrita — as outras quatro a IA preenche sozinha." data-fig="1"><svg aria-hidden="true" fill="none" viewbox="0 0 220 200">
+<rect height="26" opacity=".5" rx="5" stroke="currentColor" stroke-width="1.3" width="172" x="24" y="16"></rect>
+<text fill="currentColor" font-family="monospace" font-size="8.5" opacity=".7" x="34" y="33">papel</text>
+<rect height="26" rx="5" stroke="#7CE0C6" stroke-width="1.7" width="172" x="24" y="50"></rect>
+<text fill="#7CE0C6" font-family="monospace" font-size="8.5" x="34" y="67">tarea</text>
+<rect height="26" opacity=".5" rx="5" stroke="currentColor" stroke-width="1.3" width="172" x="24" y="84"></rect>
+<text fill="currentColor" font-family="monospace" font-size="8.5" opacity=".7" x="34" y="101">formato</text>
+<rect height="26" opacity=".5" rx="5" stroke="currentColor" stroke-width="1.3" width="172" x="24" y="118"></rect>
+<text fill="currentColor" font-family="monospace" font-size="8.5" opacity=".7" x="34" y="135">restricciones</text>
+<rect height="26" opacity=".5" rx="5" stroke="currentColor" stroke-width="1.3" width="172" x="24" y="152"></rect>
+<text fill="currentColor" font-family="monospace" font-size="8.5" opacity=".7" x="34" y="169">listo</text>
+<text fill="#F2B45C" font-family="monospace" font-size="7" opacity=".8" x="150" y="33">en blanco</text>
+<text fill="#F2B45C" font-family="monospace" font-size="7" opacity=".8" x="150" y="101">en blanco</text>
+<text fill="#F2B45C" font-family="monospace" font-size="7" opacity=".8" x="150" y="135">en blanco</text>
+<text fill="#F2B45C" font-family="monospace" font-size="7" opacity=".8" x="150" y="169">en blanco</text>
+</svg></div>
+<div class="fig" data-cap="&lt;b&gt;Fig. 2&lt;/b&gt; Mesmo material, verbos diferentes, saídas de tamanhos diferentes. Olhe a largura de cada barra: é o verbo que decide." data-fig="2"><svg aria-hidden="true" fill="none" viewbox="0 0 220 200">
+<rect fill="currentColor" height="22" opacity=".1" rx="4" width="188" x="16" y="16"></rect>
+<text fill="currentColor" font-family="monospace" font-size="8" opacity=".65" x="24" y="31">el mismo material</text>
+<path d="M110 38v14" opacity=".35" stroke="currentColor" stroke-width="1.1"></path>
+<g font-family="monospace" font-size="8">
+<text fill="currentColor" opacity=".7" x="16" y="72">resumir</text>
+<rect fill="#7CE0C6" height="12" opacity=".75" rx="3" width="42" x="78" y="62"></rect>
+<text fill="currentColor" opacity=".7" x="16" y="102">explicar</text>
+<rect fill="#7CE0C6" height="12" opacity=".55" rx="3" width="118" x="78" y="92"></rect>
+<text fill="currentColor" opacity=".7" x="16" y="132">reescribir</text>
+<rect fill="#7CE0C6" height="12" opacity=".55" rx="3" width="86" x="78" y="122"></rect>
+<text fill="currentColor" opacity=".7" x="16" y="162">¿mejora?</text>
+<rect fill="none" height="12" rx="3" stroke="#F2B45C" stroke-dasharray="3 3" stroke-width="1.2" width="86" x="78" y="152"></rect>
+</g>
+<text fill="#F2B45C" font-family="monospace" font-size="7.5" x="80" y="182">tamaño impredecible</text>
+</svg></div>
+<div class="fig" data-cap="&lt;b&gt;Fig. 3&lt;/b&gt; Formato aperta por fora, restrição corta por dentro. Veja que são dois movimentos diferentes sobre o mesmo campo de respostas possíveis." data-fig="3"><svg aria-hidden="true" fill="none" viewbox="0 0 220 200">
+<rect height="150" opacity=".3" rx="8" stroke="currentColor" stroke-width="1.2" width="180" x="20" y="24"></rect>
+<rect height="94" rx="6" stroke="#7CE0C6" stroke-width="1.6" width="116" x="52" y="52"></rect>
+<path d="M52 52l-32-28M168 52l32-28M52 146l-32 28M168 146l32 28" opacity=".45" stroke="#7CE0C6" stroke-width="1.1"></path>
+<path d="M70 74l80 50M150 74l-80 50" opacity=".75" stroke="#F2B45C" stroke-width="1.3"></path>
+<text fill="#7CE0C6" font-family="monospace" font-size="7.5" x="26" y="192">formato = aprieta desde afuera</text>
+<text fill="#F2B45C" font-family="monospace" font-size="7.5" x="26" y="16">restricción = recorta por dentro</text>
+</svg></div>
+<div class="fig" data-cap="&lt;b&gt;Fig. 4&lt;/b&gt; O critério de pronto escrito antes vira uma régua: você mede a resposta em vez de discutir com ela." data-fig="4"><svg aria-hidden="true" fill="none" viewbox="0 0 220 200">
+<rect height="30" rx="6" stroke="#7CE0C6" stroke-width="1.6" width="176" x="22" y="30"></rect>
+<text fill="#7CE0C6" font-family="monospace" font-size="8.5" x="32" y="50">listo = escrito de antemano</text>
+<path d="M110 60v22" opacity=".4" stroke="currentColor" stroke-width="1.2"></path>
+<rect height="18" opacity=".5" rx="3" stroke="currentColor" stroke-width="1.2" width="176" x="22" y="82"></rect>
+<path d="M44 82v18M66 82v10M88 82v18M110 82v10M132 82v18M154 82v10M176 82v18" opacity=".4" stroke="currentColor" stroke-width="1"></path>
+<rect fill="#7CE0C6" height="24" opacity=".18" rx="5" width="106" x="22" y="118"></rect>
+<text fill="#7CE0C6" font-family="monospace" font-size="8" x="30" y="134">respuesta A · pasa</text>
+<rect height="24" rx="5" stroke="#F2B45C" stroke-dasharray="3 3" stroke-width="1.2" width="140" x="22" y="150"></rect>
+<text fill="#F2B45C" font-family="monospace" font-size="8" x="30" y="166">respuesta B · falla en 1 elemento</text>
+</svg></div>
+</div>
+<p class="railcap"></p>
+<div class="steps-ind"></div>
+<p class="sidenote">Resalta cualquier fragmento para convertirlo en una tarjeta de repaso.</p>
+</div></aside>
+</div>
+<div class="fecho-wrap">
+<div class="recap-autor">
+<p class="rak">Resumen</p>
+<ul>
+<li>Toda solicitud implica cinco decisiones — rol, tarea, formato, restricciones y listo — y la mayoría de tus solicitudes solo especifica una.</li>
+<li>El verbo de la tarea determina el tamaño y la naturaleza de la respuesta; «mejora» es un deseo, no un verbo de tarea.</li>
+<li>El formato limita la respuesta por fuera; la restricción recorta por dentro: son soluciones para problemas distintos.</li>
+<li>Escribir el criterio de «listo» antes de enviar es lo que menos se hace y lo que más tiempo devuelve, porque convierte la discusión en medición.</li>
+</ul>
+</div>
+<div class="next-action">
+<p class="nak">Tu siguiente paso</p>
+<p class="na-win">Acabas de conseguir escribir un pedido completo —con molde, límites y criterio— en vez de una frase suelta.</p>
+<p class="na-action">En los próximos 15 minutos: toma la solicitud que más repites durante la semana y escribe solo su línea de «listo». Guárdala en un bloc de notas.</p>
+<p class="na-hook">En la próxima lección resolverás algo que ninguna solicitud puede resolver: la IA no conoce tu caso. Crearás el expediente que leerá antes de trabajar.</p>
+</div>
+</div>
+<nav class="lnav"><a href="#aula-1">← clase 1</a><a href="#aula-3">clase 3 →</a></nav>
+<footer>Clase 2 · INEMA.CLUB PRO</footer>
+<script id="cards-2" type="application/json">
+[
+  {"front":"Você pediu 'melhore este texto' e veio um texto maior, quando queria menor. Qual das cinco partes você não escreveu, e qual palavra você trocaria?","back":"O verbo da tarefa (e o formato). Trocar 'melhore' por 'reescreva mantendo o mesmo tamanho' resolve, porque 'melhore' não diz em que direção."},
+  {"front":"Qual a diferença prática entre uma restrição e um adjetivo tipo 'seja profissional'?","back":"A restrição nomeia o que não pode aparecer e é verificável ('sem exclamação, sem gíria'); o adjetivo não dá nenhum teste que você possa aplicar na resposta."},
+  {"front":"Você precisa que a resposta caiba numa mensagem curta E que não invente dados. Qual parte resolve cada metade?","back":"O formato resolve o tamanho ('em até 6 linhas'); a restrição resolve a invenção ('nada que não esteja no material que colei')."},
+  {"front":"Antes de enviar um pedido importante, que frase você escreve para si mesmo primeiro — e para que ela serve?","back":"'A resposta serve se [teste de 10 segundos]'. Serve para você medir a resposta em vez de discutir com ela, e para saber qual parte corrigir quando falhar."}
+]
+</script>
+<!--
+COMPLETUDE aula-2 | tipo=FUNDAMENTO | steps=4
+  [OK] promise            .promise no cold-open (1)
+  [OK] why                .why após a promessa (1)
+  [OK] tempo              data-tempo="18min" no view + render no cold-open (1)
+  [OK] exemplo-profissao  exemplo aplicado em 100% dos steps (4/4 — Helena s1, Rafael s2, Sônia s3, Rafael s4)
+  [OK] apoio-visual       figura conceitual legendada em 100% dos steps (4/4)
+  [OK] practice           .practice[data-mode="prompt"] (exatamente 1)
+  [OK] psafe              .psafe dentro da prática (1)
+  [OK] pgoal-tempo        .pgoal com "~12 min" declarado (1)
+  [OK] recap-autor        .recap-autor no fecho (1)
+  [OK] next-action        .next-action no fecho (1)
+  [OK] cards              <script id="cards-2"> presente (1)
+  [OK] anti-duplicacao    3 testes passam — cartões nas formas diagnóstico/contraste/aplicação/aplicação, zero sobreposição de 6 palavras com o recap
+  [OK] teste-se-FUND      tipo=FUNDAMENTO: presente (1 quiz data-fb no step 3)
+-->
+</section>
+<!-- ===== AULA 3 ===== -->
+<section class="view" data-aula="3" data-tempo="19min" id="v-aula-3">
+<header class="hero"><div class="hero-inner">
+<div>
+<p class="kicker">Ruta 01 · Lección 3</p>
+<h1>Conocimiento: lo que la IA<br/>necesita saber <em>antes</em></h1>
+<p class="promise">Al terminar esta clase, tendrás un expediente de una página —el tuyo— listo para pegar al inicio de cualquier conversación con IA sobre tu trabajo.</p>
+<p class="why">La IA sabe mucho sobre el mundo y absolutamente nada sobre tu empresa, tu cliente, tu forma de escribir ni lo que se decidió la semana pasada. No avisa que no lo sabe: completa con lo más probable y lo entrega con la misma seguridad con la que acierta.</p>
+<p class="cue"><span class="arw">↓</span> rol para estudiar</p>
+</div>
+<div class="herofig"><svg aria-hidden="true" fill="none" viewbox="0 0 300 240">
+<g fill="none" opacity=".45" stroke="currentColor" stroke-width="1.6">
+<path d="M40 108h96l12 14h72v82H40z"></path>
+<path d="M40 122h108"></path>
+</g>
+<g fill="none" stroke="#7CE0C6" stroke-width="1.7">
+<path d="M92 96h72l10 12h48v78H92z"></path>
+<path d="M108 132h96M108 148h72M108 164h84"></path>
+</g>
+<path d="M196 74c14-10 34-6 42 8" fill="none" stroke="#F2B45C" stroke-dasharray="3 4" stroke-width="1.4"></path>
+<circle cx="243" cy="86" fill="#F2B45C" r="3.4"></circle>
+<path d="M56 60h40M56 74h24" opacity=".25" stroke="currentColor" stroke-width="1.3"></path>
+<path d="M20 216h260" opacity=".14" stroke="currentColor" stroke-width="1"></path>
+</svg></div>
+</div></header>
+<div class="layout">
+<div class="col">
+<section class="step" data-fig="1" data-kind="fundamento">
+<h2><span class="n">01</span> No sabe nada de tu caso — y no te avisa</h2>
+<p>Una IA de chat es como un profesional muy bien preparado que llegó hoy a tu empresa y nadie se lo presentó a nadie. Lee rápido, escribe bien y conoce el tema en general. No conoce a tu cliente, tu historial ni por qué aquí está prohibida esa palabra.</p>
+<p>La diferencia cruel con un colega humano es que el colega pregunta. La IA no pregunta: completa. Cuando falta información, elige la versión más común del mundo y escribe con la misma firmeza.</p>
+<p>Rafael pidió un texto sobre la tienda nueva y recibió un párrafo bonito que hablaba de «atención personalizada y un ambiente acogedor», una frase que sirve para cualquier tienda de cualquier ciudad. No era mentira: era el relleno del vacío. El vacío era la cadena de Rafael.</p>
+<div class="mobfig" data-mobfig="1"></div>
+<button class="readbtn" data-read="s1">marcar como leído</button>
+</section>
+<section class="step" data-fig="2" data-kind="fundamento">
+<h2><span class="n">02</span> Cuatro tipos de conocimiento, y solo uno de ellos es un documento</h2>
+<p>Cuando se habla de «dar contexto», casi todo el mundo piensa en adjuntar un documento. El documento es solo uno de los cuatro tipos y no siempre es el más decisivo.</p>
+<p>Los cuatro: <b>hechos</b> (el material sobre el que se trabaja: el contrato, los números, el texto); <b>quien lee</b> (la persona del otro lado y lo que ya sabe); <b>tu manera</b> (dos o tres ejemplos de lo que consideras bueno, que enseñan más que diez adjetivos); y <b>lo que ya se decidió</b> (las reglas y prohibiciones que surgieron de conversaciones anteriores).</p>
+<p>Helena tenía el contrato (los hechos) y nada más. Cuando agregó «quien lo lee es un comerciante sin formación jurídica» y pegó un resumen antiguo que el cliente había elogiado (su estilo), la calidad mejoró muchísimo, sin cambiar de herramienta ni escribir una solicitud más larga.</p>
+<div class="qanchor"><p>Dos ejemplos de lo que consideras bueno enseñan más que diez adjetivos sobre lo que quieres.</p></div>
+<div class="mobfig" data-mobfig="2"></div>
+<button class="readbtn" data-read="s2">marcar como leído</button>
+</section>
+<section class="step" data-fig="3" data-kind="fundamento">
+<h2><span class="n">03</span> El expediente: una página que escribes una vez y pegas siempre</h2>
+<p>No tiene sentido reescribir los cuatro tipos cada vez. Lo que funciona es tener una sola página; la llamamos <span class="gterm" data-def="Uma página só, escrita uma vez, com o que quase nunca muda no seu trabalho: quem você é, quem lê, as regras da casa e exemplos do seu tom. Você cola no começo da conversa." tabindex="0">dossier</span> — con lo que casi nunca cambia en tu trabajo, guardada en una nota común, lista para pegar al comienzo de la conversación.</p>
+<p>Un dossier útil cabe en una pantalla y tiene cuatro bloques breves: quién soy y qué hago; quién suele leer lo que escribo; tres reglas fijas de la casa; dos fragmentos que ejemplifican mi tono. Nada de esto es un secreto tecnológico: es lo que le dirías a un nuevo colaborador durante el primer café.</p>
+<p>Sônia, contadora, tiene el suyo en nueve líneas: cartera mixta de personas físicas y jurídicas, clientes que no saben de impuestos, nunca prometer un plazo sin confirmarlo en el calendario oficial y dos avisos anteriores que funcionaron bien. Pega esas nueve líneas antes de cualquier solicitud y deja de explicar lo mismo cada semana.</p>
+<div class="quiz" data-answer="a">
+<p class="qk">Ponte a prueba</p><p class="q">Rafael quiere que los textos salgan con el tono de su cadena. ¿Qué probablemente lo resolvería mejor: escribir «sé amable y cercano» o pegar dos textos antiguos que funcionaron?</p>
+<button class="opt" data-fb="Sim: os exemplos mostram ritmo, tamanho, vocabulário e o que a rede evita — tudo de uma vez, sem depender de você acertar o adjetivo. É o tipo 'o seu jeito'." data-k="a">Pegar los dos textos antiguos</button>
+<button class="opt" data-fb="Adjetivos são interpretáveis: 'simpático' significa coisas muito diferentes para pessoas diferentes — e para a IA também." data-k="b">Escribir «sé amable y cercano»</button>
+<button class="opt" data-fb="Mais adjetivos empilhados não reduzem a ambiguidade; costumam aumentá-la, porque agora há mais palavras vagas para interpretar." data-k="c">Escribir la misma frase con más adjetivos</button>
+<p class="qfb"></p>
+</div>
+<div class="mobfig" data-mobfig="3"></div>
+<button class="readbtn" data-read="s3">marcar como leído</button>
+</section>
+<section class="step" data-fig="4" data-kind="fundamento">
+<h2><span class="n">04</span> El conocimiento envejece — y lo viejo es peor que el vacío</h2>
+<p>El expediente tiene una trampa: queda desactualizado en silencio. La tienda cambió de nombre, la regla del área legal dejó de aplicarse, el cliente cambió. Y el expediente sigue pegando la versión antigua con toda la autoridad de estar por escrito.</p>
+<p>La información vieja es peor que no tener información. Cuando falta, la IA escribe algo genérico y tú te das cuenta. Cuando es incorrecta, escribe algo específico y convincente, y nadie se da cuenta.</p>
+<p>Rafael empezó a dedicarle dos minutos a algo: el primer día hábil del mes, lee todo su propio expediente y tacha lo que ya no sirve. Así fue como eliminó el nombre anterior de la tienda, después de que ya se hubiera publicado una vez.</p>
+<div class="qbefore-after">
+<div class="qba-col qba-before">
+<p class="qba-lbl">Expediente sin fecha</p>
+<p class="qba-txt">Pegado cada semana, con una regla que dejó de aplicarse en enero. Los textos salen coherentes y equivocados, y justamente por ser coherentes pasan desapercibidos.</p>
+</div>
+<div class="qba-col qba-depois">
+<p class="qba-lbl">Expediente con fecha al inicio</p>
+<p class="qba-txt">«Revisado en 03/2026». Dos minutos de lectura al mes, y lo que haya caducado se tacha antes de convertirse en texto publicado.</p>
+</div>
+<p class="qba-saldo">Saldo: <b>dos minutos al mes frente a una corrección pública</b> — y una corrección pública cuesta mucho más que tiempo.</p>
+</div>
+<div class="mobfig" data-mobfig="4"></div>
+<button class="readbtn" data-read="s4">marcar como leído</button>
+</section>
+<section class="practice" data-mode="prompt" data-practice="p3">
+<p class="pk">Practica ahora <span class="pcount">0/4 hecho</span></p>
+<h3 class="ph">Escribe tu dossier de una página</h3>
+<p class="pgoal">Completa los cuatro bloques con tu caso real y prueba el dosier con una solicitud que ya hayas hecho. ~13 min.</p>
+<p class="psafe">Guarda el expediente en un bloc de notas tuyo. No incluyas contraseñas, datos identificables de clientes ni números de documento; nada de eso es necesario para lograr el tono adecuado, y lo que no entra en la conversación no puede filtrarse desde allí.</p>
+<div class="pcodewrap"><button class="pcopy" type="button">copiar</button><pre class="pcode">DOSSIÊ — revisado em &lt;mês/ano&gt;
+
+Quem eu sou: &lt;sua função + o que você produz na semana&gt;.
+Quem lê: &lt;a pessoa do outro lado e o quanto ela já sabe do assunto&gt;.
+Regras fixas da casa:
+  1. &lt;coisa que nunca pode aparecer&gt;
+  2. &lt;coisa que sempre tem que aparecer&gt;
+  3. &lt;a proibição que já custou caro uma vez&gt;
+O meu tom, em exemplos:
+  &lt;cole um trecho curto seu que você considera bom&gt;
+  &lt;cole outro, de um caso diferente&gt;
+
+Use isto como base. Se faltar alguma informação para fazer o que eu pedir,
+pergunte antes de escrever — não complete por conta própria.</pre></div>
+<ol class="psteps">
+<li><label><input data-ptask="1" type="checkbox"/> Completa los cuatro bloques. El de «reglas fijas» es el más rápido: piensa en lo que corriges cada vez a mano.</label></li>
+<li><label><input data-ptask="2" type="checkbox"/> En una conversación nueva, pega el expediente y luego haz una solicitud que ya hayas hecho antes, con el mismo texto de antes.</label></li>
+<li><label><input data-ptask="3" type="checkbox"/> Compárala con la respuesta anterior. Deberías notar un tono más parecido al tuyo y que se respetan las reglas de la casa sin tener que repetirlas.</label></li>
+<li><label><input data-ptask="4" type="checkbox"/> Escribe la fecha de revisión en la parte superior y marca en el calendario un recordatorio mensual de dos minutos para volver a leer.</label></li>
+</ol>
+<p class="pdone">Acabas de conseguir un expediente de una página, probado con tu propio material: exactamente lo que prometía esta clase.</p>
+</section>
+</div>
+<aside class="rail"><div class="railsticky">
+<div class="figstage">
+<div class="fig on" data-cap="&lt;b&gt;Fig. 1&lt;/b&gt; Onde falta informação, a IA não deixa buraco: ela preenche com o mais comum do mundo. Repare que a saída fica cheia, não vazia." data-fig="1"><svg aria-hidden="true" fill="none" viewbox="0 0 220 200">
+<rect height="52" opacity=".45" rx="7" stroke="currentColor" stroke-width="1.3" width="184" x="18" y="24"></rect>
+<path d="M30 42h60M30 56h40" opacity=".6" stroke="currentColor" stroke-width="1.4"></path>
+<rect height="30" rx="4" stroke="#F2B45C" stroke-dasharray="3 3" stroke-width="1.2" width="80" x="110" y="34"></rect>
+<text fill="#F2B45C" font-family="monospace" font-size="7.5" x="118" y="53">lo que falta</text>
+<path d="M110 76v20" opacity=".4" stroke="currentColor" stroke-width="1.2"></path>
+<circle cx="110" cy="108" opacity=".55" r="14" stroke="currentColor" stroke-width="1.4"></circle>
+<path d="M104 108h12M110 102v12" opacity=".55" stroke="currentColor" stroke-width="1.2"></path>
+<path d="M110 122v16" opacity=".4" stroke="currentColor" stroke-width="1.2"></path>
+<rect fill="currentColor" height="42" opacity=".08" rx="7" width="184" x="18" y="138"></rect>
+<path d="M30 154h160M30 166h120" opacity=".45" stroke="currentColor" stroke-width="1.3"></path>
+<text fill="currentColor" font-family="monospace" font-size="7.5" opacity=".55" x="30" y="194">salida extensa — y genérica</text>
+</svg></div>
+<div class="fig" data-cap="&lt;b&gt;Fig. 2&lt;/b&gt; Os quatro tipos de conhecimento. Documento é só o primeiro quadrante — os outros três costumam ficar de fora." data-fig="2"><svg aria-hidden="true" fill="none" viewbox="0 0 220 200">
+<rect height="70" rx="7" stroke="#7CE0C6" stroke-width="1.6" width="86" x="20" y="24"></rect>
+<text fill="#7CE0C6" font-family="monospace" font-size="8.5" x="30" y="56">hechos</text>
+<text fill="#7CE0C6" font-family="monospace" font-size="7" opacity=".7" x="30" y="70">el material</text>
+<rect height="70" opacity=".5" rx="7" stroke="currentColor" stroke-width="1.3" width="86" x="114" y="24"></rect>
+<text fill="currentColor" font-family="monospace" font-size="8.5" opacity=".7" x="124" y="56">quien lee</text>
+<rect height="70" opacity=".5" rx="7" stroke="currentColor" stroke-width="1.3" width="86" x="20" y="104"></rect>
+<text fill="currentColor" font-family="monospace" font-size="8.5" opacity=".7" x="30" y="136">tu manera</text>
+<text fill="currentColor" font-family="monospace" font-size="7" opacity=".5" x="30" y="150">ejemplos</text>
+<rect height="70" opacity=".5" rx="7" stroke="currentColor" stroke-width="1.3" width="86" x="114" y="104"></rect>
+<text fill="currentColor" font-family="monospace" font-size="8.5" opacity=".7" x="124" y="136">lo decidido</text>
+<text fill="currentColor" font-family="monospace" font-size="7" opacity=".5" x="124" y="150">reglas</text>
+</svg></div>
+<div class="fig" data-cap="&lt;b&gt;Fig. 3&lt;/b&gt; Escreve uma vez, cola muitas. Repare que o custo fica todo na primeira barra — as seguintes são quase de graça." data-fig="3"><svg aria-hidden="true" fill="none" viewbox="0 0 220 200">
+<rect height="60" rx="7" stroke="#7CE0C6" stroke-width="1.7" width="60" x="20" y="26"></rect>
+<path d="M30 44h40M30 56h28M30 68h34" opacity=".7" stroke="#7CE0C6" stroke-width="1.3"></path>
+<text fill="#7CE0C6" font-family="monospace" font-size="7.5" x="20" y="102">escribe 1×</text>
+<path d="M84 56h26" opacity=".4" stroke="currentColor" stroke-width="1.2"></path>
+<g opacity=".55">
+<rect height="24" rx="4" stroke="currentColor" stroke-width="1.2" width="76" x="120" y="18"></rect>
+<rect height="24" rx="4" stroke="currentColor" stroke-width="1.2" width="76" x="120" y="48"></rect>
+<rect height="24" rx="4" stroke="currentColor" stroke-width="1.2" width="76" x="120" y="78"></rect>
+<rect height="24" rx="4" stroke="currentColor" stroke-width="1.2" width="76" x="120" y="108"></rect>
+</g>
+<text fill="currentColor" font-family="monospace" font-size="7.5" opacity=".55" x="120" y="150">pega en cada conversación</text>
+<path d="M20 170h176" opacity=".2" stroke="currentColor" stroke-width="1"></path>
+<rect fill="#7CE0C6" height="10" opacity=".6" rx="3" width="52" x="20" y="176"></rect>
+<rect fill="currentColor" height="10" opacity=".25" rx="2" width="8" x="76" y="176"></rect>
+<rect fill="currentColor" height="10" opacity=".25" rx="2" width="8" x="88" y="176"></rect>
+<rect fill="currentColor" height="10" opacity=".25" rx="2" width="8" x="100" y="176"></rect>
+</svg></div>
+<div class="fig" data-cap="&lt;b&gt;Fig. 4&lt;/b&gt; Três estados do conhecimento. Olhe o do meio: é o único que produz uma saída específica e errada — por isso passa batido." data-fig="4"><svg aria-hidden="true" fill="none" viewbox="0 0 220 200">
+<g font-family="monospace" font-size="8">
+<rect height="40" opacity=".45" rx="6" stroke="currentColor" stroke-width="1.2" width="184" x="18" y="26"></rect>
+<text fill="currentColor" opacity=".65" x="28" y="44">ausente</text>
+<text fill="currentColor" opacity=".45" x="28" y="58">salida genérica — te das cuenta</text>
+<rect height="40" rx="6" stroke="#F2B45C" stroke-width="1.6" width="184" x="18" y="76"></rect>
+<text fill="#F2B45C" x="28" y="94">viejo</text>
+<text fill="#F2B45C" opacity=".8" x="28" y="108">salida específica e incorrecta — pasa</text>
+<rect height="40" rx="6" stroke="#7CE0C6" stroke-width="1.6" width="184" x="18" y="126"></rect>
+<text fill="#7CE0C6" x="28" y="144">al día</text>
+<text fill="#7CE0C6" opacity=".8" x="28" y="158">salida específica y correcta</text>
+</g>
+</svg></div>
+</div>
+<p class="railcap"></p>
+<div class="steps-ind"></div>
+<p class="sidenote">Resalta cualquier fragmento para convertirlo en una tarjeta de repaso.</p>
+</div></aside>
+</div>
+<div class="fecho-wrap">
+<div class="recap-autor">
+<p class="rak">Resumen</p>
+<ul>
+<li>La IA llega sin saber nada de tu caso y, a diferencia de un colega, no pregunta: llena el vacío con lo más probable del mundo.</li>
+<li>Hay cuatro tipos de conocimiento: el material, quién lo lee, tu estilo expresado en ejemplos y lo que ya se decidió. Solo el primero es un documento.</li>
+<li>Una vez escrito en una página y pegado cada vez, este conjunto deja de costar tiempo en cada conversación.</li>
+<li>Lo que envejece en esta página es más peligroso que lo que le falta, porque produce respuestas específicas y convincentes.</li>
+</ul>
+</div>
+<div class="next-action">
+<p class="nak">Tu siguiente paso</p>
+<p class="na-win">Acabas de conseguir transformar lo que solo estaba en tu cabeza en una página que la IA lee antes de trabajar.</p>
+<p class="na-action">En los próximos 15 minutos: pega tu expediente en una conversación y pide solo esto: «con base en esto, ¿qué te falta saber para escribir bien en mi lugar?». La lista que recibas será la segunda versión de tu expediente.</p>
+<p class="na-hook">En la próxima lección crearás la pieza que falta: la estructura que hace que la IA actúe, revise y se detenga en el momento adecuado, en vez de limitarse a responder bien.</p>
+</div>
+</div>
+<nav class="lnav"><a href="#aula-2">← clase 2</a><a href="#aula-4">clase 4 →</a></nav>
+<footer>Clase 3 · INEMA.CLUB PRO</footer>
+<script id="cards-3" type="application/json">
+[
+  {"front":"Você colou o material e mesmo assim o texto saiu com cara de 'qualquer empresa'. Qual dos quatro tipos de conhecimento você provavelmente esqueceu?","back":"O seu jeito (exemplos do que você considera bom) e quem lê. O material sozinho diz o assunto, não o registro nem o alvo."},
+  {"front":"Um dossiê que falta uma regra e um dossiê que tem uma regra vencida: qual dos dois é mais perigoso, e por quê?","back":"O vencido. A falta produz texto genérico, que salta aos olhos; a regra vencida produz texto específico e convincente, que ninguém revisa."},
+  {"front":"Você tem 3 minutos antes de pedir algo importante e nenhum dossiê pronto. Que três linhas você escreve primeiro?","back":"Quem lê, uma regra proibitiva da casa, e um exemplo curto do seu tom. São as que mais mudam a resposta por linha escrita."},
+  {"front":"Que instrução você acrescenta ao fim do dossiê para a IA não completar buracos por conta própria?","back":"'Se faltar informação para fazer o que eu pedir, pergunte antes de escrever.' Isso troca o preenchimento silencioso por uma pergunta visível."}
+]
+</script>
+<!--
+COMPLETUDE aula-3 | tipo=FUNDAMENTO | steps=4
+  [OK] promise            .promise no cold-open (1)
+  [OK] why                .why após a promessa (1)
+  [OK] tempo              data-tempo="19min" no view + render no cold-open (1)
+  [OK] exemplo-profissao  exemplo aplicado em 100% dos steps (4/4 — Rafael s1, Helena s2, Sônia s3, Rafael s4)
+  [OK] apoio-visual       figura conceitual legendada em 100% dos steps (4/4)
+  [OK] practice           .practice[data-mode="prompt"] (exatamente 1)
+  [OK] psafe              .psafe dentro da prática (1)
+  [OK] pgoal-tempo        .pgoal com "~13 min" declarado (1)
+  [OK] recap-autor        .recap-autor no fecho (1)
+  [OK] next-action        .next-action no fecho (1)
+  [OK] cards              <script id="cards-3"> presente (1)
+  [OK] anti-duplicacao    3 testes passam — cartões nas formas diagnóstico/contraste/aplicação/aplicação, zero sobreposição de 6 palavras com o recap
+  [OK] teste-se-FUND      tipo=FUNDAMENTO: presente (1 quiz data-fb no step 3)
+-->
+</section>
+<!-- ===== AULA 4 ===== -->
+<section class="view" data-aula="4" data-tempo="18min" id="v-aula-4">
+<header class="hero"><div class="hero-inner">
+<div>
+<p class="kicker">Ruta 01 · Lección 4</p>
+<h1>La estructura de trabajo<br/><em>alrededor</em> de la IA</h1>
+<p class="promise">Al terminar esta clase, podrás dibujar en ocho líneas la estructura de trabajo de una tarea tuya y señalar qué piezas todavía no existen.</p>
+<p class="why">Ya tienes un pedido claro y el conocimiento incorporado. Aun así, la IA entrega el resultado y alguien tiene que revisarlo, alguien tiene que recordar lo que se decidió, alguien tiene que indicar hasta dónde no puede llegar. Hoy ese «alguien» eres tú, cada vez. La tercera capa organiza ese trabajo invisible.</p>
+<p class="cue"><span class="arw">↓</span> rol para estudiar</p>
+</div>
+<div class="herofig"><svg aria-hidden="true" fill="none" viewbox="0 0 300 240">
+<g fill="none" opacity=".55" stroke="currentColor" stroke-width="1.7">
+<path d="M30 176v-30c0-8 6-13 15-14l52-5 30-30h64l24 32 42 6c8 1 13 6 13 13v28z"></path>
+<path d="M112 100l-24 26h48v-26zM146 100v26h56l-20-26z"></path>
+<path d="M30 176h240"></path>
+</g>
+<circle cx="88" cy="176" opacity=".55" r="21" stroke="currentColor" stroke-width="1.7"></circle>
+<circle cx="88" cy="176" opacity=".35" r="8" stroke="currentColor" stroke-width="1.4"></circle>
+<circle cx="214" cy="176" opacity=".55" r="21" stroke="currentColor" stroke-width="1.7"></circle>
+<circle cx="214" cy="176" opacity=".35" r="8" stroke="currentColor" stroke-width="1.4"></circle>
+<g fill="none" stroke="#7CE0C6" stroke-width="1.8">
+<rect height="28" rx="4" width="42" x="42" y="138"></rect>
+<path d="M50 138v-7h8v7M68 138v-7h8v7"></path>
+<path d="M52 150h22"></path>
+</g>
+<path d="M84 152h20" stroke="#7CE0C6" stroke-dasharray="3 3" stroke-width="1.3"></path>
+<circle cx="150" cy="46" fill="#F2B45C" r="3.4"></circle>
+<path d="M150 50v14" stroke="#F2B45C" stroke-dasharray="3 3" stroke-width="1.2"></path>
+<path d="M22 206h256" opacity=".14" stroke="currentColor" stroke-width="1"></path>
+</svg></div>
+</div></header>
+<div class="layout">
+<div class="col">
+<section class="step" data-fig="1" data-kind="fundamento">
+<h2><span class="n">01</span> El modelo es el motor; la estructura es todo el auto</h2>
+<p>Un motor por sí solo, en el piso del taller, es potencia que no lleva a nadie a ninguna parte. Le faltan dirección, frenos, tablero, cinturón y tanque. Nada de eso hace que el motor sea más potente: hace que la potencia sea útil y segura.</p>
+<p>Con la IA pasa lo mismo. El modelo es el motor: entiende, escribe, razona. La <span class="gterm" data-def="Tudo que se monta em volta da IA para ela trabalhar com controle e segurança: conhecimento, capacidades, memória, limites, conferência e aprovação. Em inglês se diz harness." tabindex="0">estructura de trabajo</span> es todo lo que se construye a su alrededor para que el trabajo quede listo, sea confiable y cumpla tus reglas. En textos técnicos verás la palabra <i>harness</i> — es exactamente eso, y no tiene nada que ver con que el modelo sea mejor o peor.</p>
+<p>Helena lo descubrió al comparar dos bufetes. El otro usa la misma IA que ella y entrega mejores resúmenes de contratos, no porque use otro motor, sino porque allí tienen una carpeta de plantillas aprobadas, una persona encargada de revisar y una regla: nada se envía sin citar la cláusula de origen.</p>
+<div class="mobfig" data-mobfig="1"></div>
+<button class="readbtn" data-read="s1">marcar como leído</button>
+</section>
+<section class="step" data-fig="2" data-kind="fundamento">
+<h2><span class="n">02</span> Ocho piezas, y ya tienes dos</h2>
+<p>La estructura siempre se construye con las mismas ocho piezas: <b>instrucciones</b> permanentes (las reglas que siempre se aplican), <b>conocimiento</b> (la lección 3), <b>capacidades</b> (lo que puede hacer además de escribir), <b>especializaciones</b> (recetas fijas para tareas que se repiten), <b>memoria</b> (lo que permanece entre conversaciones), <b>límites</b> (dónde se detiene y pregunta), <b>verificación</b> (el paso que separa «terminó» de «está listo») y <b>aprobación</b> (la persona que autoriza antes de que salga).</p>
+<p>Ya preparaste dos de estas ocho en las clases anteriores. No es una lista para memorizar: es una lista para mirar una tarea tuya y preguntarte, elemento por elemento: «¿esto existe en mi caso o lo hago a mano cada vez?».</p>
+<p>Rafael hizo este inventario para «publicar un texto de campaña». Descubrió que tenía conocimiento e instrucciones, pero ninguna memoria, ningún límite por escrito y una verificación que solo hacía cuando se acordaba. Tres de ocho, en un proceso que él ya consideraba organizado.</p>
+<div class="qanchor"><p>Entre modelos parecidos, el que gana no es el mejor motor: es el auto mejor armado a su alrededor.</p></div>
+<div class="mobfig" data-mobfig="2"></div>
+<button class="readbtn" data-read="s2">marcar como leído</button>
+</section>
+<section class="step" data-fig="3" data-kind="fundamento">
+<h2><span class="n">03</span> La misma tarea, con y sin estructura</h2>
+<p>Vale la pena ver la diferencia en una tarea concreta, no en abstracto. «Crear una página para mi empresa», sin estructura, es: tú pides, la IA genera algo, lo miras, no te gusta y vuelves a pedirlo. El trabajo termina cuando te cansas.</p>
+<p>Con estructura, la misma tarea se convierte en una secuencia: lee el manual de marca, revisa las páginas anteriores, usa la receta fija de página, la arma, la abre en el navegador, la compara con la referencia, prueba los botones, la revisa en el celular, corrige lo que falló, la publica en una versión de prueba y solo entonces te pide autorización para publicarla.</p>
+<p>Fíjate en lo que cambió: ninguno de los pasos de esta lista depende de la inteligencia del modelo. Todos son pasos de organización, y esa organización es lo que Helena llamaría procedimiento, algo que cualquier oficina seria lleva décadas aplicando con sus pasantes.</p>
+<div class="quiz" data-answer="c">
+<p class="qk">Ponte a prueba</p><p class="q">Dos profesionales usan exactamente la misma IA. Uno entrega un trabajo confiable y el otro no. ¿Cuál es la explicación más probable?</p>
+<button class="opt" data-fb="Modelos parecidos entregam capacidade parecida — a diferença de confiabilidade raramente vem daí quando a ferramenta é a mesma." data-k="a">Uno de ellos tiene acceso a un modelo mejor</button>
+<button class="opt" data-fb="Escrever pedidos melhores ajuda, mas tem teto (aula 1) — e não explica confiabilidade, que é uma propriedade do processo, não da frase." data-k="b">Uno de ellos escribe solicitudes mucho mejores</button>
+<button class="opt" data-fb="Sim: peças como conferência obrigatória, limites escritos e aprovação antes da publicação é que produzem confiabilidade — e nenhuma delas está dentro do modelo." data-k="c">Uno de ellos armó piezas de estructura que el otro no tiene</button>
+<p class="qfb"></p>
+</div>
+<div class="mobfig" data-mobfig="3"></div>
+<button class="readbtn" data-read="s3">marcar como leído</button>
+</section>
+<section class="step" data-fig="4" data-kind="fundamento">
+<h2><span class="n">04</span> No nace lista — y tampoco debería</h2>
+<p>Nadie crea las ocho piezas un sábado por la tarde. La estructura crece a partir de los incidentes: cada vez que algo sale mal, agregas la pieza que lo habría evitado. Así adquiere el tamaño adecuado para tu nivel de riesgo, en vez de convertirse en burocracia que nadie sigue.</p>
+<p>El camino normal es: empiezas con una buena solicitud, se convierte en solicitud + expediente, incorpora una receta fija cuando la tarea se repite, incorpora memoria cuando te cansas de repetir, incorpora límites después del primer susto e incorpora una revisión obligatoria después del primer error que se publicó.</p>
+<p>Helena está en ese camino. Después añadió la regla «nunca menciones un plazo sin indicar la cláusula», pero solo después de recibir el resumen con el plazo inventado. La pieza surgió del incidente, y por eso se cumple.</p>
+<div class="qbefore-after">
+<div class="qba-col qba-before">
+<p class="qba-lbl">Crear todo de una vez</p>
+<p class="qba-txt">Un procedimiento de dos páginas escrito un domingo, que nadie recuerda el martes y que trata riesgos que nunca ocurrieron.</p>
+</div>
+<div class="qba-col qba-depois">
+<p class="qba-lbl">Una pieza por incidente</p>
+<p class="qba-txt">Cinco líneas que se agregan después de cada error real. Lo bastante breve para recordarlo y lo bastante específico para seguirlo.</p>
+</div>
+<p class="qba-saldo">Saldo: <b>una estructura de cinco líneas que se usa vale más que una de dos páginas que se ignora</b>.</p>
+</div>
+<div class="mobfig" data-mobfig="4"></div>
+<button class="readbtn" data-read="s4">marcar como leído</button>
+</section>
+<section class="practice" data-mode="analise" data-practice="p4">
+<p class="pk">Practica ahora <span class="pcount">0/3 hecho</span></p>
+<h3 class="ph">Haz el inventario de las ocho piezas para una tarea tuya</h3>
+<p class="pgoal">Elige una tarea real que repites y marca, pieza por pieza, qué existe y qué haces a mano. ~10 min.</p>
+<p class="psafe">Esto es una hoja de papel y un bolígrafo, o un bloque de notas. No vas a crear nada ahora ni a cambiar tu forma de trabajar hoy: solo vas a observar. Descubrir que solo existen dos de las ocho partes es el resultado normal, no es un problema tuyo.</p>
+<ol class="psteps">
+<li><label><input data-ptask="1" type="checkbox"/> Elige una tarea que haces con IA al menos una vez por semana y escribe su nombre en la parte superior de la hoja.</label></li>
+<li><label><input data-ptask="2" type="checkbox"/> Escribe las ocho piezas en una columna y marca cada una: <b>existe</b>, <b>lo hago a mano cada vez</b> o <b>no existe</b>. Quedó listo cuando las ocho estén marcadas.</label></li>
+<li><label><input data-ptask="3" type="checkbox"/> Elige una sola: la que, si hubiera existido, habría evitado tu último error real en esa tarea. Empieza por esa.</label></li>
+</ol>
+<details>
+<summary>ver un inventario completado, para comparar</summary>
+<p><b>Tarea de Rafael — publicar un texto de campaña.</b> Instrucciones: existen (tres reglas de la red). Conocimiento: existe (expediente de la lección 3). Capacidades: no existen; él mismo copia y pega todo. Especializaciones: lo hace a mano cada vez, reescribiendo la misma solicitud. Memoria: no existe. Límites: no están por escrito. Revisión: la hace a mano, cuando se acuerda. Aprobación: existe, es él mismo, pero no hay un momento definido.</p>
+<p><b>La que marcó:</b> verificación. El error del nombre antiguo de la tienda se habría detectado con un paso de dos minutos, y ninguna de las otras siete piezas lo habría evitado.</p>
+</details>
+<p class="pdone">Acabas de conseguir diseñar la estructura de una tarea tuya y señalar las piezas que faltan: la promesa de esta clase, aplicada a tu propio trabajo.</p>
+</section>
+</div>
+<aside class="rail"><div class="railsticky">
+<div class="figstage">
+<div class="fig on" data-cap="&lt;b&gt;Fig. 1&lt;/b&gt; O motor no centro e o que se monta em volta. Repare que nenhuma peça externa muda o motor — todas mudam o que ele consegue entregar." data-fig="1"><svg aria-hidden="true" fill="none" viewbox="0 0 220 200">
+<circle cx="110" cy="100" r="30" stroke="#7CE0C6" stroke-width="1.8"></circle>
+<text fill="#7CE0C6" font-family="monospace" font-size="9" x="88" y="104">modelo</text>
+<circle cx="110" cy="100" opacity=".3" r="58" stroke="currentColor" stroke-dasharray="4 5" stroke-width="1.2"></circle>
+<circle cx="110" cy="100" opacity=".2" r="84" stroke="currentColor" stroke-width="1.1"></circle>
+<g fill="currentColor" opacity=".5">
+<circle cx="110" cy="42" r="4"></circle><circle cx="151" cy="59" r="4"></circle><circle cx="168" cy="100" r="4"></circle>
+<circle cx="151" cy="141" r="4"></circle><circle cx="110" cy="158" r="4"></circle><circle cx="69" cy="141" r="4"></circle>
+<circle cx="52" cy="100" r="4"></circle><circle cx="69" cy="59" r="4"></circle>
+</g>
+<text fill="currentColor" font-family="monospace" font-size="7.5" opacity=".5" x="60" y="192">8 piezas alrededor</text>
+</svg></div>
+<div class="fig" data-cap="&lt;b&gt;Fig. 2&lt;/b&gt; O inventário das oito peças. Olhe a coluna do meio: 'faço na mão toda vez' é onde o seu tempo está sumindo." data-fig="2"><svg aria-hidden="true" fill="none" viewbox="0 0 220 200">
+<g font-family="monospace" font-size="7.5">
+<text fill="currentColor" opacity=".55" x="14" y="20">pide</text>
+<text fill="currentColor" opacity=".55" x="112" y="20">estado</text>
+<g opacity=".18" stroke="currentColor" stroke-width="1"><path d="M12 26h196"></path></g>
+<text fill="currentColor" opacity=".75" x="14" y="42">instrucciones</text><rect fill="#7CE0C6" height="9" opacity=".7" rx="2" width="30" x="112" y="34"></rect>
+<text fill="currentColor" opacity=".75" x="14" y="60">conocimiento</text><rect fill="#7CE0C6" height="9" opacity=".7" rx="2" width="30" x="112" y="52"></rect>
+<text fill="currentColor" opacity=".75" x="14" y="78">capacidades</text><rect fill="currentColor" height="9" opacity=".18" rx="2" width="30" x="112" y="70"></rect>
+<text fill="currentColor" opacity=".75" x="14" y="96">especializaciones</text><rect fill="#F2B45C" height="9" opacity=".65" rx="2" width="30" x="112" y="88"></rect>
+<text fill="currentColor" opacity=".75" x="14" y="114">memoria</text><rect fill="currentColor" height="9" opacity=".18" rx="2" width="30" x="112" y="106"></rect>
+<text fill="currentColor" opacity=".75" x="14" y="132">límites</text><rect fill="currentColor" height="9" opacity=".18" rx="2" width="30" x="112" y="124"></rect>
+<text fill="currentColor" opacity=".75" x="14" y="150">verificación</text><rect fill="#F2B45C" height="9" opacity=".65" rx="2" width="30" x="112" y="142"></rect>
+<text fill="currentColor" opacity=".75" x="14" y="168">aprobación</text><rect fill="#F2B45C" height="9" opacity=".65" rx="2" width="30" x="112" y="160"></rect>
+<text fill="#7CE0C6" x="150" y="42">existe</text>
+<text fill="#F2B45C" x="150" y="96">a mano</text>
+<text fill="currentColor" opacity=".4" x="150" y="78">no hay</text>
+</g>
+</svg></div>
+<div class="fig" data-cap="&lt;b&gt;Fig. 3&lt;/b&gt; Duas versões da mesma tarefa. Repare que a de baixo não é mais inteligente — só tem mais etapas de organização entre o pedido e a entrega." data-fig="3"><svg aria-hidden="true" fill="none" viewbox="0 0 220 200">
+<text fill="currentColor" font-family="monospace" font-size="7.5" opacity=".55" x="14" y="26">sin estructura</text>
+<rect height="18" opacity=".5" rx="4" stroke="currentColor" stroke-width="1.2" width="34" x="14" y="34"></rect>
+<path d="M48 43h24" opacity=".4" stroke="currentColor" stroke-width="1.1"></path>
+<rect height="18" opacity=".5" rx="4" stroke="currentColor" stroke-width="1.2" width="34" x="72" y="34"></rect>
+<path d="M106 43h24" opacity=".4" stroke="currentColor" stroke-width="1.1"></path>
+<rect height="18" opacity=".5" rx="4" stroke="currentColor" stroke-width="1.2" width="34" x="130" y="34"></rect>
+<path d="M147 52v14h-96v-14" stroke="#F2B45C" stroke-dasharray="3 3" stroke-width="1.2"></path>
+<text fill="#F2B45C" font-family="monospace" font-size="7" x="60" y="80">repite hasta cansarte</text>
+<text fill="#7CE0C6" font-family="monospace" font-size="7.5" x="14" y="112">con estructura</text>
+<g stroke="#7CE0C6" stroke-width="1.3">
+<rect height="16" rx="4" width="26" x="14" y="120"></rect><rect height="16" rx="4" width="26" x="48" y="120"></rect>
+<rect height="16" rx="4" width="26" x="82" y="120"></rect><rect height="16" rx="4" width="26" x="116" y="120"></rect>
+<rect height="16" rx="4" width="26" x="150" y="120"></rect>
+<rect height="16" rx="4" width="26" x="14" y="148"></rect><rect height="16" rx="4" width="26" x="48" y="148"></rect>
+<rect height="16" rx="4" width="26" x="82" y="148"></rect>
+</g>
+<path d="M40 128h8M74 128h8M108 128h8M142 128h8" opacity=".6" stroke="#7CE0C6" stroke-width="1.1"></path>
+<path d="M40 156h8M74 156h8" opacity=".6" stroke="#7CE0C6" stroke-width="1.1"></path>
+<text fill="#7CE0C6" font-family="monospace" font-size="7" opacity=".8" x="116" y="160">→ aprobación</text>
+</svg></div>
+<div class="fig" data-cap="&lt;b&gt;Fig. 4&lt;/b&gt; A estrutura cresce em degraus, cada um puxado por um incidente. Veja que nenhum degrau nasce antes do erro que o justifica." data-fig="4"><svg aria-hidden="true" fill="none" viewbox="0 0 220 200">
+<g fill="none" stroke="#7CE0C6" stroke-width="1.5">
+<path d="M20 172h32v-24h32v-24h32v-24h32v-24h32v-24"></path>
+</g>
+<g fill="#F2B45C">
+<circle cx="52" cy="148" r="3"></circle><circle cx="84" cy="124" r="3"></circle><circle cx="116" cy="100" r="3"></circle>
+<circle cx="148" cy="76" r="3"></circle><circle cx="180" cy="52" r="3"></circle>
+</g>
+<g fill="#F2B45C" font-family="monospace" font-size="6.5" opacity=".85">
+<text x="30" y="142">1.er susto</text><text x="62" y="118">repetición</text><text x="96" y="94">olvido</text>
+<text x="128" y="70">error público</text><text x="158" y="46">escala</text>
+</g>
+<text fill="currentColor" font-family="monospace" font-size="7.5" opacity=".5" x="20" y="190">tiempo →</text>
+</svg></div>
+</div>
+<p class="railcap"></p>
+<div class="steps-ind"></div>
+<p class="sidenote">Resalta cualquier fragmento para convertirlo en una tarjeta de repaso.</p>
+</div></aside>
+</div>
+<div class="fecho-wrap">
+<div class="recap-autor">
+<p class="rak">Resumen</p>
+<ul>
+<li>El modelo es el motor; la estructura de trabajo es todo el auto que lo rodea, y nada de lo que montas alrededor cambia el motor, solo lo que puede entregar.</li>
+<li>Siempre son las mismas ocho piezas: instrucciones, conocimiento, capacidades, especializaciones, memoria, límites, revisión y aprobación.</li>
+<li>Casi ningún paso de esta estructura es inteligencia: son etapas de organización entre la solicitud y la entrega.</li>
+<li>Crece con cada incidente, pieza por pieza, y por eso tiene el tamaño de tu riesgo real.</li>
+</ul>
+</div>
+<div class="next-action">
+<p class="nak">Tu siguiente paso</p>
+<p class="na-win">Acabas de conseguir ver el trabajo invisible que haces a mano cada vez y ponerle nombre a cada parte.</p>
+<p class="na-action">En los próximos 15 minutos: toma la pieza que marcaste en el inventario y escribe, en dos frases, cómo funcionaría en tu tarea. Solo el diseño, todavía no la ejecución.</p>
+<p class="na-hook">En la próxima lección crearás la pieza que más tiempo te devuelve por hora invertida: la receta fija de la tarea que repites cada semana.</p>
+</div>
+</div>
+<nav class="lnav"><a href="#aula-3">← clase 3</a><a href="#aula-5">clase 5 →</a></nav>
+<footer>Clase 4 · INEMA.CLUB PRO</footer>
+<script id="cards-4" type="application/json">
+[
+  {"front":"Seu concorrente entrega trabalho mais confiável com a mesma IA que você usa. Onde você procura a diferença primeiro?","back":"Nas peças de estrutura dele — conferência obrigatória, limites escritos, aprovação antes da saída — não no modelo nem na redação dos pedidos."},
+  {"front":"Você tem 20 minutos para melhorar uma tarefa sua com IA. Qual pergunta você faz a si mesmo para escolher onde mexer?","back":"'Qual peça, se existisse, teria evitado o meu último erro real nessa tarefa?' — a estrutura cresce por incidente, não por lista completa."},
+  {"front":"Qual a diferença entre um procedimento de duas páginas escrito de uma vez e cinco linhas acrescentadas depois de um erro?","back":"O primeiro trata riscos hipotéticos e ninguém segue; o segundo é curto, nasceu de um caso real e por isso é lembrado e aplicado."},
+  {"front":"Numa tarefa sua, você faz a conferência 'quando lembra'. Em que estado do inventário isso entra, e por que importa nomear assim?","back":"Entra como 'faço na mão toda vez' — não como 'existe'. Nomear assim revela onde o seu tempo some e o que está exposto quando você esquece."}
+]
+</script>
+<!--
+COMPLETUDE aula-4 | tipo=FUNDAMENTO | steps=4
+  [OK] promise            .promise no cold-open (1)
+  [OK] why                .why após a promessa (1)
+  [OK] tempo              data-tempo="18min" no view + render no cold-open (1)
+  [OK] exemplo-profissao  exemplo aplicado em 100% dos steps (4/4 — Helena s1, Rafael s2, Helena s3, Helena s4)
+  [OK] apoio-visual       figura conceitual legendada em 100% dos steps (4/4)
+  [OK] practice           .practice[data-mode="analise"] (exatamente 1)
+  [OK] psafe              .psafe dentro da prática (1)
+  [OK] pgoal-tempo        .pgoal com "~10 min" declarado (1)
+  [OK] recap-autor        .recap-autor no fecho (1)
+  [OK] next-action        .next-action no fecho (1)
+  [OK] cards              <script id="cards-4"> presente (1)
+  [OK] anti-duplicacao    3 testes passam — cartões nas formas diagnóstico/aplicação/contraste/diagnóstico, zero sobreposição de 6 palavras com o recap
+  [OK] teste-se-FUND      tipo=FUNDAMENTO: presente (1 quiz data-fb no step 3)
+-->
+</section>
+<!-- ===== AULA 5 ===== -->
+<section class="view" data-aula="5" data-tempo="18min" id="v-aula-5">
+<header class="hero"><div class="hero-inner">
+<div>
+<p class="kicker">Ruta 01 · Lección 5</p>
+<h1>De la respuesta a la acción:<br/>capacidades y <em>especializaciones</em></h1>
+<p class="promise">Al terminar esta clase, tendrás escrita una especialización —la receta fija de una tarea que repites—, lista para pegar y usar sin volver a escribirlo todo.</p>
+<p class="why">Cada semana haces la misma tarea y escribes casi la misma solicitud, con pequeñas variaciones y algunos olvidos. Es trabajo repetido. Mientras tanto, la IA ya puede hacer cosas que sigues haciendo a mano, sin saber que podías pedírselas.</p>
+<p class="cue"><span class="arw">↓</span> rol para estudiar</p>
+</div>
+<div class="herofig"><svg aria-hidden="true" fill="none" viewbox="0 0 300 240">
+<rect height="150" opacity=".45" rx="10" stroke="currentColor" stroke-width="1.6" width="220" x="40" y="60"></rect>
+<path d="M40 110h220M40 160h220" opacity=".3" stroke="currentColor" stroke-width="1.3"></path>
+<rect fill="currentColor" height="8" opacity=".3" rx="4" width="44" x="128" y="80"></rect>
+<rect fill="currentColor" height="8" opacity=".3" rx="4" width="44" x="128" y="130"></rect>
+<rect fill="currentColor" height="8" opacity=".3" rx="4" width="44" x="128" y="180"></rect>
+<g fill="none" stroke="#7CE0C6" stroke-width="1.6">
+<path d="M62 90h30M62 96h18"></path>
+<path d="M208 88l14 8-14 8"></path>
+<circle cx="80" cy="140" r="8"></circle>
+<path d="M204 136h30v10h-30z"></path>
+</g>
+<path d="M150 40v14" stroke="#F2B45C" stroke-dasharray="3 3" stroke-width="1.3"></path>
+<circle cx="150" cy="34" fill="#F2B45C" r="3.4"></circle>
+<path d="M20 224h260" opacity=".14" stroke="currentColor" stroke-width="1"></path>
+</svg></div>
+</div></header>
+<div class="layout">
+<div class="col">
+<section class="step" data-fig="1" data-kind="fundamento">
+<h2><span class="n">01</span> Responder es una cosa; hacer es otra</h2>
+<p>Durante mucho tiempo, la IA solo devolvía texto. Le pedías algo, respondía y todo lo demás —abrir el documento, buscar el dato, verificar la fecha, pegarlo en el lugar correcto— seguía siendo responsabilidad tuya.</p>
+<p>Lo que cambió es que ahora puede actuar: leer un documento que adjuntas, buscar información actual, mirar una imagen, hacer cálculos sobre una tabla, abrir una página y comprobar si está en línea. Llamamos a estas cosas <span class="gterm" data-def="O que a IA consegue fazer além de escrever texto: ler o documento que você anexa, procurar informação atual, olhar uma imagem, calcular sobre uma tabela, abrir uma página." tabindex="0">capacidades</span>.</p>
+<p>Helena pasó meses pegando fragmentos de contratos en la conversación, uno por uno, porque creía que así funcionaba. El día que adjuntó el documento completo y pidió «encuentra todas las cláusulas de rescisión y dime en qué página está cada una», ahorró cuarenta minutos y obtuvo la referencia de página, que era lo que le faltaba para confiar en el resultado.</p>
+<div class="mobfig" data-mobfig="1"></div>
+<button class="readbtn" data-read="s1">marcar como leído</button>
+</section>
+<section class="step" data-fig="2" data-kind="ferramenta" data-versao="IA de chat · ago/2026">
+<h2><span class="n">02</span> Lo que puedes pedir hoy y lo que todavía no</h2>
+<p>Esta parte cambia con el tiempo, por eso lleva la fecha. Hoy, en una IA de chat común, puedes adjuntar documentos y hojas de cálculo, pedir que busque información actual, enviarle una foto de un papel y pedirle que la lea, pedirle que haga cálculos a partir de una tabla y pedirle que abra una página pública para comprobar lo que dice.</p>
+<p>Lo que todavía no hace por sí sola en una conversación común: entrar en tus sistemas con contraseña, enviar mensajes en tu nombre, manejar tu computadora. Eso existe en herramientas específicas, con autorización, y justamente de eso hablará la lección 7.</p>
+<p>Rafael descubrió dos capacidades que ya usaba mal. Escribía los números de la campaña en la conversación; empezó a adjuntar la hoja de cálculo. Y pedía «revisa si la página está en línea», pensando que la IA lo sabía. No lo sabía, pero cuando le pidió explícitamente que abriera la dirección y leyera el título, lo hizo.</p>
+<div class="qerr">
+<p class="qk">Error común</p>
+<p class="qerr-txt"><b>Suponer que ya revisó el material solo porque está adjunto.</b> Adjuntar pone el documento a su disposición, pero no significa que lo haya leído. Si el pedido no dice «busca en todo el documento adjunto», la respuesta puede venir de su conocimiento general, con la misma apariencia de certeza. Pídelo explícitamente y, mejor aún, pide la referencia: «di en qué página está cada cosa que afirmes».</p>
+</div>
+<div class="mobfig" data-mobfig="2"></div>
+<button class="readbtn" data-read="s2">marcar como leído</button>
+</section>
+<section class="step" data-fig="3" data-kind="fundamento">
+<h2><span class="n">03</span> La especialización es la receta de la casa, escrita una sola vez</h2>
+<p>Una <span class="gterm" data-def="Uma receita fixa e reutilizável para uma tarefa que se repete: os passos, o que consultar, o que nunca fazer e como saber que ficou pronto." tabindex="0">especialización</span> es la receta fija de una tarea que se repite. No es un pedido mejor: es el pedido, más los pasos, más qué consultar, más qué no hacer nunca, más el criterio para darlo por terminado —todo junto, escrito una vez y reutilizado siempre igual.</p>
+<p>La comparación adecuada es con un patrón de costura. Nadie dibuja el patrón de nuevo para cada prenda; se cambia la tela y la medida, y el patrón garantiza que la prenda tenga siempre la misma caída. La especialización hace eso con tu tarea: garantiza que el quinto texto del mes tenga la misma calidad que el primero, incluso el viernes por la noche.</p>
+<p>Helena tiene una para «resumir un contrato para un cliente sin conocimientos jurídicos»: leer el documento adjunto, enumerar plazos, multas y opciones para rescindirlo, redactar cinco puntos sin términos jurídicos sin explicar, citar la cláusula de origen de cada afirmación y marcar en rojo lo que debe confirmar. Ella la pega y solo cambia el contrato.</p>
+<div class="mobfig" data-mobfig="3"></div>
+<button class="readbtn" data-read="s3">marcar como leído</button>
+</section>
+<section class="step" data-fig="4" data-kind="ferramenta" data-versao="IA de chat · ago/2026">
+<h2><span class="n">04</span> Cómo escribir la tuya — y cómo saber si está bien</h2>
+<p>Una buena especialización cabe en media página y responde cinco preguntas en orden. Más que eso se convierte en un documento que nadie lee; menos que eso vuelve a ser un pedido suelto con otro nombre.</p>
+<p>La prueba de calidad es sencilla y cruel: entrégale la receta a alguien de tu equipo que nunca haya hecho la tarea. Si esa persona puede seguirla sin preguntarte nada, está bien. Si necesita preguntar, lo que preguntó es exactamente la línea que falta.</p>
+<p>Sônia escribió la suya para el aviso de vencimiento de impuestos y la probó con la pasante. La primera pregunta fue «¿y para las personas físicas?» — la línea que faltaba y la misma información que ya había arruinado un aviso antes.</p>
+<div class="qsteps">
+<p class="qsk">La receta, en cinco preguntas</p>
+<ol>
+<li><b>¿Cuándo usar esto?</b> — la situación exacta que activa la receta, en una frase.</li>
+<li><b>¿Qué consultar antes?</b> — el dossier, el documento adjunto, el material del mes.</li>
+<li><b>¿Qué pasos, en qué orden?</b> — de tres a seis pasos, con el verbo al principio.</li>
+<li><b>¿Qué no hacer nunca?</b> — las prohibiciones que ya han costado caro.</li>
+<li><b>¿Cómo sé que está listo?</b> — la prueba de diez segundos, la misma de la clase 2.</li>
+</ol>
+</div>
+<div class="mobfig" data-mobfig="4"></div>
+<button class="readbtn" data-read="s4">marcar como leído</button>
+</section>
+<section class="practice" data-mode="tarefa" data-practice="p5">
+<p class="pk">Practica ahora <span class="pcount">0/4 hecho</span></p>
+<h3 class="ph">Escribe la especialización de tu tarea más repetida</h3>
+<p class="pgoal">Convertir la tarea que más repites en una receta de media página y probarla una vez de verdad, en tu trabajo. ~15 min.</p>
+<p class="psafe">Estás escribiendo un texto en un bloque de notas y usando el chat de siempre. No se publica ni se envía nada, y la receta no reemplaza tu revisión final: solo evita que empieces de cero cada semana.</p>
+<ol class="psteps">
+<li><label><input data-ptask="1" type="checkbox"/> Elige la tarea que más repites y responde las cinco preguntas del cuadro de arriba. Media página, no más.</label></li>
+<li><label><input data-ptask="2" type="checkbox"/> Sigue la receta una vez con un caso real de esta semana: pega el expediente, pega la receta, adjunta el material y pide que haga el trabajo.</label></li>
+<li><label><input data-ptask="3" type="checkbox"/> Verifica con tu propia pregunta 5. Está listo cuando la respuesta supera la prueba de diez segundos sin que tengas que reescribir nada.</label></li>
+<li><label><input data-ptask="4" type="checkbox"/> Muéstrale la receta a alguien que nunca haya hecho la tarea y anota la primera pregunta que te haga. Agrega esa línea.</label></li>
+</ol>
+<p class="pdone">Acabas de conseguir una receta fija, probada en un caso real y corregida por alguien que no conocía la tarea: la promesa de esta clase, lista para usar el lunes.</p>
+</section>
+</div>
+<aside class="rail"><div class="railsticky">
+<div class="figstage">
+<div class="fig on" data-cap="&lt;b&gt;Fig. 1&lt;/b&gt; Antes, tudo que não era escrever voltava para você. Repare quantas setas mudam de lado quando as capacidades entram." data-fig="1"><svg aria-hidden="true" fill="none" viewbox="0 0 220 200">
+<rect height="140" opacity=".45" rx="8" stroke="currentColor" stroke-width="1.3" width="80" x="14" y="30"></rect>
+<text fill="currentColor" font-family="monospace" font-size="7.5" opacity=".55" x="24" y="24">tú</text>
+<rect height="140" rx="8" stroke="#7CE0C6" stroke-width="1.5" width="80" x="126" y="30"></rect>
+<text fill="#7CE0C6" font-family="monospace" font-size="7.5" x="136" y="24">la IA</text>
+<g font-family="monospace" font-size="7">
+<path d="M94 52h32" stroke="#7CE0C6" stroke-width="1.3"></path><text fill="#7CE0C6" x="98" y="48">escribir</text>
+<path d="M126 82H94" opacity=".45" stroke="currentColor" stroke-width="1.2"></path><text fill="currentColor" opacity=".5" x="96" y="78">abrir documento</text>
+<path d="M126 112H94" opacity=".45" stroke="currentColor" stroke-width="1.2"></path><text fill="currentColor" opacity=".5" x="96" y="108">buscar</text>
+<path d="M126 142H94" opacity=".45" stroke="currentColor" stroke-width="1.2"></path><text fill="currentColor" opacity=".5" x="96" y="138">verificar</text>
+</g>
+<path d="M96 88h28M96 118h28M96 148h28" stroke="#7CE0C6" stroke-dasharray="2 3" stroke-width="1.4"></path>
+<text fill="#7CE0C6" font-family="monospace" font-size="7" x="20" y="190">línea discontinua = lo que ya puedes pedir</text>
+</svg></div>
+<div class="fig" data-cap="&lt;b&gt;Fig. 2&lt;/b&gt; Três estados de uma capacidade. Olhe o do meio: existe, mas só acontece se você pedir com todas as letras." data-fig="2"><svg aria-hidden="true" fill="none" viewbox="0 0 220 200">
+<g font-family="monospace" font-size="8">
+<rect height="42" rx="6" stroke="#7CE0C6" stroke-width="1.5" width="188" x="16" y="26"></rect>
+<text fill="#7CE0C6" x="28" y="46">lo hace sola</text>
+<text fill="#7CE0C6" opacity=".75" x="28" y="60">leer lo que está adjunto, calcular</text>
+<rect height="42" rx="6" stroke="#F2B45C" stroke-width="1.5" width="188" x="16" y="78"></rect>
+<text fill="#F2B45C" x="28" y="98">solo si lo pides</text>
+<text fill="#F2B45C" opacity=".8" x="28" y="112">buscar información actual, abrir la página, citar</text>
+<rect height="42" opacity=".45" rx="6" stroke="currentColor" stroke-width="1.3" width="188" x="16" y="130"></rect>
+<text fill="currentColor" opacity=".6" x="28" y="150">no lo hagas en la conversación</text>
+<text fill="currentColor" opacity=".45" x="28" y="164">iniciar sesión con contraseña, enviar por ti</text>
+</g>
+</svg></div>
+<div class="fig" data-cap="&lt;b&gt;Fig. 3&lt;/b&gt; O molde e as peças: o que muda a cada uso é só o material. Repare que a forma da saída é sempre a mesma." data-fig="3"><svg aria-hidden="true" fill="none" viewbox="0 0 220 200">
+<path d="M40 24h140l-18 46H58z" fill="none" stroke="#7CE0C6" stroke-width="1.7"></path>
+<text fill="#7CE0C6" font-family="monospace" font-size="8" x="82" y="54">el molde</text>
+<path d="M110 70v18" opacity=".4" stroke="currentColor" stroke-width="1.2"></path>
+<g fill="none" opacity=".5" stroke="currentColor" stroke-width="1.3">
+<path d="M20 96h56l-8 22H28z"></path>
+<path d="M82 96h56l-8 22H90z"></path>
+<path d="M144 96h56l-8 22h-40z"></path>
+</g>
+<g fill="none" opacity=".35" stroke="currentColor" stroke-width="1.2">
+<path d="M20 136h56l-8 22H28z"></path>
+<path d="M82 136h56l-8 22H90z"></path>
+<path d="M144 136h56l-8 22h-40z"></path>
+</g>
+<text fill="currentColor" font-family="monospace" font-size="7.5" opacity=".5" x="20" y="182">misma forma, materiales diferentes</text>
+</svg></div>
+<div class="fig" data-cap="&lt;b&gt;Fig. 4&lt;/b&gt; O teste da receita: cada pergunta que alguém de fora faz é uma linha que faltava. Veja que o teste devolve o conserto pronto." data-fig="4"><svg aria-hidden="true" fill="none" viewbox="0 0 220 200">
+<rect height="120" rx="7" stroke="#7CE0C6" stroke-width="1.5" width="94" x="16" y="24"></rect>
+<g opacity=".7" stroke="#7CE0C6" stroke-width="1.2">
+<path d="M28 46h70M28 62h54M28 78h66M28 94h44M28 110h60"></path>
+</g>
+<text fill="#7CE0C6" font-family="monospace" font-size="7.5" x="20" y="162">la receta</text>
+<circle cx="168" cy="60" opacity=".55" r="18" stroke="currentColor" stroke-width="1.3"></circle>
+<text fill="#F2B45C" font-family="monospace" font-size="11" x="161" y="65">?</text>
+<path d="M150 60h-30" stroke="#F2B45C" stroke-dasharray="3 3" stroke-width="1.3"></path>
+<path d="M120 126h30" stroke="#7CE0C6" stroke-width="1.3"></path>
+<rect height="28" rx="5" stroke="#7CE0C6" stroke-width="1.3" width="52" x="150" y="112"></rect>
+<text fill="#7CE0C6" font-family="monospace" font-size="7" x="156" y="130">+ 1 línea</text>
+<text fill="currentColor" font-family="monospace" font-size="7" opacity=".5" x="128" y="180">pregunta → línea</text>
+</svg></div>
+</div>
+<p class="railcap"></p>
+<div class="steps-ind"></div>
+<p class="sidenote">Resalta cualquier fragmento para convertirlo en una tarjeta de repaso.</p>
+</div></aside>
+</div>
+<div class="fecho-wrap">
+<div class="recap-autor">
+<p class="rak">Resumen</p>
+<ul>
+<li>La IA dejó de limitarse a devolver texto: lee lo que adjuntas, busca información actual, mira imágenes, calcula con tablas y abre páginas, si se lo pides.</li>
+<li>Adjuntar no es lo mismo que hacer que lo lea; hay que pedirle que lo lea y exigir la referencia de origen.</li>
+<li>Una especialización es la receta fija de una tarea repetida: pasos, consultas, prohibiciones y criterio para darla por terminada, todo en media página.</li>
+<li>La receta está bien cuando alguien que nunca ha hecho la tarea puede seguirla sin preguntar nada.</li>
+</ul>
+</div>
+<div class="next-action">
+<p class="nak">Tu siguiente paso</p>
+<p class="na-win">Acabas de conseguir sacar de tu cabeza la tarea que más se repite y dejarla por escrito de una forma que otra persona pueda ejecutarla.</p>
+<p class="na-action">En los próximos 15 minutos: elige la segunda tarea que más repites durante la semana y escribe solo la pregunta 4 sobre ella: «qué nunca hacer». Suele ser la línea más valiosa y la más rápida de escribir.</p>
+<p class="na-hook">En la próxima lección resolverás la molestia de tener que volver a explicar lo mismo cada vez: qué debe guardar la IA entre una conversación y otra, y qué es mejor que olvide.</p>
+</div>
+</div>
+<nav class="lnav"><a href="#aula-4">← clase 4</a><a href="#aula-6">clase 6 →</a></nav>
+<footer>Clase 5 · INEMA.CLUB PRO</footer>
+<script id="cards-5" type="application/json">
+[
+  {"front":"Você anexou um documento de 40 páginas e a resposta veio genérica, sem citar nada dele. O que provavelmente aconteceu?","back":"O pedido não mandou procurar no documento anexado, então a resposta saiu do conhecimento geral. Peça a busca explicitamente e exija a referência de página."},
+  {"front":"Qual a diferença entre um pedido bem escrito e uma especialização?","back":"O pedido resolve uma vez; a especialização junta passos, consultas, proibições e critério de pronto numa receita fixa, para a tarefa que se repete."},
+  {"front":"Você escreveu uma receita e quer saber se está boa antes de confiar nela. Que teste você aplica, e o que faz com o resultado?","back":"Entregar a alguém que nunca fez a tarefa: cada pergunta que essa pessoa fizer é exatamente a linha que falta acrescentar."},
+  {"front":"Sua tarefa da semana envolve conferir se três páginas continuam no ar. Isso é pedido, capacidade ou especialização — e por quê?","back":"É capacidade (abrir a página e ler), acionada dentro de uma especialização se a tarefa se repete toda semana. O pedido sozinho não garante que ela vá abrir."}
+]
+</script>
+<!--
+COMPLETUDE aula-5 | tipo=FERRAMENTA | steps=4
+  [OK] promise            .promise no cold-open (1)
+  [OK] why                .why após a promessa (1)
+  [OK] tempo              data-tempo="18min" no view + render no cold-open (1)
+  [OK] exemplo-profissao  exemplo aplicado em 100% dos steps (4/4 — Helena s1, Rafael s2, Helena s3, Sônia s4)
+  [OK] apoio-visual       figura conceitual legendada em 100% dos steps (4/4)
+  [OK] practice           .practice[data-mode="tarefa"] (exatamente 1)
+  [OK] psafe              .psafe dentro da prática (1)
+  [OK] pgoal-tempo        .pgoal com "~15 min" declarado (1)
+  [OK] recap-autor        .recap-autor no fecho (1)
+  [OK] next-action        .next-action no fecho (1)
+  [OK] cards              <script id="cards-5"> presente (1)
+  [OK] anti-duplicacao    3 testes passam — cartões nas formas diagnóstico/contraste/aplicação/decisão, zero sobreposição de 6 palavras com o recap
+  [N/A] teste-se-FUND     aula é FERRAMENTA (obrigação não se aplica); nenhum teste-se opcional presente
+-->
+</section>
+<!-- ===== AULA 6 ===== -->
+<section class="view" data-aula="6" data-tempo="16min" id="v-aula-6">
+<header class="hero"><div class="hero-inner">
+<div>
+<p class="kicker">Ruta 01 · Lección 6</p>
+<h1>Memoria: dejar de<br/>volver a empezar <em>desde cero</em></h1>
+<p class="promise">Al terminar esta clase, tendrás tu primera ficha de memoria: lo que queda guardado entre conversaciones, separado de lo que solo corresponde al momento.</p>
+<p class="why">Explicas lo mismo todos los lunes. Vuelves a decir quién es el cliente, qué palabra no se usa en la empresa y qué formato prefieres. No es un error tuyo ni falta de voluntad de la IA: es que casi nada pasa de una conversación a otra, a menos que alguien decida qué debe pasar.</p>
+<p class="cue"><span class="arw">↓</span> rol para estudiar</p>
+</div>
+<div class="herofig"><svg aria-hidden="true" fill="none" viewbox="0 0 300 240">
+<rect height="140" opacity=".4" rx="8" stroke="currentColor" stroke-width="1.5" width="196" x="52" y="52"></rect>
+<path d="M52 78h196" opacity=".3" stroke="currentColor" stroke-width="1.2"></path>
+<g fill="none" stroke="#7CE0C6" stroke-width="1.6">
+<rect height="30" rx="5" width="160" x="70" y="94"></rect>
+<path d="M84 108h64"></path>
+</g>
+<g fill="none" opacity=".45" stroke="currentColor" stroke-width="1.3">
+<rect height="26" rx="5" width="160" x="70" y="132"></rect>
+<rect height="18" rx="5" width="160" x="70" y="164"></rect>
+<path d="M84 145h48"></path>
+</g>
+<g opacity=".3" stroke="currentColor" stroke-width="1.4">
+<path d="M92 52V36M150 52V36M208 52V36"></path>
+</g>
+<path d="M244 100l18-8-18-8" fill="none" stroke="#F2B45C" stroke-width="1.4"></path>
+<path d="M22 214h256" opacity=".14" stroke="currentColor" stroke-width="1"></path>
+</svg></div>
+</div></header>
+<div class="layout">
+<div class="col">
+<section class="step" data-fig="1" data-kind="ferramenta" data-versao="IA de chat · ago/2026">
+<h2><span class="n">01</span> Lo que pasa de una conversación a otra</h2>
+<p>Durante una misma conversación, la IA sigue todo lo que se dijo: haces una corrección una vez y la mantiene hasta el final. Cuando abres una conversación nueva, ese hilo se corta. Vuelve a ser aquella profesional que acaba de llegar de la clase 3.</p>
+<p>Las herramientas de chat actuales ya ofrecen un espacio para guardar cosas permanentes, normalmente llamado <span class="gterm" data-def="O pouco que a IA guarda entre uma conversa e outra, e que você mesmo decide: quem você é, as regras que não mudam e as decisões que já custaram caro." tabindex="0">memoria</span> o de «instrucciones personalizadas», en el menú de configuración. Hay poco espacio y tú decides qué incluir. Esa decisión es toda la lección.</p>
+<p>Rafael pensaba que la IA «se había aprendido» el tono de la cadena porque siempre acertaba los jueves. No era así: él trabajaba toda la semana en la misma conversación. El lunes, en una conversación nueva, el tono volvía a ser genérico, y él culpaba a la herramienta por un mal día.</p>
+<div class="qerr">
+<p class="qk">Error común</p>
+<p class="qerr-txt"><b>Guardar como permanente algo que solo correspondía a ese día.</b> Es tentador guardar «estoy llevando la campaña de aniversario de la tienda». Dos meses después, esa frase sigue ahí, y cada texto sale impulsando una campaña que ya terminó. La regla: solo se convierte en memoria lo que le repetirías a un nuevo colaborador dentro de seis meses.</p>
+</div>
+<div class="mobfig" data-mobfig="1"></div>
+<button class="readbtn" data-read="s1">marcar como leído</button>
+</section>
+<section class="step" data-fig="2" data-kind="fundamento">
+<h2><span class="n">02</span> Tres cosas merecen estar en la memoria; lo demás es del momento</h2>
+<p>Lo que merece guardarse cabe en tres categorías. <b>Quién eres y para quién trabajas</b> — tu función, tu público, lo que produces. <b>Las reglas que no cambian</b> — las prohibiciones, el formato que siempre prefieres, la palabra que aquí no se usa. <b>Lo que ya se decidió y costó caro</b> — la corrección que hiciste tres veces, el error que se hizo público una vez.</p>
+<p>Todo lo demás es del momento: el documento de hoy, la duda de esta tarde, el número de este trimestre. Eso vive en la conversación y muere con ella, y está bien así: demasiada memoria estorba tanto como muy poca.</p>
+<p>Helena guardó tres líneas: que es abogada especializada en contratos, que sus textos van dirigidos a clientes sin conocimientos jurídicos y que ninguna afirmación sobre un contrato se envía sin citar la cláusula de origen. Nunca guarda el contrato específico de cada caso, ni debería hacerlo.</p>
+<div class="mobfig" data-mobfig="2"></div>
+<button class="readbtn" data-read="s2">marcar como leído</button>
+</section>
+<section class="step" data-fig="3" data-kind="fundamento">
+<h2><span class="n">03</span> Lo que nunca debe incluirse</h2>
+<p>La memoria es una comodidad, no una caja fuerte. Nunca incluyas contraseñas, datos que identifiquen a un cliente por su nombre, números de documentos, valores de contratos específicos ni nada que no escribirías en una nota dejada sobre tu escritorio.</p>
+<p>El razonamiento es el mismo que ya aplicas con el papel: lo que se guarda queda expuesto a quien tenga acceso a ello. Y lo más importante: nada de esto es necesario para que la calidad sea la adecuada. El tono, el formato y las reglas de la casa no dependen del nombre del cliente.</p>
+<p>Sônia, contadora, lo resolvió cambiando una palabra: en vez de guardar «el cliente Marcos es persona física», guardó «mi cartera es mixta, la mitad son personas físicas». La IA obtiene la misma utilidad y no se guarda ningún nombre.</p>
+<div class="mobfig" data-mobfig="3"></div>
+<button class="readbtn" data-read="s3">marcar como leído</button>
+</section>
+<section class="step" data-fig="4" data-kind="ferramenta" data-versao="IA de chat · ago/2026">
+<h2><span class="n">04</span> La ficha de memoria y la revisión que evita que se eche a perder</h2>
+<p>En la práctica, mantienes dos lugares y no los confundes: la ficha de memoria (breve, permanente, dentro de la herramienta) y el expediente de la lección 3 (más extenso, que pegas cuando el tema lo requiere). La ficha es lo que le dirías a cualquier persona que trabajara contigo; el expediente es lo que necesita para una tarea específica.</p>
+<p>Y aquí también se aplica la misma advertencia de la clase 3, ahora con más fuerza: lo que se guarda envejece en silencio, y lo que envejece dentro de la memoria influye en todo, no solo en una conversación. Por eso la ficha tiene fecha y una revisión programada.</p>
+<p>Rafael revisa su ficha el mismo día que revisa el expediente: dos minutos, el primer lunes del mes. Así fue como quitó «campaña de aniversario», después de dos meses haciendo que los textos se centraran en una fecha que ya había pasado.</p>
+<div class="qsteps">
+<p class="qsk">Crear tu ficha en cuatro pasos</p>
+<ol>
+<li><b>Escribe las tres categorías</b> — quién eres, reglas que no cambian, decisiones que han costado caro. Máximo cinco líneas en total.</li>
+<li><b>Elimina todo lo que tenga un nombre, un número de documento o un valor</b> — reemplázalo por una descripción general que sirva igual.</li>
+<li><b>Pégalo en el espacio de memoria de tu herramienta</b> — en el menú de configuración, en el área de memoria o de instrucciones personalizadas.</li>
+<li><b>Escribe la fecha al lado y marca la revisión mensual</b> — dos minutos, el mismo día que revisas el dossier.</li>
+</ol>
+</div>
+<div class="mobfig" data-mobfig="4"></div>
+<button class="readbtn" data-read="s4">marcar como leído</button>
+</section>
+<section class="practice" data-mode="tarefa" data-practice="p6">
+<p class="pk">Practica ahora <span class="pcount">0/4 hecho</span></p>
+<h3 class="ph">Escribe y prueba tu ficha de memoria</h3>
+<p class="pgoal">Guarda cinco líneas permanentes y comprueba, en una conversación nueva, que se conservaron. ~12 min.</p>
+<p class="psafe">Todo aquí es reversible: lo que guardes se puede borrar en cualquier momento, desde la misma pantalla donde lo escribiste. Si después algo sale extraño, borra la línea y el comportamiento volverá a ser como antes.</p>
+<ol class="psteps">
+<li><label><input data-ptask="1" type="checkbox"/> Escribe las cinco líneas siguiendo las tres categorías. Si pasas de cinco, elimina la que menos usas; no agregues más.</label></li>
+<li><label><input data-ptask="2" type="checkbox"/> Vuelve a leerlo buscando nombres propios, números de documento y montos. Estará listo cuando no haya ninguno de los tres.</label></li>
+<li><label><input data-ptask="3" type="checkbox"/> Guárdalo en el área de memoria de tu herramienta y escribe al lado la fecha de hoy.</label></li>
+<li><label><input data-ptask="4" type="checkbox"/> Abre una conversación nueva y pide algo pequeño de tu trabajo, sin pegar nada. Deberías ver que el tono y las reglas aparecen por sí solos.</label></li>
+</ol>
+<p class="pdone">Acabas de conseguir que lo esencial pase de una conversación a otra, sin tener que volver a explicarlo y sin guardar nada que no debías.</p>
+</section>
+</div>
+<aside class="rail"><div class="railsticky">
+<div class="figstage">
+<div class="fig on" data-cap="&lt;b&gt;Fig. 1&lt;/b&gt; O fio se mantém dentro da conversa e se corta entre elas. Repare que só a faixa de baixo atravessa." data-fig="1"><svg aria-hidden="true" fill="none" viewbox="0 0 220 200">
+<rect height="70" opacity=".5" rx="6" stroke="currentColor" stroke-width="1.3" width="56" x="16" y="30"></rect>
+<rect height="70" opacity=".5" rx="6" stroke="currentColor" stroke-width="1.3" width="56" x="82" y="30"></rect>
+<rect height="70" opacity=".5" rx="6" stroke="currentColor" stroke-width="1.3" width="56" x="148" y="30"></rect>
+<g fill="currentColor" font-family="monospace" font-size="7" opacity=".55">
+<text x="22" y="24">lun</text><text x="88" y="24">tener</text><text x="154" y="24">mié</text>
+</g>
+<path d="M28 60h32M94 60h32M160 60h32" stroke="#7CE0C6" stroke-width="1.4"></path>
+<path d="M72 60h10M138 60h10" stroke="#F2B45C" stroke-dasharray="2 3" stroke-width="1.6"></path>
+<text fill="#F2B45C" font-family="monospace" font-size="7" x="60" y="86">recorta</text>
+<rect height="40" rx="6" stroke="#7CE0C6" stroke-width="1.6" width="188" x="16" y="128"></rect>
+<text fill="#7CE0C6" font-family="monospace" font-size="8" x="28" y="152">memoria — atraviesa todo</text>
+<path d="M44 100v28M110 100v28M176 100v28" opacity=".45" stroke="#7CE0C6" stroke-dasharray="3 3" stroke-width="1.1"></path>
+</svg></div>
+<div class="fig" data-cap="&lt;b&gt;Fig. 2&lt;/b&gt; A peneira: três categorias ficam, o resto passa. Olhe o volume — quase tudo é do momento, e está certo que seja." data-fig="2"><svg aria-hidden="true" fill="none" viewbox="0 0 220 200">
+<path d="M28 26h164l-38 54H66z" fill="none" opacity=".45" stroke="currentColor" stroke-width="1.3"></path>
+<g fill="currentColor" opacity=".3">
+<circle cx="60" cy="42" r="4"></circle><circle cx="86" cy="38" r="4"></circle><circle cx="112" cy="44" r="4"></circle>
+<circle cx="138" cy="38" r="4"></circle><circle cx="160" cy="44" r="4"></circle><circle cx="98" cy="58" r="4"></circle>
+</g>
+<path d="M84 80h52" stroke="#7CE0C6" stroke-width="1.6"></path>
+<g fill="none" stroke="#7CE0C6" stroke-width="1.4">
+<rect height="18" rx="4" width="96" x="62" y="96"></rect>
+<rect height="18" rx="4" width="96" x="62" y="120"></rect>
+<rect height="18" rx="4" width="96" x="62" y="144"></rect>
+</g>
+<g fill="#7CE0C6" font-family="monospace" font-size="7" opacity=".85">
+<text x="70" y="109">quién eres</text><text x="70" y="133">reglas fijas</text><text x="70" y="157">lo que costó caro</text>
+</g>
+<text fill="currentColor" font-family="monospace" font-size="7" opacity=".45" x="150" y="60">del momento →</text>
+</svg></div>
+<div class="fig" data-cap="&lt;b&gt;Fig. 3&lt;/b&gt; A troca que resolve: o mesmo valor de uso sem o dado identificável. Compare as duas linhas — a IA trabalha igual com a de baixo." data-fig="3"><svg aria-hidden="true" fill="none" viewbox="0 0 220 200">
+<rect height="44" rx="6" stroke="#F2B45C" stroke-width="1.5" width="188" x="16" y="40"></rect>
+<text fill="#F2B45C" font-family="monospace" font-size="7.5" x="28" y="60">«el cliente Marcos es persona física»</text>
+<text fill="#F2B45C" font-family="monospace" font-size="7" opacity=".75" x="28" y="74">identifica a alguien · queda guardado</text>
+<path d="M110 90v20" opacity=".4" stroke="currentColor" stroke-width="1.2"></path>
+<path d="M104 104l6 6 6-6" fill="none" opacity=".4" stroke="currentColor" stroke-width="1.2"></path>
+<rect height="44" rx="6" stroke="#7CE0C6" stroke-width="1.6" width="188" x="16" y="116"></rect>
+<text fill="#7CE0C6" font-family="monospace" font-size="7.5" x="28" y="136">«mi cartera es mixta»</text>
+<text fill="#7CE0C6" font-family="monospace" font-size="7" opacity=".8" x="28" y="150">misma utilidad · ningún nombre</text>
+</svg></div>
+<div class="fig" data-cap="&lt;b&gt;Fig. 4&lt;/b&gt; Dois lugares, dois tamanhos, dois momentos de uso. Repare que a ficha é sempre menor que o dossiê — de propósito." data-fig="4"><svg aria-hidden="true" fill="none" viewbox="0 0 220 200">
+<rect height="46" rx="6" stroke="#7CE0C6" stroke-width="1.7" width="76" x="20" y="34"></rect>
+<path d="M32 50h50M32 62h34" opacity=".8" stroke="#7CE0C6" stroke-width="1.3"></path>
+<text fill="#7CE0C6" font-family="monospace" font-size="7" x="20" y="96">ficha · siempre activa</text>
+<rect height="96" opacity=".55" rx="6" stroke="currentColor" stroke-width="1.4" width="76" x="124" y="34"></rect>
+<path d="M136 52h50M136 64h44M136 76h52M136 88h38M136 100h48M136 112h30" opacity=".45" stroke="currentColor" stroke-width="1.2"></path>
+<text fill="currentColor" font-family="monospace" font-size="7" opacity=".55" x="124" y="146">dossier · pegado cuando</text>
+<text fill="currentColor" font-family="monospace" font-size="7" opacity=".55" x="124" y="156">el tema lo requiere</text>
+<path d="M20 174h180" opacity=".2" stroke="currentColor" stroke-width="1"></path>
+<text fill="#F2B45C" font-family="monospace" font-size="7" x="20" y="190">los dos con fecha de revisión</text>
+</svg></div>
+</div>
+<p class="railcap"></p>
+<div class="steps-ind"></div>
+<p class="sidenote">Resalta cualquier fragmento para convertirlo en una tarjeta de repaso.</p>
+</div></aside>
+</div>
+<div class="fecho-wrap">
+<div class="recap-autor">
+<p class="rak">Resumen</p>
+<ul>
+<li>Durante una conversación, la IA sigue todo; entre conversaciones, casi nada pasa de una a otra, salvo lo que decidas guardar.</li>
+<li>Solo tres categorías merecen ser permanentes: quién eres y para quién trabajas, las reglas que no cambian y las decisiones que ya han costado caro.</li>
+<li>El nombre del cliente, el número de documento, la contraseña y el valor del contrato nunca se incluyen, y nada de eso es necesario para obtener un resultado correcto.</li>
+<li>La información guardada envejece en silencio e influye en todo; por eso la ficha tiene fecha y una revisión programada.</li>
+</ul>
+</div>
+<div class="next-action">
+<p class="nak">Tu siguiente paso</p>
+<p class="na-win">Acabas de conseguir dejar de explicar quién eres todos los lunes, y lo hiciste sin guardar nada sensible.</p>
+<p class="na-action">En los próximos 15 minutos: abre el espacio de memoria de tu herramienta y lee lo que ya estaba allí. Casi siempre hay algo antiguo que nadie revisó. Borra una cosa.</p>
+<p class="na-hook">En la próxima lección escribirás los límites: cuándo la IA debe detenerse por su cuenta y preguntarte, en vez de decidir por su cuenta durante tu trabajo.</p>
+</div>
+</div>
+<nav class="lnav"><a href="#aula-5">← clase 5</a><a href="#aula-7">clase 7 →</a></nav>
+<footer>Clase 6 · INEMA.CLUB PRO</footer>
+<script id="cards-6" type="application/json">
+[
+  {"front":"A IA acertou o seu tom a semana inteira e na segunda voltou ao genérico. Qual é a explicação mais provável?","back":"Você estava trabalhando na mesma conversa e abriu uma nova. O que parecia aprendizado era só o fio da conversa — nada tinha sido guardado como permanente."},
+  {"front":"Você quer guardar que sua carteira tem muitos clientes pessoa física. Como escreve isso sem guardar dado de ninguém?","back":"Em forma geral: 'minha carteira é mista, metade pessoa física'. Mesma utilidade prática, nenhum nome ou documento guardado."},
+  {"front":"Qual a diferença entre o que vai na ficha de memória e o que vai no dossiê?","back":"A ficha é curta e permanente — o que vale para qualquer tarefa sua. O dossiê é maior e colado quando o assunto pede."},
+  {"front":"Todo texto seu está puxando um assunto que acabou há meses. Onde você procura primeiro, e o que faz?","back":"Na ficha de memória: provavelmente há uma linha do momento guardada como permanente. Apagar a linha resolve na hora."}
+]
+</script>
+<!--
+COMPLETUDE aula-6 | tipo=FERRAMENTA | steps=4
+  [OK] promise            .promise no cold-open (1)
+  [OK] why                .why após a promessa (1)
+  [OK] tempo              data-tempo="16min" no view + render no cold-open (1)
+  [OK] exemplo-profissao  exemplo aplicado em 100% dos steps (4/4 — Rafael s1, Helena s2, Sônia s3, Rafael s4)
+  [OK] apoio-visual       figura conceitual legendada em 100% dos steps (4/4)
+  [OK] practice           .practice[data-mode="tarefa"] (exatamente 1)
+  [OK] psafe              .psafe dentro da prática (1)
+  [OK] pgoal-tempo        .pgoal com "~12 min" declarado (1)
+  [OK] recap-autor        .recap-autor no fecho (1)
+  [OK] next-action        .next-action no fecho (1)
+  [OK] cards              <script id="cards-6"> presente (1)
+  [OK] anti-duplicacao    3 testes passam — cartões nas formas diagnóstico/aplicação/contraste/diagnóstico, zero sobreposição de 6 palavras com o recap
+  [N/A] teste-se-FUND     aula é FERRAMENTA (obrigação não se aplica); nenhum teste-se opcional presente
+-->
+</section>
+<!-- ===== AULA 7 ===== -->
+<section class="view" data-aula="7" data-tempo="18min" id="v-aula-7">
+<header class="hero"><div class="hero-inner">
+<div>
+<p class="kicker">Ruta 01 · Lección 7</p>
+<h1>Límites: dónde la IA<br/>necesita <em>detenerse y preguntar</em></h1>
+<p class="promise">Al terminar esta clase, tendrás escrita tu lista de límites en tres franjas —lo que es libre, lo que requiere tu autorización y lo que está prohibido— para una tarea real tuya.</p>
+<p class="why">Cuanto más puede hacer la IA por su cuenta, más caro resulta que haga algo mal rápidamente. Un texto genérico puedes corregirlo; un aviso equivocado enviado a cuarenta clientes no puedes retirarlo. La diferencia entre ambos casos no es la inteligencia de la IA: es que exista un punto de parada.</p>
+<p class="cue"><span class="arw">↓</span> rol para estudiar</p>
+</div>
+<div class="herofig"><svg aria-hidden="true" fill="none" viewbox="0 0 300 240">
+<rect height="72" opacity=".45" rx="6" stroke="currentColor" stroke-width="1.5" width="52" x="34" y="120"></rect>
+<rect height="20" opacity=".35" rx="3" stroke="currentColor" stroke-width="1.3" width="28" x="46" y="136"></rect>
+<path d="M92 148h150" stroke="#7CE0C6" stroke-linecap="round" stroke-width="3"></path>
+<path d="M104 148v-8M124 148v-8M144 148v-8M164 148v-8M184 148v-8M204 148v-8M224 148v-8" opacity=".4" stroke="#7CE0C6" stroke-width="1.2"></path>
+<circle cx="92" cy="148" fill="#7CE0C6" r="5"></circle>
+<path d="M40 200h230" opacity=".22" stroke="currentColor" stroke-width="1.4"></path>
+<path d="M248 118v-16" stroke="#F2B45C" stroke-width="1.4"></path>
+<circle cx="248" cy="94" r="8" stroke="#F2B45C" stroke-width="1.5"></circle>
+<path d="M248 90v5" stroke="#F2B45C" stroke-width="1.6"></path>
+<circle cx="248" cy="99" fill="#F2B45C" r="1.4"></circle>
+<path d="M120 76h96" opacity=".12" stroke="currentColor" stroke-width="1"></path>
+</svg></div>
+</div></header>
+<div class="layout">
+<div class="col">
+<section class="step" data-fig="1" data-kind="fundamento">
+<h2><span class="n">01</span> La autonomía sin límites es el susto que todavía no ha ocurrido</h2>
+<p>Mientras la IA solo escribía, el peor caso era un texto malo. Lo leías, no te gustaba y lo rehacías. El perjuicio cabía dentro de tu escritorio.</p>
+<p>A medida que adquiere capacidades —leer tus documentos, buscar, calcular, preparar cosas para enviar—, el peor escenario cambia de tamaño. No porque se haya vuelto peligrosa, sino porque el alcance del error creció junto con el alcance del acierto. Ambas cosas crecen siempre juntas.</p>
+<p>Helena vivió una versión pequeña de eso: el resumen con el plazo que no existía. Le costó una llamada telefónica incómoda. Si ese mismo resumen hubiera llegado directamente al cliente por un mensaje automático, sin pasar por ella, le habría costado un cliente.</p>
+<div class="qanchor"><p>El alcance del error crece exactamente en la misma medida que el alcance del acierto.</p></div>
+<div class="mobfig" data-mobfig="1"></div>
+<button class="readbtn" data-read="s1">marcar como leído</button>
+</section>
+<section class="step" data-fig="2" data-kind="fundamento">
+<h2><span class="n">02</span> Tres niveles — y el trabajo está en el intermedio</h2>
+<p>Esto no se organiza con «cuidado». Se organiza con tres franjas, definidas de antemano. <b>Libre</b>: lo que puede hacer sin preguntar, porque equivocarse ahí es barato y reversible: redactar borradores, resumir para que tú mismo leas, sugerir opciones. <b>Pide autorización</b>: lo que prepara y deja listo, a la espera de tu aprobación: cualquier cosa que vaya a llegarle a otra persona. <b>Prohibido</b>: lo que nunca hace, aunque lo pidas sin pensarlo en un día ajetreado.</p>
+<p>El límite intermedio es el que marca la diferencia en el día a día y casi nadie escribe. No impide el trabajo: solo te pone entre «listo» y «enviado».</p>
+<p>Rafael escribió las suyas en cinco líneas. Libre: redactar borradores de textos, sugerir títulos, analizar los números de la campaña. Requiere autorización: cualquier texto que vaya a publicarse, cualquier respuesta a un cliente. Prohibido: mencionar precios sin confirmación, prometer plazos de entrega, usar el nombre de un competidor.</p>
+<div class="quiz" data-answer="b">
+<p class="qk">Ponte a prueba</p><p class="q">Sônia quiere que la IA prepare los avisos de vencimiento para sus clientes, pero no quiere volver a llevarse el susto de que salga un aviso incorrecto. ¿En qué nivel entra «preparar los avisos»?</p>
+<button class="opt" data-fb="Se fosse livre, os avisos poderiam sair sem que ela visse — e é exatamente isso que ela quer evitar. A tarefa é útil, mas não é barata de errar." data-k="a">Libre: solo hay que escribir texto</button>
+<button class="opt" data-fb="Sim: montar é útil e deve continuar acontecendo; o que precisa parar é a saída. A faixa do meio deixa a IA fazer tudo e para você entre o pronto e o enviado." data-k="b">Pide autorización: arma, pero no envíes</button>
+<button class="opt" data-fb="Proibir a montagem jogaria fora o ganho inteiro. Proibição serve para o que nunca deve acontecer, não para o que precisa de conferência." data-k="c">Prohibido: el riesgo es demasiado alto</button>
+<p class="qfb"></p>
+</div>
+<div class="mobfig" data-mobfig="2"></div>
+<button class="readbtn" data-read="s2">marcar como leído</button>
+</section>
+<section class="step" data-fig="3" data-kind="fundamento">
+<h2><span class="n">03</span> La aprobación debe tener una hora fijada</h2>
+<p>«Lo reviso antes de enviar» no es un límite: es una intención. Se convierte en límite cuando tiene un momento definido, una forma definida y un estado definido: la cosa queda lista en un lugar de espera y tú dices que sí.</p>
+<p>En la práctica, es lo que las empresas llevan décadas haciendo con cualquier material que producen: hay una versión de prueba, alguien la revisa y alguien la aprueba. La IA no deja de ahorrarte tiempo por eso: la preparación, que era lo que demoraba, sigue siendo automática. Lo que queda en manos de una persona es el clic final, que toma segundos.</p>
+<p>Sônia armó la suya así: los cuarenta avisos quedan listos en una lista, ella lee los tres primeros y una muestra de la mitad, y solo entonces los envía. Antes escribía los cuarenta y no volvía a leer ninguno, porque después de escribir ya no le quedaba tiempo.</p>
+<div class="qbefore-after">
+<div class="qba-col qba-before">
+<p class="qba-lbl">«Lo reviso antes de enviar»</p>
+<p class="qba-txt">Funciona en los días tranquilos. En los días ajetreados —que son cuando ocurren los errores— no funciona, y nadie se da cuenta de que no se hizo la revisión.</p>
+</div>
+<div class="qba-col qba-depois">
+<p class="qba-lbl">Aprobación con hora y forma</p>
+<p class="qba-txt">Todo queda listo en una lista de espera. Nada sale sin un sí explícito. En los días ajetreados, lo que ocurre es una demora, no un error publicado.</p>
+</div>
+<p class="qba-saldo">Saldo: <b>el día ajetreado empieza a producir demoras en vez de errores</b> — y el retraso, a diferencia del error, lo puedes recuperar.</p>
+</div>
+<div class="mobfig" data-mobfig="3"></div>
+<button class="readbtn" data-read="s3">marcar como leído</button>
+</section>
+<section class="step" data-fig="4" data-kind="fundamento">
+<h2><span class="n">04</span> Los límites no frenan el trabajo; ocurre lo contrario</h2>
+<p>Es comprensible temer que escribir límites vuelva burocrático algo que era ágil y rápido. En la práctica, ocurre lo contrario: quien tiene los límites por escrito delega más, no menos.</p>
+<p>La razón es sencilla. Sin límites escritos, cada tarea se convierte en una decisión nueva —«¿lo dejo?», «¿y si sale mal?»— y al final haces todo a mano por precaución. Con los límites escritos, dejas de supervisar para siempre todo lo que esté dentro del límite libre, sin sentir culpa.</p>
+<p>Helena se dio cuenta al hacer cuentas: después de escribir los tres rangos, empezó a dejar que la IA redactara por su cuenta los borradores de correos internos y clasificara documentos; antes los revisaba línea por línea por una vaga sensación de inquietud, aunque claramente son tareas en las que equivocarse es barato.</p>
+<div class="mobfig" data-mobfig="4"></div>
+<button class="readbtn" data-read="s4">marcar como leído</button>
+</section>
+<section class="practice" data-mode="analise" data-practice="p7">
+<p class="pk">Practica ahora <span class="pcount">0/3 hecho</span></p>
+<h3 class="ph">Clasifica ocho acciones en las tres franjas</h3>
+<p class="pgoal">Lee ocho acciones de un caso y decide el nivel de cada una; después, aplica el criterio a tu tarea. ~11 min.</p>
+<p class="psafe">Esto es una decisión en papel. No vas a cambiar ninguna configuración ni autorizar nada ahora. No existe un nivel incorrecto en abstracto: existe un nivel que no se ajusta a lo que estás dispuesto a perder, y solo tú lo sabes.</p>
+<ol class="psteps">
+<li><label><input data-ptask="1" type="checkbox"/> Clasifica estas ocho acciones del caso de Rafael: (1) redactar tres títulos; (2) publicar un texto en la página de la red; (3) responder una duda de un cliente; (4) leer la hoja de cálculo de la campaña y resumirla; (5) cambiar el precio anunciado; (6) sugerir diez ideas para publicaciones; (7) enviar un comunicado a las tiendas; (8) borrar textos antiguos de la carpeta.</label></li>
+<li><label><input data-ptask="2" type="checkbox"/> Compáralas con la clave de respuestas de abajo y anota las dos con las que no estuviste de acuerdo. El desacuerdo suele revelar tu verdadera tolerancia al riesgo.</label></li>
+<li><label><input data-ptask="3" type="checkbox"/> Ahora escribe los tres límites de TU tarea de la clase 4: máximo dos líneas por límite.</label></li>
+</ol>
+<details>
+<summary>ver la clave comentada</summary>
+<p><b>Libre (1, 4, 6):</b> redactar títulos, leer y resumir la hoja de cálculo, sugerir ideas. Error barato, reversible, y nada sale de su escritorio.</p>
+<p><b>Pide autorización (2, 3, 7):</b> publicar, responder a un cliente, enviar un comunicado. Todas tienen la misma característica: alguien de fuera lo recibe. Esa es la regla más útil de todas.</p>
+<p><b>Prohibido (5, 8):</b> cambiar el precio anunciado y borrar material antiguo. No porque la IA se equivocaría más que una persona, sino porque son acciones que nadie puede deshacer después. Lo que se pierde sin posibilidad de recuperarlo se prohíbe; no se verifica.</p>
+<p><b>Si no estuviste de acuerdo en (3):</b> muchos negocios ponen la respuesta al cliente en la franja libre, con un texto estándar fijo. Es defendible, siempre que el texto estándar lo hayas escrito tú y no se genere en el momento.</p>
+</details>
+<p class="pdone">Acabas de conseguir distinguir las tres franjas en un caso real y en tu propia tarea: la promesa de esta clase, con tu criterio de riesgo, no el de otra persona.</p>
+</section>
+</div>
+<aside class="rail"><div class="railsticky">
+<div class="figstage">
+<div class="fig on" data-cap="&lt;b&gt;Fig. 1&lt;/b&gt; As duas curvas sobem juntas. Repare que não há como escolher só a de cima — o que se escolhe é onde colocar a linha de parada." data-fig="1"><svg aria-hidden="true" fill="none" viewbox="0 0 220 200">
+<path d="M28 172h164M28 172V28" opacity=".35" stroke="currentColor" stroke-width="1.2"></path>
+<path d="M28 168c40-4 78-40 156-114" fill="none" stroke="#7CE0C6" stroke-width="1.8"></path>
+<path d="M28 170c40-2 78-38 156-108" fill="none" stroke="#F2B45C" stroke-dasharray="4 4" stroke-width="1.6"></path>
+<text fill="#7CE0C6" font-family="monospace" font-size="7.5" x="112" y="52">alcance del acierto</text>
+<text fill="#F2B45C" font-family="monospace" font-size="7.5" x="86" y="106">alcance del error</text>
+<text fill="currentColor" font-family="monospace" font-size="7.5" opacity=".5" x="30" y="190">autonomía →</text>
+</svg></div>
+<div class="fig" data-cap="&lt;b&gt;Fig. 2&lt;/b&gt; As três faixas e a régua que decide: alguém de fora recebe? Olhe que a resposta a essa pergunta sozinha resolve quase tudo." data-fig="2"><svg aria-hidden="true" fill="none" viewbox="0 0 220 200">
+<rect height="42" rx="6" stroke="#7CE0C6" stroke-width="1.6" width="188" x="16" y="26"></rect>
+<text fill="#7CE0C6" font-family="monospace" font-size="8.5" x="28" y="46">libre</text>
+<text fill="#7CE0C6" font-family="monospace" font-size="7" opacity=".8" x="28" y="60">error barato · se queda en tu mesa</text>
+<rect height="42" rx="6" stroke="#F2B45C" stroke-width="1.7" width="188" x="16" y="78"></rect>
+<text fill="#F2B45C" font-family="monospace" font-size="8.5" x="28" y="98">pide autorización</text>
+<text fill="#F2B45C" font-family="monospace" font-size="7" opacity=".85" x="28" y="112">alguien de afuera lo recibe</text>
+<rect height="42" opacity=".6" rx="6" stroke="currentColor" stroke-width="1.5" width="188" x="16" y="130"></rect>
+<text fill="currentColor" font-family="monospace" font-size="8.5" opacity=".75" x="28" y="150">prohibido</text>
+<text fill="currentColor" font-family="monospace" font-size="7" opacity=".55" x="28" y="164">no se deshace después</text>
+</svg></div>
+<div class="fig" data-cap="&lt;b&gt;Fig. 3&lt;/b&gt; A lista de espera entre o pronto e o enviado. Veja onde está o único passo manual: no fim, e leva segundos." data-fig="3"><svg aria-hidden="true" fill="none" viewbox="0 0 220 200">
+<g fill="none" stroke="#7CE0C6" stroke-width="1.4">
+<rect height="20" rx="4" width="60" x="16" y="34"></rect>
+<rect height="20" rx="4" width="60" x="16" y="62"></rect>
+<rect height="20" rx="4" width="60" x="16" y="90"></rect>
+<rect height="20" rx="4" width="60" x="16" y="118"></rect>
+</g>
+<text fill="#7CE0C6" font-family="monospace" font-size="7" x="16" y="158">listos, esperando</text>
+<path d="M80 86h28" opacity=".4" stroke="currentColor" stroke-width="1.2"></path>
+<rect height="40" rx="8" stroke="#F2B45C" stroke-width="1.7" width="40" x="110" y="66"></rect>
+<path d="M120 86l7 7 13-14" fill="none" stroke="#F2B45C" stroke-width="1.7"></path>
+<text fill="#F2B45C" font-family="monospace" font-size="7" x="106" y="122">tu sí</text>
+<path d="M154 86h30" stroke="#7CE0C6" stroke-width="1.4"></path>
+<path d="M178 80l8 6-8 6" fill="none" stroke="#7CE0C6" stroke-width="1.4"></path>
+<text fill="#7CE0C6" font-family="monospace" font-size="7" x="160" y="122">sale</text>
+</svg></div>
+<div class="fig" data-cap="&lt;b&gt;Fig. 4&lt;/b&gt; Sem faixa escrita, tudo passa por você. Compare as duas colunas: a faixa livre é o que sai da sua fila de supervisão." data-fig="4"><svg aria-hidden="true" fill="none" viewbox="0 0 220 200">
+<text fill="currentColor" font-family="monospace" font-size="7.5" opacity=".55" x="16" y="24">sin rangos</text>
+<g fill="none" opacity=".45" stroke="currentColor" stroke-width="1.2">
+<rect height="14" rx="3" width="76" x="16" y="32"></rect><rect height="14" rx="3" width="76" x="16" y="50"></rect>
+<rect height="14" rx="3" width="76" x="16" y="68"></rect><rect height="14" rx="3" width="76" x="16" y="86"></rect>
+<rect height="14" rx="3" width="76" x="16" y="104"></rect><rect height="14" rx="3" width="76" x="16" y="122"></rect>
+</g>
+<path d="M54 140v14" stroke="#F2B45C" stroke-width="1.3"></path>
+<text fill="#F2B45C" font-family="monospace" font-size="7" x="16" y="168">todo te espera</text>
+<text fill="#7CE0C6" font-family="monospace" font-size="7.5" x="124" y="24">con franjas</text>
+<g fill="none" opacity=".45" stroke="#7CE0C6" stroke-width="1.3">
+<rect height="14" rx="3" width="76" x="124" y="32"></rect><rect height="14" rx="3" width="76" x="124" y="50"></rect>
+<rect height="14" rx="3" width="76" x="124" y="68"></rect><rect height="14" rx="3" width="76" x="124" y="86"></rect>
+</g>
+<g fill="none" stroke="#F2B45C" stroke-width="1.4">
+<rect height="14" rx="3" width="76" x="124" y="104"></rect><rect height="14" rx="3" width="76" x="124" y="122"></rect>
+</g>
+<path d="M162 140v14" stroke="#F2B45C" stroke-width="1.3"></path>
+<text fill="#7CE0C6" font-family="monospace" font-size="7" x="124" y="168">solo dos esperan</text>
+</svg></div>
+</div>
+<p class="railcap"></p>
+<div class="steps-ind"></div>
+<p class="sidenote">Resalta cualquier fragmento para convertirlo en una tarjeta de repaso.</p>
+</div></aside>
+</div>
+<div class="fecho-wrap">
+<div class="recap-autor">
+<p class="rak">Resumen</p>
+<ul>
+<li>A medida que la IA adquiere capacidades, el tamaño del peor caso crece junto con el del mejor: no puedes elegir solo uno de los dos.</li>
+<li>Tres niveles lo resuelven: libre, requiere autorización y prohibido. La pregunta más útil para el nivel intermedio es «¿alguien de afuera recibirá esto?»</li>
+<li>La prohibición sirve para lo que nadie puede deshacer después; la revisión sirve para lo que se puede corregir.</li>
+<li>Escribir los rangos no frena el trabajo: es lo que permite dejar de supervisar todo aquello en lo que es barato equivocarse.</li>
+</ul>
+</div>
+<div class="next-action">
+<p class="nak">Tu siguiente paso</p>
+<p class="na-win">Acabas de conseguir decir por escrito hasta dónde llega la IA en tu trabajo y, a la vez, dónde puede avanzar sola sin quitarte atención.</p>
+<p class="na-action">En los próximos 15 minutos: toma una tarea que todavía revisas línea por línea y comprueba en qué franja está realmente. Si está en la libre, deja de revisarla.</p>
+<p class="na-hook">En la próxima lección crearás la pieza que le faltaba a Helena el día del plazo inventado: el ciclo de revisión que se ejecuta antes de que salga cualquier cosa.</p>
+</div>
+</div>
+<nav class="lnav"><a href="#aula-6">← clase 6</a><a href="#aula-8">clase 8 →</a></nav>
+<footer>Clase 7 · INEMA.CLUB PRO</footer>
+<script id="cards-7" type="application/json">
+[
+  {"front":"Você precisa decidir rápido se uma ação da IA pede a sua autorização. Que pergunta única resolve na maioria dos casos?","back":"'Alguém de fora recebe o resultado disto?' Se sim, faixa do meio: ela prepara e para, você libera."},
+  {"front":"Qual a diferença entre uma ação que vai para a faixa proibida e uma que vai para a faixa de autorização?","back":"A proibida não se desfaz depois (apagar, mudar preço anunciado); a de autorização é recuperável se alguém conferir antes de sair."},
+  {"front":"Alguém diz que escrever limites vai deixar o trabalho mais lento. Como você responde, com base no que a aula mostrou?","back":"Acontece o contrário: sem faixas, cada tarefa vira uma decisão nova e você acaba revisando tudo. Com faixas, a faixa livre sai da sua supervisão de vez."},
+  {"front":"'Eu confiro antes de mandar' falhou de novo num dia corrido. Que mudança concreta transforma isso num limite de verdade?","back":"Dar hora, forma e estado: o material fica pronto numa lista de espera e nada sai sem um sim explícito. Assim o dia corrido gera atraso, não erro publicado."}
+]
+</script>
+<!--
+COMPLETUDE aula-7 | tipo=FUNDAMENTO | steps=4
+  [OK] promise            .promise no cold-open (1)
+  [OK] why                .why após a promessa (1)
+  [OK] tempo              data-tempo="18min" no view + render no cold-open (1)
+  [OK] exemplo-profissao  exemplo aplicado em 100% dos steps (4/4 — Helena s1, Rafael s2, Sônia s3, Helena s4)
+  [OK] apoio-visual       figura conceitual legendada em 100% dos steps (4/4)
+  [OK] practice           .practice[data-mode="analise"] (exatamente 1)
+  [OK] psafe              .psafe dentro da prática (1)
+  [OK] pgoal-tempo        .pgoal com "~11 min" declarado (1)
+  [OK] recap-autor        .recap-autor no fecho (1)
+  [OK] next-action        .next-action no fecho (1)
+  [OK] cards              <script id="cards-7"> presente (1)
+  [OK] anti-duplicacao    3 testes passam — cartões nas formas decisão/contraste/aplicação/diagnóstico, zero sobreposição de 6 palavras com o recap
+  [OK] teste-se-FUND      tipo=FUNDAMENTO: presente (1 quiz data-fb no step 2)
+-->
+</section>
+<!-- ===== AULA 8 ===== -->
+<section class="view" data-aula="8" data-tempo="17min" id="v-aula-8">
+<header class="hero"><div class="hero-inner">
+<div>
+<p class="kicker">Ruta 01 · Lección 8</p>
+<h1>El ciclo de revisión:<br/>hacer, mirar, <em>corregir</em></h1>
+<p class="promise">Al terminar esta clase, tendrás escrito el criterio de «listo» de una tarea tuya antes de que la IA empiece, y un ciclo de revisión de tres minutos que se ejecuta cada vez.</p>
+<p class="why">Todo error que llegó lejos pasó por un momento en el que alguien creyó que estaba listo. No es falta de atención: es que casi nunca queda escrito qué significa «listo», y lo que no está escrito cambia de definición según el cansancio del día.</p>
+<p class="cue"><span class="arw">↓</span> rol para estudiar</p>
+</div>
+<div class="herofig"><svg aria-hidden="true" fill="none" viewbox="0 0 300 240">
+<rect fill="currentColor" height="12" opacity=".16" rx="4" width="228" x="36" y="150"></rect>
+<g fill="none" stroke="#7CE0C6" stroke-width="1.8">
+<path d="M78 150V88h96"></path>
+<path d="M78 104h24"></path>
+</g>
+<g fill="none" opacity=".5" stroke="currentColor" stroke-width="1.5">
+<rect height="38" rx="5" width="98" x="150" y="112"></rect>
+<path d="M160 130h30M200 130h20"></path>
+<circle cx="199" cy="131" r="6"></circle>
+</g>
+<path d="M118 66c22-14 52-10 68 8" fill="none" stroke="#F2B45C" stroke-dasharray="3 4" stroke-width="1.4"></path>
+<path d="M186 74l4-12 10 8" fill="none" stroke="#F2B45C" stroke-width="1.4"></path>
+<path d="M36 186h228" opacity=".14" stroke="currentColor" stroke-width="1"></path>
+</svg></div>
+</div></header>
+<div class="layout">
+<div class="col">
+<section class="step" data-fig="1" data-kind="fundamento">
+<h2><span class="n">01</span> El ciclo tiene cuatro etapas, y la segunda es la que falta</h2>
+<p>El ciclo completo es: <b>hacer</b>, <b>mirar</b>, <b>corregir</b>, <b>volver a verificar</b>. Nada nuevo: es lo que cualquier profesional hace con su propio trabajo desde siempre. Lo que pasa con la IA es que el «hacer» se volvió tan rápido que los otros tres desaparecen por contraste.</p>
+<p>Cuando el borrador lleva cuarenta minutos, dedicarle diez minutos a revisarlo parece razonable. Cuando el borrador lleva veinte segundos, dedicarle diez minutos parece una pérdida de tiempo; y es ahí cuando desaparece esa etapa. El tiempo de revisión no debería aumentar al mismo ritmo que el tiempo de producción, pero lo hace por puro efecto psicológico.</p>
+<p>Por curiosidad, Rafael cronometró el proceso: tardaba en promedio cincuenta segundos desde que recibía el texto hasta que lo publicaba. En los textos que dieron problemas, ese tiempo bajó a menos de veinte. El error no estaba en la IA ni en el texto, sino en esos treinta segundos que desaparecieron.</p>
+<div class="qerr">
+<p class="qk">Error común</p>
+<p class="qerr-txt"><b>Verificar leyendo, en vez de verificar contra una lista.</b> Volver a leer detecta errores de escritura y casi nunca errores de hecho: la lectura sigue el razonamiento del texto y está de acuerdo con él. Revisar es ir punto por punto: ¿de dónde salió este número? ¿Esta fecha es correcta? ¿Este nombre está actualizado? Son operaciones diferentes, y solo la segunda detecta lo que importa.</p>
+</div>
+<div class="mobfig" data-mobfig="1"></div>
+<button class="readbtn" data-read="s1">marcar como leído</button>
+</section>
+<section class="step" data-fig="2" data-kind="fundamento">
+<h2><span class="n">02</span> «Listo» se define antes, no se reconoce después</h2>
+<p>Ya lo viste en la clase 2, como la quinta parte del pedido. Aquí cambia de función: deja de ser un objetivo para la IA y se convierte en tu lista de revisión. Es el mismo texto usado dos veces, y por eso cada línea escrita vale tanto.</p>
+<p>Un buen criterio para considerar algo listo debe tener de tres a cinco puntos, todos verificables a simple vista en segundos. «Está bien» no es un punto. «Toda afirmación sobre montos indica la fuente citada» sí lo es. La diferencia es que el segundo puedes responderlo con un sí o un no, sin discutir contigo mismo.</p>
+<p>El caso breve de Helena: escribió cuatro criterios para los resúmenes de contratos: cada plazo cita la cláusula; ningún término jurídico sin traducción; cabe en una pantalla; lo que ella necesita confirmar está marcado. En el primer uso, el resumen no cumplió el primer criterio. Pidió corregir solo ese criterio, en una frase, y la segunda versión cumplió. En total: tres minutos, frente a los cuarenta que habría tardado en reescribirlo por su cuenta.</p>
+<div class="mobfig" data-mobfig="2"></div>
+<button class="readbtn" data-read="s2">marcar como leído</button>
+</section>
+<section class="step" data-fig="3" data-kind="fundamento">
+<h2><span class="n">03</span> La IA puede verificar, pero no puede ser la única en hacerlo</h2>
+<p>Puedes pedirle que verifique el trabajo contra tu lista, y vale la pena: detecta distracciones obvias, elementos olvidados y formatos que no siguen el modelo. Es rápido y barato.</p>
+<p>Lo que no detecta es lo que ella misma inventó con confianza, porque para ella eso figura como cierto. El plazo de 90 días del contrato de Helena pasaría una autoverificación: está escrito, es coherente, coincide con el resto. Solo quien tiene el documento delante puede detectar el error.</p>
+<p>Sônia usa la división que funciona: la IA revisa la forma (que estén todos los elementos, la extensión, el tono y que no haya campos vacíos), y ella revisa los hechos (que la fecha realmente figure en el calendario oficial y que el monto coincida con la tabla de este año). Le toma dos minutos, no veinte.</p>
+<div class="qsteps">
+<p class="qsk">El ciclo de tres minutos, en orden</p>
+<ol>
+<li><b>Pide la autoverificación</b> — «compara este resultado con estos cuatro puntos y dime cuál falló, sin reescribir nada todavía».</li>
+<li><b>Lee solo lo que señaló</b> — y pide que corrijan punto por punto, con un pedido breve por cada uno.</li>
+<li><b>Verifica tú los hechos</b> — números, fechas, nombres propios y cualquier afirmación que alguien pueda cuestionar después.</li>
+<li><b>Aplica el criterio completo una última vez</b> — queda listo cuando se cumplen los tres a cinco puntos, no cuando te cansaste.</li>
+</ol>
+</div>
+<div class="mobfig" data-mobfig="3"></div>
+<button class="readbtn" data-read="s3">marcar como leído</button>
+</section>
+<section class="step" data-fig="4" data-kind="fundamento">
+<h2><span class="n">04</span> Cuándo dejar de corregir</h2>
+<p>El ciclo tiene un riesgo en sentido contrario: convertirse en un vaivén infinito de «mejóralo un poquito más». Eso consume más tiempo que no revisar y produce un texto peor, porque cada ronda aleja el resultado de lo que habías aprobado mentalmente al principio.</p>
+<p>La regla práctica: dos rondas de corrección. Si después de dos el criterio aún no se cumple, el problema no es el resultado: es el criterio, el conocimiento o el pedido. Vuelve una capa atrás en vez de pedir una tercera versión.</p>
+<p>Rafael tenía la costumbre de pedir cinco versiones y elegir la tercera. Hoy pide una, la verifica con los criterios, corrige lo que falló y termina. Cuando la segunda todavía falla, ya sabe qué hacer: casi siempre falta una línea en el expediente de la lección 3.</p>
+<div class="mobfig" data-mobfig="4"></div>
+<button class="readbtn" data-read="s4">marcar como leído</button>
+</section>
+<section class="practice" data-mode="tarefa" data-practice="p8">
+<p class="pk">Practica ahora <span class="pcount">0/4 hecho</span></p>
+<h3 class="ph">Completa el ciclo con una entrega real</h3>
+<p class="pgoal">Escribe el criterio de listo para una tarea tuya y realiza el ciclo de tres minutos con una entrega real de esta semana. ~14 min.</p>
+<p class="psafe">Trabajas con un material que ya es tuyo, en el chat de siempre, y durante el ejercicio no se envía nada a nadie. El ciclo solo agrega un paso antes de la salida; si lo interrumpes a la mitad, el material sigue exactamente como estaba.</p>
+<ol class="psteps">
+<li><label><input data-ptask="1" type="checkbox"/> Escribe de tres a cinco criterios de «listo» para tu tarea. Prueba cada uno: ¿se puede responder sí o no al leerlo? Si no, vuelve a escribirlo.</label></li>
+<li><label><input data-ptask="2" type="checkbox"/> Solicita el trabajo normalmente y, enseguida, pídele que lo verifique con tu lista; pide el diagnóstico, todavía sin correcciones.</label></li>
+<li><label><input data-ptask="3" type="checkbox"/> Corrige elemento por elemento y luego verifica tú los hechos. Está listo cuando todos los elementos pasan y verificaste cada número y cada nombre propio.</label></li>
+<li><label><input data-ptask="4" type="checkbox"/> Si después de dos rondas sigue fallando, detente y anota de qué capa vino el fallo: pedido, conocimiento o criterio.</label></li>
+</ol>
+<p class="pdone">Acabas de conseguir un criterio escrito para dar el trabajo por terminado y un ciclo que se completa en tres minutos: la promesa de esta clase, puesta en práctica con una entrega real.</p>
+</section>
+</div>
+<aside class="rail"><div class="railsticky">
+<div class="figstage">
+<div class="fig on" data-cap="&lt;b&gt;Fig. 1&lt;/b&gt; O ciclo de quatro tempos e o que encolhe quando o fazer fica instantâneo. Repare qual bloco quase desaparece." data-fig="1"><svg aria-hidden="true" fill="none" viewbox="0 0 220 200">
+<g fill="none" stroke="#7CE0C6" stroke-width="1.5">
+<rect height="28" rx="6" width="72" x="26" y="30"></rect>
+<rect height="28" rx="6" width="72" x="122" y="30"></rect>
+<rect height="28" rx="6" width="72" x="122" y="86"></rect>
+<rect height="28" rx="6" width="72" x="26" y="86"></rect>
+<path d="M98 44h24M158 58v28M122 100H98M62 86V58"></path>
+</g>
+<g fill="#7CE0C6" font-family="monospace" font-size="8">
+<text x="46" y="49">hacer</text><text x="140" y="49">mirar</text>
+<text x="132" y="105">corregir</text><text x="34" y="105">verificar</text>
+</g>
+<path d="M26 148h56" opacity=".8" stroke="#7CE0C6" stroke-linecap="round" stroke-width="6"></path>
+<path d="M92 148h10" stroke="#F2B45C" stroke-linecap="round" stroke-width="6"></path>
+<path d="M112 148h10" stroke="#F2B45C" stroke-linecap="round" stroke-width="6"></path>
+<path d="M132 148h8" stroke="#F2B45C" stroke-linecap="round" stroke-width="6"></path>
+<text fill="currentColor" font-family="monospace" font-size="7" opacity=".5" x="26" y="172">tiempo real dedicado a cada etapa</text>
+</svg></div>
+<div class="fig" data-cap="&lt;b&gt;Fig. 2&lt;/b&gt; O mesmo texto servindo duas vezes: alvo na ida, lista de conferência na volta. Veja que você escreve uma vez só." data-fig="2"><svg aria-hidden="true" fill="none" viewbox="0 0 220 200">
+<rect height="34" rx="6" stroke="#7CE0C6" stroke-width="1.7" width="100" x="60" y="24"></rect>
+<text fill="#7CE0C6" font-family="monospace" font-size="8" x="72" y="46">criterio de listo</text>
+<path d="M76 58l-34 46" stroke="#7CE0C6" stroke-width="1.4"></path>
+<path d="M144 58l34 46" stroke="#7CE0C6" stroke-width="1.4"></path>
+<rect height="40" opacity=".5" rx="6" stroke="currentColor" stroke-width="1.3" width="76" x="14" y="110"></rect>
+<text fill="currentColor" font-family="monospace" font-size="7.5" opacity=".7" x="24" y="128">ida · objetivo</text>
+<text fill="currentColor" font-family="monospace" font-size="7" opacity=".5" x="24" y="142">va en el pedido</text>
+<rect height="40" opacity=".5" rx="6" stroke="currentColor" stroke-width="1.3" width="76" x="132" y="110"></rect>
+<text fill="currentColor" font-family="monospace" font-size="7.5" opacity=".7" x="142" y="128">vuelve · lista</text>
+<text fill="currentColor" font-family="monospace" font-size="7" opacity=".5" x="142" y="142">se convierte en una verificación</text>
+<path d="M22 176h44M28 170v12M154 176h44M160 170v12" opacity=".4" stroke="#7CE0C6" stroke-width="1.2"></path>
+</svg></div>
+<div class="fig" data-cap="&lt;b&gt;Fig. 3&lt;/b&gt; A divisão que funciona: forma para a IA, fato para você. Olhe o que fica de fora da autoconferência — é sempre o que ela inventou." data-fig="3"><svg aria-hidden="true" fill="none" viewbox="0 0 220 200">
+<rect height="120" rx="7" stroke="#7CE0C6" stroke-width="1.5" width="88" x="14" y="30"></rect>
+<text fill="#7CE0C6" font-family="monospace" font-size="7.5" x="24" y="24">la IA · forma</text>
+<g fill="#7CE0C6" font-family="monospace" font-size="7" opacity=".85">
+<text x="24" y="54">elementos presentes</text><text x="24" y="74">tamaño</text>
+<text x="24" y="94">tono</text><text x="24" y="114">campos vacíos</text>
+</g>
+<rect height="120" rx="7" stroke="#F2B45C" stroke-width="1.6" width="88" x="118" y="30"></rect>
+<text fill="#F2B45C" font-family="monospace" font-size="7.5" x="128" y="24">tú · hecho</text>
+<g fill="#F2B45C" font-family="monospace" font-size="7" opacity=".9">
+<text x="128" y="54">números</text><text x="128" y="74">fechas</text>
+<text x="128" y="94">nombres propios</text><text x="128" y="114">lo que consta</text>
+</g>
+<text fill="currentColor" font-family="monospace" font-size="7" opacity=".5" x="24" y="176">2 min · 2 min</text>
+</svg></div>
+<div class="fig" data-cap="&lt;b&gt;Fig. 4&lt;/b&gt; O ganho por rodada de correção. Repare que a terceira já devolve menos do que custa — é onde se para." data-fig="4"><svg aria-hidden="true" fill="none" viewbox="0 0 220 200">
+<path d="M28 168h168M28 168V30" opacity=".35" stroke="currentColor" stroke-width="1.2"></path>
+<rect fill="#7CE0C6" height="102" opacity=".75" rx="3" width="26" x="44" y="66"></rect>
+<rect fill="#7CE0C6" height="56" opacity=".5" rx="3" width="26" x="86" y="112"></rect>
+<rect fill="#F2B45C" height="18" opacity=".6" rx="3" width="26" x="128" y="150"></rect>
+<rect fill="#F2B45C" height="8" opacity=".4" rx="3" width="26" x="170" y="160"></rect>
+<g fill="currentColor" font-family="monospace" font-size="7.5" opacity=".55">
+<text x="52" y="184">1ª</text><text x="94" y="184">2ª</text><text x="136" y="184">3ª</text><text x="178" y="184">4ª</text>
+</g>
+<path d="M120 44h56" stroke="#F2B45C" stroke-dasharray="3 3" stroke-width="1.2"></path>
+<text fill="#F2B45C" font-family="monospace" font-size="7" x="118" y="40">detente aquí</text>
+</svg></div>
+</div>
+<p class="railcap"></p>
+<div class="steps-ind"></div>
+<p class="sidenote">Resalta cualquier fragmento para convertirlo en una tarjeta de repaso.</p>
+</div></aside>
+</div>
+<div class="fecho-wrap">
+<div class="recap-autor">
+<p class="rak">Resumen</p>
+<ul>
+<li>El ciclo consiste en hacer, revisar, corregir y volver a revisar; las tres últimas etapas desaparecen cuando la primera se vuelve instantánea.</li>
+<li>Verificar contra una lista de elementos y releer el texto son operaciones distintas; solo la primera detecta errores de hecho.</li>
+<li>La IA verifica bien la forma y es precisamente ciega a lo que ella misma inventó: los hechos dependen de ti.</li>
+<li>Bastan dos rondas de corrección: a partir de la tercera, el problema suele estar en la solicitud, el conocimiento o el criterio mismo.</li>
+</ul>
+</div>
+<div class="next-action">
+<p class="nak">Tu siguiente paso</p>
+<p class="na-win">Acabas de conseguir cerrar la brecha entre «la IA terminó» y «el trabajo está listo»: la misma brecha que abrió la clase 1.</p>
+<p class="na-action">En los próximos 15 minutos: pega tus criterios de listo al final de la especialización de la lección 5. Así, la receta ya incluirá la revisión.</p>
+<p class="na-hook">En la próxima lección reunirás todo: los siete niveles entre pedir algo en el chat y tener un trabajo que funciona con control, y descubrirás en cuál ya estás.</p>
+</div>
+</div>
+<nav class="lnav"><a href="#aula-7">← clase 7</a><a href="#aula-9">clase 9 →</a></nav>
+<footer>Clase 8 · INEMA.CLUB PRO</footer>
+<script id="cards-8" type="application/json">
+[
+  {"front":"Você releu o texto inteiro e nada saltou aos olhos, mas um número estava errado. Por que a releitura não pegou?","back":"Ler acompanha o raciocínio do texto e concorda com ele. Conferir é ir item por item perguntando de onde saiu cada dado — outra operação."},
+  {"front":"Você pediu à IA que conferisse o próprio trabalho e ela disse que está tudo certo. O que você ainda precisa checar, e por quê?","back":"Os fatos — números, datas, nomes. O que ela inventou consta para ela, então passa na autoconferência; só quem tem a fonte na frente derruba."},
+  {"front":"Terceira rodada de correção e o critério ainda não passou. O que isso indica, e o que você faz?","back":"O problema não é o resultado: é o pedido, o conhecimento ou o próprio critério. Volte uma camada em vez de pedir uma quarta versão."},
+  {"front":"'Está bom' e 'toda afirmação sobre valores cita a origem': qual dos dois serve como item de pronto e por quê?","back":"O segundo. Dá para responder sim ou não olhando, em segundos, sem discutir consigo mesmo — que é a única propriedade que um item precisa ter."}
+]
+</script>
+<!--
+COMPLETUDE aula-8 | tipo=PRATICA | steps=4
+  [OK] promise            .promise no cold-open (1)
+  [OK] why                .why após a promessa (1)
+  [OK] tempo              data-tempo="17min" no view + render no cold-open (1)
+  [OK] exemplo-profissao  exemplo aplicado em 100% dos steps (4/4 — Rafael s1, Helena s2 (mini-caso integrador), Sônia s3, Rafael s4)
+  [OK] apoio-visual       figura conceitual legendada em 100% dos steps (4/4)
+  [OK] practice           .practice[data-mode="tarefa"] (exatamente 1)
+  [OK] psafe              .psafe dentro da prática (1)
+  [OK] pgoal-tempo        .pgoal com "~14 min" declarado (1)
+  [OK] recap-autor        .recap-autor no fecho (1)
+  [OK] next-action        .next-action no fecho (1)
+  [OK] cards              <script id="cards-8"> presente (1)
+  [OK] anti-duplicacao    3 testes passam — cartões nas formas diagnóstico/diagnóstico/diagnóstico/contraste, zero sobreposição de 6 palavras com o recap
+  [N/A] teste-se-FUND     aula é PRATICA/INTEGRAÇÃO (obrigação não se aplica); nenhum teste-se opcional presente
+-->
+</section>
+<!-- ===== AULA 9 ===== -->
+<section class="view" data-aula="9" data-tempo="20min" id="v-aula-9">
+<header class="hero"><div class="hero-inner">
+<div>
+<p class="kicker">Ruta 01 · Lección 9</p>
+<h1>Los siete escalones:<br/><em>constrúyelo tú</em></h1>
+<p class="promise">Al terminar esta clase, podrás ubicar una tarea tuya en uno de los siete escalones y escribir, en tres líneas, el siguiente escalón, con fecha.</p>
+<p class="why">Llegaste aquí con piezas sueltas: un pedido en cinco partes, un expediente, una receta, una ficha de memoria, tres franjas de límites y un ciclo de revisión. Falta el mapa que muestra cómo encajan estas piezas y qué sigue, para que no te detengas donde estás ni intentes saltar cuatro escalones de una vez.</p>
+<p class="cue"><span class="arw">↓</span> rol para estudiar</p>
+</div>
+<div class="herofig"><svg aria-hidden="true" fill="none" viewbox="0 0 300 240">
+<g fill="none" stroke="#7CE0C6" stroke-width="1.8">
+<path d="M28 210h36v-24h36v-24h36v-24h36v-24h36v-24h36v-24h32"></path>
+</g>
+<g opacity=".28" stroke="currentColor" stroke-width="1.4">
+<path d="M28 186v24M64 162v48M100 138v72M136 114v96M172 90v120M208 66v144"></path>
+</g>
+<path d="M44 174c0-8 6-14 14-14" fill="none" stroke="#F2B45C" stroke-width="1.5"></path>
+<circle cx="62" cy="160" fill="#F2B45C" r="4"></circle>
+<path d="M20 224h264" opacity=".14" stroke="currentColor" stroke-width="1"></path>
+<path d="M240 42h34" opacity=".2" stroke="currentColor" stroke-dasharray="4 5" stroke-width="1.2"></path>
+</svg></div>
+</div></header>
+<div class="layout">
+<div class="col">
+<section class="step" data-fig="1" data-kind="fundamento">
+<h2><span class="n">01</span> Siete niveles entre pedir algo en el chat y tener algo que funciona</h2>
+<p>Hay una escalera, y siempre es la misma. <b>Uno</b>: preguntas y ella responde. <b>Dos</b>: usa capacidades: lee lo que adjuntas, busca, calcula. <b>Tres</b>: tiene una receta fija para la tarea que se repite. <b>Cuatro</b>: existe un criterio de finalización y una verificación que se ejecuta cada vez. <b>Cinco</b>: hay límites escritos y un momento de aprobación antes de que salga cualquier cosa.</p>
+<p>Los dos últimos son de otra escala. <b>Seis</b>: ejecuta un trabajo completo sola dentro de los límites, y tú apareces solo para aprobar. <b>Siete</b>: varios frentes avanzan en paralelo, coordinados, cada uno con su función; hoy esto tiene sentido para un equipo, rara vez para una sola persona.</p>
+<p>Vale la pena fijarse en algo: los cinco primeros escalones no requieren ninguna herramienta nueva. Helena subió del uno al cinco escribiendo textos en bloques de notas, en la misma herramienta de chat que ya tenía antes de empezar este curso.</p>
+<div class="mobfig" data-mobfig="1"></div>
+<button class="readbtn" data-read="s1">marcar como leído</button>
+</section>
+<section class="step" data-fig="2" data-kind="fundamento">
+<h2><span class="n">02</span> Dónde estás hoy: por tarea, nunca por persona</h2>
+<p>El escalón no es tuyo: es de la tarea. La misma persona suele estar en el escalón cinco en una tarea que domina y en el uno en otra que hace una vez al mes. Eso es normal y es la forma correcta de leer la escalera: quien intenta subir «como profesional», en bloque, no sube en ninguna.</p>
+<p>La señal de que una tarea está lista para escalar es siempre la misma: sentiste la molestia de ese escalón. Te cansaste de volver a explicar (falta memoria). Te cansaste de reescribir la solicitud (falta receta). Te llevaste un susto (faltan límites). La molestia es la invitación, y llega sola.</p>
+<div class="qapply">
+<p class="qak">Cómo queda en cada caso</p>
+<ul>
+<li><b>Helena, abogada:</b> el resumen del contrato para el cliente está en el escalón <b>cuatro</b> — tiene receta y criterio para darlo por terminado. Las peticiones siguen en el nivel <b>uno</b>, y decidió que se quedan ahí.</li>
+<li><b>Rafael, gerente de marketing:</b> el texto de campaña está en el <b>cinco</b> — límites escritos y aprobación antes de publicar. El informe mensual para la dirección está en el <b>dos</b>.</li>
+<li><b>Sônia, contadora:</b> el aviso de plazo a los clientes está en el <b>cinco</b>; las conversaciones de cierre con clientes las mantiene en el <b>uno</b>, a propósito.</li>
+</ul>
+</div>
+<div class="mobfig" data-mobfig="2"></div>
+<button class="readbtn" data-read="s2">marcar como leído</button>
+</section>
+<section class="step" data-fig="3" data-kind="fundamento">
+<h2><span class="n">03</span> Un nivel a la vez — y no todas las tareas deben subir</h2>
+<p>Saltarse escalones es la forma más común de abandonar. Quien pasa directamente del uno al seis arma una estructura que no se ha probado en nada, se lleva un gran susto y concluye que «la IA no es confiable». El problema no era la IA: era el escalón cuatro, que nunca existió.</p>
+<p>Y está el otro lado, del que se habla menos: no todas las tareas deberían subir de nivel. Una tarea poco frecuente no justifica el costo de una receta. Una tarea cuyo valor está en la conversación —una negociación, un consejo difícil— pierde valor al estandarizarse. Decidir que una tarea se queda en el primer escalón es una decisión de gestión, no un fallo.</p>
+<p>Un caso breve para cerrar el razonamiento. Rafael quiso, en un impulso de viernes, dejar que la IA publicara sola en las redes de la cadena. Un mes antes, no tenía criterios para considerar algo listo ni niveles establecidos. No lo hizo: se detuvo, preparó el nivel cuatro, luego el cinco, y hoy publica con aprobación en segundos. El impulso le habría costado lo mismo que construir la estructura, más el susto.</p>
+<div class="mobfig" data-mobfig="3"></div>
+<button class="readbtn" data-read="s3">marcar como leído</button>
+</section>
+<section class="step" data-fig="4" data-kind="fundamento">
+<h2><span class="n">04</span> Lo que sigue siendo válido cuando todo vuelva a cambiar</h2>
+<p>Las herramientas cambiarán de nombre, de pantalla y de precio, y adquirirán capacidades que hoy no existen. Nada de eso cambia lo que construiste aquí, porque ninguna de las piezas trata de la herramienta: tratan de tu trabajo.</p>
+<p>Una solicitud en cinco partes seguirá siendo válida. Un dossier seguirá siendo válido. La separación entre lo que se guarda y lo que es del momento, los tres niveles de límites y un criterio para considerar algo listo, escrito de antemano: todo eso es anterior a cualquier herramienta y sobrevivirá a todas ellas. Lo que envejece son las pantallas; lo que permanece es la estructura.</p>
+<p>Helena lo resume así, y es una buena forma de cerrar: no aprendió a usar una herramienta de IA. Por primera vez en veinte años de trabajo en un bufete, puso por escrito cómo se hace su propio trabajo. La IA fue el motivo; el procedimiento es lo que quedó.</p>
+<div class="qsteps">
+<p class="qsk">Tus próximos 90 días, en cuatro pasos</p>
+<ol>
+<li><b>Hoy:</b> elige una tarea y escribe en qué nivel está, con una frase que lo justifique.</li>
+<li><b>Esta semana:</b> construye el siguiente escalón — solo ese — y pruébalo con un caso real.</li>
+<li><b>Al final del mes:</b> vuelve a leer el dossier y la ficha de memoria, y tacha lo que quedó obsoleto. Dos minutos.</li>
+<li><b>En 90 días:</b> repite la elección con una segunda tarea. Dos tareas bien planteadas valen más que ocho empezadas.</li>
+</ol>
+</div>
+<div class="mobfig" data-mobfig="4"></div>
+<button class="readbtn" data-read="s4">marcar como leído</button>
+</section>
+<section class="practice" data-mode="tarefa" data-practice="p9">
+<p class="pk">Practica ahora <span class="pcount">0/4 hecho</span></p>
+<h3 class="ph">Ubica tres tareas tuyas y escribe el siguiente nivel de una</h3>
+<p class="pgoal">Ubica tres tareas en la escalera y convierte una de ellas en un plan de tres líneas con fecha. ~15 min.</p>
+<p class="psafe">Este es un ejercicio en papel: tú decides, no ejecutas. Descubrir que la mayoría de tus tareas está en el primer escalón es el resultado esperado después de nueve clases; la escalera mide la estructura que has construido, no lo que sabes.</p>
+<ol class="psteps">
+<li><label><input data-ptask="1" type="checkbox"/> Enumera tres tareas que haces con IA y escribe el nivel de cada una, con una frase de justificación.</label></li>
+<li><label><input data-ptask="2" type="checkbox"/> Marca una como «se queda donde está» y escribe por qué: es una tarea poco frecuente o una tarea en la que la conversación es lo valioso.</label></li>
+<li><label><input data-ptask="3" type="checkbox"/> Para una de las otras, escribe tres líneas: qué pieza vas a armar, con qué caso real la vas a probar y en qué fecha. Estará lista cuando haya una fecha anotada.</label></li>
+<li><label><input data-ptask="4" type="checkbox"/> Reúne en un solo lugar todo lo que produjiste en el recorrido: expediente, receta, ficha, niveles y criterio para dar por terminado el trabajo. Ese conjunto es tu estructura de trabajo.</label></li>
+</ol>
+<p class="pdone">Acabas de conseguir ubicar tu trabajo en la escalera y escribir el siguiente escalón con fecha: la promesa de esta clase y el cierre de la ruta.</p>
+</section>
+</div>
+<aside class="rail"><div class="railsticky">
+<div class="figstage">
+<div class="fig on" data-cap="&lt;b&gt;Fig. 1&lt;/b&gt; Os sete degraus. Repare na linha tracejada: até o cinco, nada exige ferramenta nova." data-fig="1"><svg aria-hidden="true" fill="none" viewbox="0 0 220 200">
+<g fill="none" stroke="#7CE0C6" stroke-width="1.5">
+<path d="M16 178h24v-22h24v-22h24v-22h24v-22h24"></path>
+</g>
+<g fill="none" opacity=".4" stroke="currentColor" stroke-width="1.4">
+<path d="M136 90h24V68h24V46h20"></path>
+</g>
+<g fill="#7CE0C6" font-family="monospace" font-size="6.5" opacity=".9">
+<text x="16" y="192">1 responde</text><text x="42" y="170">2 actúa</text>
+<text x="66" y="148">3 receta</text><text x="90" y="126">4 verifica</text><text x="114" y="104">5 límites</text>
+</g>
+<g fill="currentColor" font-family="monospace" font-size="6.5" opacity=".5">
+<text x="140" y="82">6 sola</text><text x="164" y="60">7 equipo</text>
+</g>
+<path d="M136 34v56" stroke="#F2B45C" stroke-dasharray="3 3" stroke-width="1.2"></path>
+<text fill="#F2B45C" font-family="monospace" font-size="6.5" x="96" y="30">hasta aquí, sin herramienta nueva</text>
+</svg></div>
+<div class="fig" data-cap="&lt;b&gt;Fig. 2&lt;/b&gt; A mesma pessoa em degraus diferentes por tarefa. Olhe as alturas: é assim que uma agenda real se parece." data-fig="2"><svg aria-hidden="true" fill="none" viewbox="0 0 220 200">
+<path d="M24 172h176" opacity=".35" stroke="currentColor" stroke-width="1.2"></path>
+<rect fill="#7CE0C6" height="120" opacity=".7" rx="3" width="26" x="36" y="52"></rect>
+<rect fill="currentColor" height="24" opacity=".22" rx="3" width="26" x="78" y="148"></rect>
+<rect fill="#7CE0C6" height="96" opacity=".5" rx="3" width="26" x="120" y="76"></rect>
+<rect fill="currentColor" height="24" opacity=".22" rx="3" width="26" x="162" y="148"></rect>
+<g fill="currentColor" font-family="monospace" font-size="6.5" opacity=".6">
+<text x="30" y="186">tarea A</text><text x="72" y="186">tarea B</text>
+<text x="114" y="186">tarea C</text><text x="156" y="186">tarea D</text>
+</g>
+<g fill="#7CE0C6" font-family="monospace" font-size="7">
+<text x="40" y="46">5</text><text x="124" y="70">4</text>
+</g>
+<g fill="currentColor" font-family="monospace" font-size="7" opacity=".5">
+<text x="86" y="142">1</text><text x="170" y="142">1</text>
+</g>
+</svg></div>
+<div class="fig" data-cap="&lt;b&gt;Fig. 3&lt;/b&gt; Dois caminhos a partir do degrau um. Veja onde o salto termina — e que ele volta para trás do ponto de partida." data-fig="3"><svg aria-hidden="true" fill="none" viewbox="0 0 220 200">
+<circle cx="34" cy="150" fill="#7CE0C6" r="6"></circle>
+<text fill="currentColor" font-family="monospace" font-size="7" opacity=".55" x="20" y="172">nivel 1</text>
+<path d="M40 148c30-6 46-24 58-44" fill="none" stroke="#7CE0C6" stroke-width="1.6"></path>
+<g fill="#7CE0C6" opacity=".8">
+<circle cx="62" cy="132" r="3.4"></circle><circle cx="82" cy="118" r="3.4"></circle><circle cx="98" cy="104" r="3.4"></circle>
+</g>
+<text fill="#7CE0C6" font-family="monospace" font-size="7" x="86" y="90">uno a la vez</text>
+<path d="M40 144c50-26 96-52 140-84" fill="none" stroke="#F2B45C" stroke-dasharray="4 4" stroke-width="1.5"></path>
+<circle cx="180" cy="60" fill="#F2B45C" r="4"></circle>
+<path d="M180 66v22" stroke="#F2B45C" stroke-width="1.4"></path>
+<path d="M174 84l6 8 6-8" fill="none" stroke="#F2B45C" stroke-width="1.4"></path>
+<rect height="22" rx="5" stroke="#F2B45C" stroke-width="1.3" width="60" x="150" y="96"></rect>
+<text fill="#F2B45C" font-family="monospace" font-size="6.5" x="156" y="111">vuelve a cero</text>
+</svg></div>
+<div class="fig" data-cap="&lt;b&gt;Fig. 4&lt;/b&gt; O que muda e o que fica. Repare que a coluna de baixo não tem nenhum nome de ferramenta." data-fig="4"><svg aria-hidden="true" fill="none" viewbox="0 0 220 200">
+<rect height="60" opacity=".4" rx="7" stroke="currentColor" stroke-dasharray="4 4" stroke-width="1.3" width="188" x="16" y="24"></rect>
+<text fill="currentColor" font-family="monospace" font-size="7.5" opacity=".55" x="28" y="44">cambia: pantallas, nombres, precios,</text>
+<text fill="currentColor" font-family="monospace" font-size="7.5" opacity=".55" x="28" y="58">lo que puede hacer</text>
+<text fill="#F2B45C" font-family="monospace" font-size="7" opacity=".85" x="28" y="74">tiene fecha de vencimiento</text>
+<path d="M110 88v14" opacity=".3" stroke="currentColor" stroke-width="1.1"></path>
+<rect height="70" rx="7" stroke="#7CE0C6" stroke-width="1.7" width="188" x="16" y="106"></rect>
+<g fill="#7CE0C6" font-family="monospace" font-size="7.5">
+<text x="28" y="126">queda: solicitud en 5 partes,</text>
+<text x="28" y="140">dossier, memoria separada,</text>
+<text x="28" y="154">rangos, criterio de listo</text>
+</g>
+<text fill="#7CE0C6" font-family="monospace" font-size="7" opacity=".7" x="28" y="170">es sobre tu trabajo</text>
+</svg></div>
+</div>
+<p class="railcap"></p>
+<div class="steps-ind"></div>
+<p class="sidenote">Resalta cualquier fragmento para convertirlo en una tarjeta de repaso.</p>
+</div></aside>
+</div>
+<div class="fecho-wrap">
+<div class="recap-autor">
+<p class="rak">Resumen</p>
+<ul>
+<li>La escalera tiene siete peldaños, y los cinco primeros se construyen con texto, sin ninguna herramienta aparte de la que ya usas.</li>
+<li>El escalón pertenece a la tarea, no a la persona: es normal y saludable estar en distintos escalones en distintas tareas.</li>
+<li>Saltarse escalones provoca el susto que lleva a muchas personas a concluir, equivocadamente, que la tecnología no es confiable.</li>
+<li>Decidir que una tarea se queda donde está es gestión, no rendirse: una tarea poco frecuente y una conversación que vale por sí misma no necesitan estructura.</li>
+<li>Las herramientas envejecen; el pedido en cinco partes, el expediente, la memoria separada, las franjas y el criterio de listo siguen siendo válidos.</li>
+</ul>
+</div>
+<div class="next-action">
+<p class="nak">Tu siguiente paso</p>
+<p class="na-win">Acabas de conseguir lo que prometía toda la ruta: una estructura de trabajo propia, por escrito, para una tarea real, y una forma de decidir qué sigue sin depender de nadie.</p>
+<p class="na-action">En los próximos 15 minutos: reúne en un solo documento el expediente, la receta, la ficha de memoria, las tres franjas y el criterio de listo. Ponle un nombre a ese documento y agrega la fecha de hoy.</p>
+<p class="na-hook">Dentro de 90 días, abre este documento y elige la segunda tarea. La escalera es la misma; lo que cambia es que ya la subiste una vez.</p>
+</div>
+</div>
+<nav class="lnav"><a href="#aula-8">← clase 8</a><a href="#trilha">concluir →</a></nav>
+<footer>Clase 9 · INEMA.CLUB PRO</footer>
+<script id="cards-9" type="application/json">
+[
+  {"front":"Um colega diz que está 'no degrau 4 como profissional'. Onde está o erro de leitura da escada?","back":"O degrau é da tarefa, não da pessoa. A mesma pessoa costuma estar no cinco numa tarefa que domina e no um em outra que faz uma vez por mês."},
+  {"front":"Alguém quis deixar a IA publicando sozinha e levou um susto grande. Qual degrau provavelmente nunca existiu?","back":"O quatro — critério de pronto e conferência. Sem ele, o degrau seguinte executa rápido um trabalho que ninguém verificou."},
+  {"front":"Você tem uma tarefa rara e uma negociação delicada. O que a escada recomenda para cada uma, e por quê?","back":"Deixar as duas no degrau um: a rara não paga o custo de montar receita, e a negociação perde valor ao ser padronizada. É decisão de gestão."},
+  {"front":"A ferramenta que você usa muda de tela e de nome no ano que vem. O que você precisa refazer do que montou nesta trilha?","back":"Nada do essencial: pedido em cinco partes, dossiê, memória separada, faixas e critério de pronto são sobre o seu trabalho, não sobre a ferramenta."},
+  {"front":"Como você reconhece que uma tarefa sua está pronta para subir de degrau?","back":"Pelo incômodo específico daquele degrau: cansou de reexplicar (memória), de reescrever o pedido (receita), ou levou um susto (faixas)."}
+]
+</script>
+<!--
+COMPLETUDE aula-9 | tipo=PRATICA | steps=4
+  [OK] promise            .promise no cold-open (1)
+  [OK] why                .why após a promessa (1)
+  [OK] tempo              data-tempo="20min" no view + render no cold-open (1)
+  [OK] exemplo-profissao  exemplo aplicado em 100% dos steps (4/4 — Helena s1, qapply com as 3 profissões s2, Rafael s3 (mini-caso integrador), Helena s4)
+  [OK] apoio-visual       figura conceitual legendada em 100% dos steps (4/4)
+  [OK] practice           .practice[data-mode="tarefa"] (exatamente 1)
+  [OK] psafe              .psafe dentro da prática (1)
+  [OK] pgoal-tempo        .pgoal com "~15 min" declarado (1)
+  [OK] recap-autor        .recap-autor no fecho (1)
+  [OK] next-action        .next-action no fecho (1)
+  [OK] cards              <script id="cards-9"> presente (1)
+  [OK] anti-duplicacao    3 testes passam — cartões nas formas diagnóstico/diagnóstico/decisão/aplicação/pergunta, zero sobreposição de 6 palavras com o recap
+  [N/A] teste-se-FUND     aula é PRATICA/INTEGRAÇÃO (obrigação não se aplica); nenhum teste-se opcional presente
+-->
+</section>
+<script src="../assets/curso.js"></script>
+</body>
+</html>
